@@ -1,0 +1,10 @@
+In order to check whether a User belongs to a Role, use this function:
+
+if(User::hasRole('role')) 
+{
+ // user is allowed
+}
+else
+{
+ // user is not allowed to do this
+}

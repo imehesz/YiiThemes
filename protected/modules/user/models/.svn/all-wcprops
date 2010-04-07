@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/11/trunk/user/models
+END
+RegistrationForm.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/9/trunk/user/models/RegistrationForm.php
+END
+User.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/11/trunk/user/models/User.php
+END
+Profile.php
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/6/trunk/user/models/Profile.php
+END
+Role.php
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/11/trunk/user/models/Role.php
+END
+UserRecoveryForm.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/3/trunk/user/models/UserRecoveryForm.php
+END
+ProfileField.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/9/trunk/user/models/ProfileField.php
+END
+Messages.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/7/trunk/user/models/Messages.php
+END
+UserChangePassword.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/3/trunk/user/models/UserChangePassword.php
+END
+UserLogin.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/9/trunk/user/models/UserLogin.php
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/9/trunk/user/docs
+END
+changelog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/11/trunk/user/docs/changelog.txt
+END
+InstallTutorial.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/8/trunk/user/docs/InstallTutorial.txt
+END
+Role_Management.txt
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/8/trunk/user/docs/Role_Management.txt
+END

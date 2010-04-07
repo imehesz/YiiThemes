@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/11/trunk/user/controllers
+END
+InstallController.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/12/trunk/user/controllers/InstallController.php
+END
+MessagesController.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/8/trunk/user/controllers/MessagesController.php
+END
+UserController.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/12/trunk/user/controllers/UserController.php
+END
+RoleController.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/12/trunk/user/controllers/RoleController.php
+END
+DefaultController.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/6/trunk/user/controllers/DefaultController.php
+END
+ProfileFieldController.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/8/trunk/user/controllers/ProfileFieldController.php
+END

@@ -1,0 +1,85 @@
+#featured{
+    width:400px;
+    padding-right:250px;
+    position:relative;
+    height:250px;
+    background:#fff;
+    border:5px solid #ccc;
+}
+    
+#featured ul.ui-tabs-nav{
+    position:absolute;
+    top:0; left:400px;
+    list-style:none;
+    padding:0; margin:0;
+    width:250px;
+}
+#featured ul.ui-tabs-nav li{
+    padding:1px 0; padding-left:13px;
+    font-size:12px;
+    color:#666;
+}
+#featured ul.ui-tabs-nav li span{
+    font-size:11px; font-family:Verdana;
+    line-height:18px;
+}    
+
+#featured .ui-tabs-panel{
+	width:400px; height:250px;
+	background:#999; position:relative;
+        overflow:hidden;
+}
+#featured .ui-tabs-hide{
+	display:none;
+}
+
+#featured li.ui-tabs-nav-item a{/*On Hover Style*/
+	display:block;
+	height:60px;
+	color:#333;  background:#fff;
+	line-height:20px;
+	outline:none;
+}
+#featured li.ui-tabs-nav-item a:hover{
+	background:#f2f2f2;
+}
+#featured li.ui-tabs-selected{ /*Selected tab style*/
+	background:url('/images/selected-item.gif') top left no-repeat;
+}
+#featured ul.ui-tabs-nav li.ui-tabs-selected a{
+	background:#ccc;
+}
+
+#featured ul.ui-tabs-nav li img{  
+    float:left; margin:2px 5px;  
+    background:#fff;  
+    padding:2px;  
+    border:1px solid #eee;  
+}  
+     
+#featured .ui-tabs-panel .info{
+	position:absolute;
+	top:180px; left:0;
+	height:70px; width: 400px;
+	background: url('/images/transparent-bg.png');
+}
+#featured .info h2{
+	font-size:18px; font-family:Georgia, serif;
+	color:#fff; 
+	padding:0px 5px;
+	margin:0;
+	overflow:hidden;
+	background-color: #000;
+}
+#featured .info p{
+	margin:0 5px;
+	font-family:Verdana; font-size:11px;
+	line-height:15px; color:#f0f0f0;
+}
+#featured .info a{
+	text-decoration:none;
+	color:#fff;
+}
+#featured .info a:hover{
+	text-decoration:underline;
+}

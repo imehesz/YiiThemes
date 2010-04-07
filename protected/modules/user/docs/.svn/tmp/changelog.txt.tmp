@@ -1,0 +1,20 @@
+Changelog for Yii User Management Module since Version 0.3
+
+New in 0.4:
+
+- One can use User::hasRole(array('role1', 'role2')) to check if the User
+  belongs to role1 OR role 2
+<<<<<<< .mine
+- Rearranged Menu Items more logical
+- Much more strict OOP Design
+=======
+
+- Rearranged Menu Items more logical
+
+- UserIdentity.php no longer needs to be copied
+
+- Created WebUser class to tie in the cookie based user management features to the DB.
+
+- Fixed some references to unset objects
+
+- Changed directory permissions to 755 and file permissions to 644 so it works better with Git source control.>>>>>>> .r7

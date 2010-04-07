@@ -1,0 +1,14 @@
+In order to check whether a User belongs to a Role, use this function:
+
+<<<<<<< .mine
+if(User::hasRole('role')) 
+=======
+if(Yii::app()->user->hasRole('role')) 
+>>>>>>> .r7
+{
+ // user is allowed
+}
+else
+{
+ // user is not allowed to do this
+}
