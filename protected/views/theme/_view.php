@@ -1,3 +1,11 @@
+<div>
+    <tr>
+            <td><?php echo $data->preview1; ?></td>
+            <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?><br /><?php echo $data->short_desc;?></td>            
+    </tr>
+</div>
+
+<?php /*
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
@@ -28,7 +36,7 @@
 	<?php echo CHtml::encode($data->created); ?>
 	<br />
 
-	<?php /*
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('updated')); ?>:</b>
 	<?php echo CHtml::encode($data->updated); ?>
 	<br />
@@ -37,6 +45,6 @@
 	<?php echo CHtml::encode($data->deleted); ?>
 	<br />
 
-	*/ ?>
-
 </div>
+*/ 
+?>

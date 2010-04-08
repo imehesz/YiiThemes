@@ -11,7 +11,9 @@ $this->menu=array(
 
 <h1>Themes</h1>
 
+<table>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
+</table>

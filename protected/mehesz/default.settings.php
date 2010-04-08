@@ -28,4 +28,4 @@
      /**
       *
       */
-     defined( 'MEHESZ_DB_CONNECTION_STRING' ) or defined( 'MEHESZ_DB_CONNECTION_STRING', 'connectionstring' );
+     defined( 'MEHESZ_DB_CONNECTION_STRING' ) or define( 'MEHESZ_DB_CONNECTION_STRING', 'connectionstring' );
