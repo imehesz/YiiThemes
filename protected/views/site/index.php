@@ -19,8 +19,25 @@
 </p>
 
 <p>
-    There are (currently) <strong>NO restictions</strong>, <strong>NO hidden fees</strong>, <strong>NO rules</strong>, the site itself is completely <strong>FREE for everybody</strong>, but for obvious reasons, if you would like to share your work you need to <a href="">sign up</a> for an account. We will NOT share your information to a third part, but won't take ANY responsibility of the content of the site.
+    There are (currently) <strong>NO restictions</strong>, <strong>NO hidden fees</strong>, <strong>NO rules</strong>, the site itself is completely <strong>FREE for everybody</strong>, but for obvious reasons, if you would like to share your work you need to <a href="">sign up</a> for an account. We will NOT share your information to a third party, but won't take ANY responsibility of the content of the site.
 </p>
+<div class="boxes-wrapper">
+    <div class="box" style="margin-right:10px;">
+        <p>You can</p>
+        <a href=""><img src="<?php print Yii::app()->request->baseUrl;?>/images/browse.png" border="0" /></a>
+        <p>
+            or <strong>not</strong>
+        </p>
+    </div>
+    <div class="box">
+        <p>Create an account below</p>
+        <a href=""><img src="<?php print Yii::app()->request->baseUrl;?>/images/signup.png" border="0" /></a>
+        <p>
+            or <a href="#">login</a>
+        </p>
+    </div>
+    <div style="clear:both;"></div>    
+</div>
 <?php $themes = Theme::model()->findAll(); ?>
 
 <div id="featured" >

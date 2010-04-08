@@ -247,3 +247,24 @@ p.hint
     text-align:right;
     width:425px;
 }
+
+.boxes-wrapper
+{
+    text-align:center;
+    padding:25px;
+}
+
+.box
+{
+    padding:5px;
+    float:left;
+    text-align:center;
+    width:47%;
+    border:1px dotted #ddd;
+    background-color: #fff;
+}
+
+.box:hover
+{
+    background-color: #eee;
+}
