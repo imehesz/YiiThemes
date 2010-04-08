@@ -11,7 +11,7 @@
 	});
 </script>
 
-<h1>Welcome</h1>
+<h1>Welcome to Yii Themes</h1>
 
 <p>
     As you can probably tell, this site was designed by <i>developers</i> for <i>designers</i> in the <strong>Yii</strong> community 
@@ -24,23 +24,23 @@
 <div class="boxes-wrapper">
     <div class="box" style="margin-right:10px;">
         <p>You can</p>
-        <a href=""><img src="<?php print Yii::app()->request->baseUrl;?>/images/browse.png" border="0" /></a>
+        <a href="<?php echo $this->createUrl( '/theme' );?>"><img src="<?php print Yii::app()->request->baseUrl;?>/images/browse.png" border="0" /></a>
         <p>
             or <strong>not</strong>
         </p>
     </div>
     <div class="box">
         <p>Create an account below</p>
-        <a href=""><img src="<?php print Yii::app()->request->baseUrl;?>/images/signup.png" border="0" /></a>
+        <a href="<?php echo $this->createUrl( '/user/user/registration' ); ?>"><img src="<?php print Yii::app()->request->baseUrl;?>/images/signup.png" border="0" /></a>
         <p>
-            or <a href="#">login</a>
+            or <?php echo CHtml::link( 'login', $this->createUrl( '/user/user/login' ) ); ?>
         </p>
     </div>
     <div style="clear:both;"></div>    
 </div>
 <?php $themes = Theme::model()->findAll(); ?>
 
-<div id="featured" >
+<div id="featured" style="margin:0 auto;">
 	<ul class="ui-tabs-nav">
 	    <?php $cnt=0; foreach( $themes as $theme ) : ?>
             <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-<?php echo $cnt;?>"><a href="#fragment-<?php echo $cnt;?>"><img src="files/screenshots/<?php echo $theme->preview1; ?>" alt="" width="80" height="50" /><span><?php echo $theme->name ?></span></a></li>	        
