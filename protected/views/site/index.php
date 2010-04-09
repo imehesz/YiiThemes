@@ -43,13 +43,27 @@
 <div id="featured" style="margin:0 auto;">
 	<ul class="ui-tabs-nav">
 	    <?php $cnt=0; foreach( $themes as $theme ) : ?>
-            <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-<?php echo $cnt;?>"><a href="#fragment-<?php echo $cnt;?>"><img src="files/screenshots/<?php echo $theme->preview1; ?>" alt="" width="80" height="50" /><span><?php echo $theme->name ?></span></a></li>	        
+            <?php 
+                $prev_image_mini = Yii::app()->request->baseUrl.'/files/screenshots/' . $theme->preview1;
+                if( ! file_exists( $prev_image_mini ) )
+                {
+                    $prev_image_mini = Yii::app()->request->baseUrl.'/images/nocamera_mini.png';
+                }
+            ?>	    
+            <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-<?php echo $cnt;?>"><a href="#fragment-<?php echo $cnt;?>"><img src="<?php echo $prev_image_mini; ?>" alt="" width="80" height="50" /><span><?php echo $theme->name ?></span></a></li>	        
 	    <?php $cnt++; endforeach; ?>
 	</ul>
 	
 	<?php $cnt=0; foreach( $themes as $theme ) : ?>
         <div id="fragment-<?php print $cnt;?>" class="ui-tabs-panel" style="">
-	        <img src="files/screenshots/<?php echo $theme->preview1; ?>" alt="" width="400" height="250"/>
+            <?php 
+                $prev_image = Yii::app()->request->baseUrl.'/files/screenshots/' . $theme->preview1;
+                if( ! file_exists( $prev_image ) )
+                {
+                    $prev_image = Yii::app()->request->baseUrl.'/images/nocamera.png';
+                }
+            ?>
+	        <img src="<?php echo $prev_image; ?>" alt="" width="400" height="250"/>
 	        <div class="info" >
 	        <h2><?php echo CHtml::link($theme->name, $this->createUrl('theme/view', array('id' => $theme->id) ) ); ?></h2>
 	        <p><?php echo $theme->short_desc; ?></p>

@@ -4,10 +4,16 @@
         background-color: #eee;
     }
 </style>
-
+<?php
+    $prev_image_mini = Yii::app()->request->baseUrl.'/files/screenshots/' . $theme->preview1;
+    if( ! file_exists( $prev_image_mini ) )
+    {
+        $prev_image_mini = Yii::app()->request->baseUrl.'/images/nocamera_mini.png';
+    }
+?>
 <div>
     <tr>
-            <td><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$data->preview1;?>" width="100px"></td>
+            <td><img src="<?php echo $prev_image_mini; ?>" width="100px" height="75px"></td>
             <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?><br /><?php echo $data->short_desc;?></td>   
             
             <?php if( Yii::app()->user->id == $data->userID ) : ?>
