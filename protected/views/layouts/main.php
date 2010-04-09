@@ -177,8 +177,9 @@
 	*/ ?>
   </div>
 </div>
-	<div style="text-align:center;">
-  		<a href="http://yiiframework.com"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/yii_power_lightgrey_white.gif" /></a>
+	<div style="text-align:center;margin:20px;">
+	  	<a href="http://mehesz.net" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/mehesz.net.png" /></a>
+  		<a href="http://yiiframework.com" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/yii_power_lightgrey_white.gif" /></a>
 	</div>
 </body>
 </html>

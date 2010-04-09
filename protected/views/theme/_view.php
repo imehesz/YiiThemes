@@ -1,7 +1,21 @@
+<style>
+    tr:hover
+    {
+        background-color: #eee;
+    }
+</style>
+
 <div>
     <tr>
-            <td><?php echo $data->preview1; ?></td>
-            <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?><br /><?php echo $data->short_desc;?></td>            
+            <td><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$data->preview1;?>" width="100px"></td>
+            <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?><br /><?php echo $data->short_desc;?></td>   
+            
+            <?php if( Yii::app()->user->id == $data->userID ) : ?>
+                <td>
+                    <a href="<?php echo $this->createUrl( 'theme/update', array( 'id' => $data->id ) ); ?>"><img src="<?php echo Yii::app()->request->baseUrl . '/images/update.png';?>" alt="update this theme" title="update this theme"></a>
+                    <a href=""><img src="<?php echo Yii::app()->request->baseUrl . '/images/delete.png';?>" alt="delete this theme" title="delete this theme"></a>                
+                </td>                     
+            <?php endif; ?>
     </tr>
 </div>
 

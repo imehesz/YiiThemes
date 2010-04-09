@@ -90,6 +90,11 @@ class ThemeController extends Controller
 	{
 		$model=$this->loadModel();
 
+        if( $model->userID != Yii::app()->user->id )
+        {
+            throw new CHttpException(301,'You do not have permission to update this theme.');
+        }
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
