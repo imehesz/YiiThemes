@@ -39,7 +39,9 @@ $this->menu=array(
 <h2>Screenshots</h2>
 <div class="theme-screenshots">
     <div style="float:left;margin-right:20px;">
-        <a class="grouped_elements" rel="group1" href="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>"><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>" width="250px" height="150px" /></a>
+        <?php if( $model->preview1 ) : ?>
+            <a class="grouped_elements" rel="group1" href="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>"><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>" width="250px" height="150px" /></a>
+        <?php endif; ?>
     </div>
     <div style="">
         <?php if( $model->preview2 ) : ?>

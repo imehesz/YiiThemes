@@ -15,6 +15,21 @@ class Theme extends CActiveRecord
 	 * @var integer $deleted
 	 */
 
+    /**
+     *
+     */
+    public $realPreview1;
+    
+    /**
+     *
+     */
+    public $realPreview2;
+    
+    /**
+     *
+     */
+    public $realFile;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return CActiveRecord the static model class
@@ -44,10 +59,15 @@ class Theme extends CActiveRecord
 			array('userID, score, created, updated, deleted', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('long_desc','length','max' => 1000),
-			array('preview1, preview2, file', 'length', 'max'=>100), 
+			//array('preview1, preview2, file', 'length', 'max'=>100), 
+//			array( 'preview1,preview2','file', 'types' => 'jpg, gif, png', 'allowEmpty' => true ),
+			array( 'realPreview1,realPreview2','file', 'types' => 'jpg, gif, png', 'allowEmpty' => true ),
+//			array( 'preview1', 'allowEmpty' => true ),
+//			array( 'file','file', 'types' => 'zip', 'allowEmpty' => true ),			
+			array( 'realFile','file', 'types' => 'zip', 'allowEmpty' => true ),			
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, userID, name, file, preview1, preview2, score, created, updated, deleted, short_desc, long_desc', 'safe', 'on'=>'search'),
+			array('name, score, created, updated, short_desc', 'safe', 'on'=>'search'),
 		);
 	}
 

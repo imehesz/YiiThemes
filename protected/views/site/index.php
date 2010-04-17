@@ -45,7 +45,7 @@
 	    <?php $cnt=0; foreach( $themes as $theme ) : ?>
             <?php 
                 $prev_image_mini = Yii::app()->request->baseUrl.'/files/screenshots/' . $theme->preview1;
-                if( ! file_exists( $prev_image_mini ) )
+                if( ! $theme -> preview1 )
                 {
                     $prev_image_mini = Yii::app()->request->baseUrl.'/images/nocamera_mini.png';
                 }
@@ -58,7 +58,7 @@
         <div id="fragment-<?php print $cnt;?>" class="ui-tabs-panel" style="">
             <?php 
                 $prev_image = Yii::app()->request->baseUrl.'/files/screenshots/' . $theme->preview1;
-                if( ! file_exists( $prev_image ) )
+                if( ! $theme->preview1 )
                 {
                     $prev_image = Yii::app()->request->baseUrl.'/images/nocamera.png';
                 }

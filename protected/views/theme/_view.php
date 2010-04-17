@@ -5,8 +5,9 @@
     }
 </style>
 <?php
-    $prev_image_mini = Yii::app()->request->baseUrl.'/files/screenshots/' . $theme->preview1;
-    if( ! file_exists( $prev_image_mini ) )
+    $prev_image_mini = Yii::app()->request->baseUrl.'/files/screenshots/' . $data->preview1;
+   
+    if( ! $data->preview1 )
     {
         $prev_image_mini = Yii::app()->request->baseUrl.'/images/nocamera_mini.png';
     }
