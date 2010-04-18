@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Theme <?php echo $model->id; ?></h1>
+<h1>Update Theme: <?php echo $model->name; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

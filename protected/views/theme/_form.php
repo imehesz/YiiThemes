@@ -42,12 +42,20 @@
 		<p class="hint">classic image files like jpg, png or gif</p>
 	</div>
 
+    <?php if( $model->preview1 ) : ?>
+        <div><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>" width="80px" height="50px" /></div>
+    <?php endif; ?>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'preview2'); ?>
 		<?php echo $form->fileField($model,'realPreview2'); ?>
 		<?php echo $form->error($model,'realPreview2'); ?>
 	</div>
-	
+
+    <?php if( $model->preview2 ) : ?>
+        <div><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview2;?>" width="80px" height="50px" /></div>
+    <?php endif; ?>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'file'); ?>
 		<?php echo $form->fileField($model,'realFile'); ?>

@@ -20,7 +20,7 @@
             <?php if( Yii::app()->user->id == $data->userID ) : ?>
                 <td>
                     <a href="<?php echo $this->createUrl( 'theme/update', array( 'id' => $data->id ) ); ?>"><img src="<?php echo Yii::app()->request->baseUrl . '/images/update.png';?>" alt="update this theme" title="update this theme"></a>
-                    <a href=""><img src="<?php echo Yii::app()->request->baseUrl . '/images/delete.png';?>" alt="delete this theme" title="delete this theme"></a>                
+                    <?php /* <a href=""><img src="<?php echo Yii::app()->request->baseUrl . '/images/delete.png';?>" alt="delete this theme" title="delete this theme"></a> */ ?>
                 </td>                     
             <?php endif; ?>
     </tr>

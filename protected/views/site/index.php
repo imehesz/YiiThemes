@@ -50,7 +50,12 @@
                     $prev_image_mini = Yii::app()->request->baseUrl.'/images/nocamera_mini.png';
                 }
             ?>	    
-            <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-<?php echo $cnt;?>"><a href="#fragment-<?php echo $cnt;?>"><img src="<?php echo $prev_image_mini; ?>" alt="" width="80" height="50" /><span><?php echo $theme->name ?></span></a></li>	        
+            <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-<?php echo $cnt;?>">
+                <a href="#fragment-<?php echo $cnt;?>">
+                    <img src="<?php echo $prev_image_mini; ?>" alt="" width="80" height="50" />
+                    <span><?php echo $theme->name ?></span>
+                </a>
+            </li>
 	    <?php $cnt++; endforeach; ?>
 	</ul>
 	

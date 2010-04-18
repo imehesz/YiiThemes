@@ -22,6 +22,12 @@ $this->menu=array(
 
 <h1 class="ucase"><?php echo $model->name; ?></h1>
 <div class="date-on-theme">by <strong><?php echo User::model()->findByPk($model->userID)->username; ?></strong> on <?php echo date( 'F d, Y', $model->updated ) ; ?></div>
+<?php if( $model->userID == Yii::app()->user->id ) : ?>
+<div style="float:right;">
+    <a href="<?php print $this->createUrl('theme/update', array( 'id' => $model->id ) );?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/update.png" alt="update" title="update"></a>
+    <?php /* <img src="<?php echo Yii::app()->request->baseUrl;?>/images/delete.png" alt="delete" title="delete"> */ ?>
+</div>
+<?php endif; ?>
 <p style="margin-top:15px;"></p>
 <div style="border-bottom:1px solid #999;width:675px;">
 <?php
