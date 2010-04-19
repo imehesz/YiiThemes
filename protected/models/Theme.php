@@ -29,6 +29,8 @@ class Theme extends CActiveRecord
      *
      */
     public $realFile;
+	
+	public $skipUpdated = false;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -148,8 +150,43 @@ class Theme extends CActiveRecord
 	        $this->setAttribute( 'created', $now );
         }
         
-        $this->setAttribute( 'updated', $now );
+		if( ! $this->skipUpdated )
+		{
+			$this->setAttribute( 'updated', $now );
+		}
         
 	    return parent::beforeSave();	    
+	}
+
+	/**
+	 * @param $model
+	 *
+	 * @return 
+	 */
+	public function handleFiles( $model )
+	{
+		$model->realPreview1=CUploadedFile::getInstance($model,'realPreview1');
+		if($model->realPreview1)
+		{
+			$file_name = '1' . time(). '' . rand( 0, time() ).'.jpg';
+			$model->setAttribute( 'preview1', $file_name );
+			$model->realPreview1->saveAs( MEHESZ_FILES_FOLDER . 'screenshots/'.$file_name );
+		}
+
+		$model->realPreview2=CUploadedFile::getInstance($model,'realPreview2');
+		if( $model->realPreview2)
+		{
+			$file_name = '2' . time(). '' . rand( 0, time() ).'.jpg';
+			$model->setAttribute( 'preview2', $file_name );
+			$model->realPreview2->saveAs( MEHESZ_FILES_FOLDER . 'screenshots/'.$file_name );
+		}
+
+		$model->realFile=CUploadedFile::getInstance($model,'realFile');
+		if( $model->realFile )
+		{
+			$file_name = 'f' . time(). '' . rand( 0, time() ).'.zip';
+			$model->setAttribute( 'file', $file_name );
+			$model->realFile->saveAs( MEHESZ_FILES_FOLDER . $file_name );
+		}
 	}
 }

@@ -1,5 +1,5 @@
 *.*~
 assets/*
-protect/runtime/*
+protected/runtime/*
 files/*
 settings.php

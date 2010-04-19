@@ -54,8 +54,15 @@ class ThemeController extends Controller
 	 */
 	public function actionView()
 	{
+        // we add +1 to the view column ...
+        $model = $this->loadModel();
+        $model->setAttribute( 'viewed', $model->viewed+1 );
+        $model->skipUpdated = true;
+        
+        $model->save();
+        
 		$this->render('view',array(
-			'model'=>$this->loadModel(),
+			'model'=>$model,
 		));
 	}
 
@@ -77,33 +84,14 @@ class ThemeController extends Controller
 			// TODO make this prettier here
 			// we're gonna create 3 random names for the files ...
 			
-            $model->realPreview1=CUploadedFile::getInstance($model,'realPreview1');
-            if($model->realPreview1)
+            if( $model->validate() )
             {
-                $file_name = '1' . time(). '' . rand( 0, time() ).'.jpg';
-                $model->setAttribute( 'preview1', $file_name );
-                $model->realPreview1->saveAs('/var/www/YiiThemes/files/screenshots/'.$file_name );
-            }
-
-            $model->realPreview2=CUploadedFile::getInstance($model,'realPreview2');
-            if( $model->realPreview2)
-            {
-                $file_name = '2' . time(). '' . rand( 0, time() ).'.jpg';
-                $model->setAttribute( 'preview2', $file_name );
-                $model->realPreview2->saveAs('/var/www/YiiThemes/files/screenshots/'.$file_name );
-            }
-
-            $model->realFile=CUploadedFile::getInstance($model,'realFile');
-            if( $model->realFile )
-            {
-                $file_name = 'f' . time(). '' . rand( 0, time() ).'.zip';
-                $model->setAttribute( 'file', $file_name );
-                $model->realFile->saveAs('/var/www/YiiThemes/files/'.$file_name );
-            }
-
-            if( $model->save() )
-            {
-                $this->redirect(array('view','id'=>$model->id));
+                $model->handleFiles( $model );
+    
+                if( $model->save() )
+                {
+                    $this->redirect(array('view','id'=>$model->id));
+                }
             }
 		}
 
@@ -133,32 +121,13 @@ class ThemeController extends Controller
 		{
 			$model->attributes=$_POST['Theme'];
 
-$model->realPreview1=CUploadedFile::getInstance($model,'realPreview1');
-            if($model->realPreview1)
+            if( $model->validate() )
             {
-                $file_name = '1' . time(). '' . rand( 0, time() ).'.jpg';
-                $model->setAttribute( 'preview1', $file_name );
-                $model->realPreview1->saveAs('/var/www/YiiThemes/files/screenshots/'.$file_name );
-            }
+                $model->handleFiles( $model );
 
-            $model->realPreview2=CUploadedFile::getInstance($model,'realPreview2');
-            if( $model->realPreview2)
-            {
-                $file_name = '2' . time(). '' . rand( 0, time() ).'.jpg';
-                $model->setAttribute( 'preview2', $file_name );
-                $model->realPreview2->saveAs('/var/www/YiiThemes/files/screenshots/'.$file_name );
+                if($model->save())
+                    $this->redirect(array('view','id'=>$model->id));
             }
-
-            $model->realFile=CUploadedFile::getInstance($model,'realFile');
-            if( $model->realFile )
-            {
-                $file_name = 'f' . time(). '' . rand( 0, time() ).'.zip';
-                $model->setAttribute( 'file', $file_name );
-                $model->realFile->saveAs('/var/www/YiiThemes/files/'.$file_name );
-            }
-
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(

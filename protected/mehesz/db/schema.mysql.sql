@@ -3,14 +3,14 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2010 at 09:40 PM
+-- Generation Time: Apr 19, 2010 at 04:38 PM
 -- Server version: 5.1.37
 -- PHP Version: 5.2.10-2ubuntu6.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `yiithemes_development`
+-- Database: `yii_yiithemes`
 --
 
 -- --------------------------------------------------------
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `title` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -103,6 +103,8 @@ CREATE TABLE IF NOT EXISTS `themes` (
   `preview2` varchar(100) NOT NULL,
   `file` varchar(100) NOT NULL,
   `score` int(11) NOT NULL DEFAULT '0',
+  `viewed` int(11) NOT NULL,
+  `downloaded` int(11) NOT NULL,
   `created` int(11) NOT NULL,
   `updated` int(11) NOT NULL,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
@@ -144,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `user_has_role` (
   `user_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables
@@ -155,4 +157,3 @@ CREATE TABLE IF NOT EXISTS `user_has_role` (
 --
 ALTER TABLE `themes`
   ADD CONSTRAINT `themes_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
