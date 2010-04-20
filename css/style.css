@@ -268,3 +268,16 @@ p.hint
 {
     background-color: #eee;
 }
+
+.info-row
+{
+    font-weight: bolder;
+    width:300px;
+    margin-top:5px;
+}
+
+.info-row span
+{
+    font-weight: normal;
+    font-style:italic;
+}

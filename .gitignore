@@ -3,3 +3,4 @@ assets/*
 protected/runtime/*
 files/*
 settings.php
+nbproject

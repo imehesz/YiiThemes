@@ -32,7 +32,7 @@ class ThemeController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','download'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -178,6 +178,37 @@ class ThemeController extends Controller
 			'model'=>$model,
 		));
 	}
+
+    public function actionDownload()
+    {
+        $model=$this->loadModel();
+
+        if( $model )
+        {
+            if( file_exists( MEHESZ_FILES_FOLDER . $model->file ) )
+            {
+                $model->setAttribute( 'downloaded', $model->downloaded+1 );
+                $model->skipUpdated = true;
+                $model->save();
+
+                $file = MEHESZ_FILES_FOLDER . $model->file;
+                //die( $file );
+
+                header("Expires: Mon, 26 Jul 1997 05:00:00 GMT\n");
+                header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+                header("Content-type: application/zip;\n"); //or yours?
+                header("Content-Transfer-Encoding: binary");
+                $len = filesize($filename);
+                header("Content-Length: $len;\n");
+                $outname= "yiitheme" . $model->id . ".zip";
+                header("Content-Disposition: attachment; filename=\"$outname\";\n\n");
+
+                readfile( $file );
+            }
+        }
+
+        die( 'white death' );
+    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

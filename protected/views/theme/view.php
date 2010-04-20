@@ -37,6 +37,19 @@ $this->menu=array(
     {
         $tabs['Long Description'] = nl2br($model->long_desc); 
     }
+
+    $created_nice = date( 'F d, Y', $model->created );
+    $updated_nice = date( 'F d, Y', $model->updated );
+    $viewed_nice  = number_format( $model->viewed );
+    $downloaded_nice = number_format( $model->downloaded );
+
+    $tabs['Stats'] = <<<STATS
+<div class="info-row">Theme created: <span>{$created_nice}</span></div>
+<div class="info-row">Last updated: <span>{$updated_nice}</span></div>
+<p></p>
+<div class="info-row">Viewed: <span>{$viewed_nice}</span></div>
+<div class="info-row">Downloaded: <span>{$downloaded_nice}</span></div>
+STATS;
     
     $this->widget('zii.widgets.jui.CJuiTabs', array( 'tabs'=> $tabs ) );
 ?>
@@ -60,7 +73,7 @@ $this->menu=array(
 
 <h2>Download Theme</h2>
 <div>
-    <?php echo CHtml::link( $model->file, '/files/'.$model->file ) ?>
+    <?php echo CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ) ) ?>
 </div>
 
 <?php /* $this->widget('zii.widgets.CDetailView', array(
