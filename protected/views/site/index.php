@@ -38,7 +38,7 @@
     </div>
     <div style="clear:both;"></div>    
 </div>
-<?php $themes = Theme::model()->findAll(); ?>
+<?php $themes = Theme::model()->findAllByAttributes( array( 'deleted' => 0 ) ); ?>
 
 <div id="featured" style="margin:0 auto;">
 	<ul class="ui-tabs-nav">

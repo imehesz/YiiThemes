@@ -18,24 +18,15 @@
             <td><img src="<?php echo $prev_image_mini; ?>" width="100px" height="75px"></td>
             <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?><br /><?php echo $data->short_desc;?></td>   
             
-            <?php if( Yii::app()->user->id == $data->userID ) : ?>
+            
                 <td>
-                    <a href="<?php echo $this->createUrl( 'theme/update', array( 'id' => $data->id ) ); ?>"><img src="<?php echo Yii::app()->request->baseUrl . '/images/update.png';?>" alt="update this theme" title="update this theme"></a>
-                    <?php /* <a href=""><img src="<?php echo Yii::app()->request->baseUrl . '/images/delete.png';?>" alt="delete this theme" title="delete this theme"></a> */ ?>
-                    <?php echo
-                            CHtml::ajaxLink(
-                                    'aaaa',
-                                    '',
-                                    array(
-                                        'ajax' =>
-                                            array(
-                                                'url'=>CController::createUrl('deleteaa', array( 'id' => $data->id ) ) ), 'type'=>'POST'
-                                            ),
-                                            array( 'onClick' => 'javascript:if(confirmDelete()){$(theme_row_' . $data->id . ').hide();};' )
-                                    );
-                    ?>
-                </td>                     
-            <?php endif; ?>
+                    <?php if( Yii::app()->user->id == $data->userID ) : ?>
+                        <a href="<?php echo $this->createUrl( 'theme/update', array( 'id' => $data->id ) ); ?>"><img src="<?php echo Yii::app()->request->baseUrl . '/images/update.png';?>" alt="update this theme" title="update this theme"></a>
+                        <a href="javascript:void(0);" onClick='javascript:if(deleteTheme("<?php echo $this->createUrl( 'ajaxDelete', array( 'id' => $data->id ) ); ?>")){$("#theme_row_<?php echo $data->id ?>").hide();};'>
+                            <img src="<?php echo Yii::app()->request->baseUrl . '/images/delete.png';?>" alt="delete this theme" title="delete this theme">
+                        </a>
+                    <?php endif; ?>
+                </td>   
     </tr>
 </div>
 

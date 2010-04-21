@@ -40,7 +40,7 @@ class ThemeController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','ajaxDelete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -154,12 +154,32 @@ class ThemeController extends Controller
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
+    /**
+     * deletion of a theme, via ajax ... we die no matter what ...
+     */
+    public function actionAjaxDelete()
+    {
+        $model = $this->loadModel();
+
+        if( $model && $model->userID == Yii::app()->user->id )
+        {
+            $model->setAttribute( 'deleted', 1 );
+            if( $model -> save() )
+            {
+                die('success');
+            }
+        }
+
+        die('fail');
+    }
+
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Theme');
+		$dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0' ) ) );
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

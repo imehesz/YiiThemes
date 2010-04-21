@@ -9,23 +9,6 @@ $this->menu=array(
 );
 ?>
 
-<script>
-    var confirmDelete = function()
-    {
-        //       
-        conf = confirm( 'Are you sure?' );
-        
-        if( conf )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-</script>
 <h1>Themes</h1>
 
 <table border="1">
@@ -34,3 +17,31 @@ $this->menu=array(
 	'itemView'=>'_view',
 )); ?>
 </table>
+
+<script>
+    var deleteTheme = function( urlDel )
+    {
+        conf = confirm( 'Are you sure?' );
+
+        if( conf )
+        {
+            $.ajax({
+              url: urlDel,
+              success: function(data) {
+                // $('.result').html(data);
+                if( data != 'fail' )
+                {
+                    alert('Theme deleted successfully!');
+                    return true;
+                }
+                else
+                {
+                    alert( 'Oops... Please try again!' );
+                }
+              }
+            });            
+        }
+        return false;
+    }
+
+</script>
