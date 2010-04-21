@@ -178,7 +178,19 @@ class ThemeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0' ) ) );
+                $uid = Yii::app()->request->getParam( 'uid' );
+
+                if(
+                        ! Yii::app()->user->isGuest &&
+                        $uid == Yii::app()->user->id
+                )
+                {
+                    $dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0 AND userID='.(int)$uid ) ) );
+                }
+                else
+                {
+                    $dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0' ) ) );
+                }
 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

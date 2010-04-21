@@ -44,6 +44,8 @@ $this->menu=array(
     $downloaded_nice = number_format( $model->downloaded );
 
     $tabs['Stats'] = <<<STATS
+<div class="info-row">Author: <span>{$model->user->username}</span></div>
+<p></p>
 <div class="info-row">Theme created: <span>{$created_nice}</span></div>
 <div class="info-row">Last updated: <span>{$updated_nice}</span></div>
 <p></p>
