@@ -14,7 +14,7 @@
 <h1>Welcome to Yii Themes</h1>
 
 <p>
-    As you can probably tell, this site was designed by <i>developers</i> for <i>designers</i> in the <strong>Yii</strong> community 
+    As you can probably tell, this site was designed by a <i>developer</i> for <i>designers</i> in the <strong>Yii</strong> community
     who are willing to share their art work for the masses.
 </p>
 
@@ -38,7 +38,7 @@
     </div>
     <div style="clear:both;"></div>    
 </div>
-<?php $themes = Theme::model()->findAllByAttributes( array( 'deleted' => 0 ) ); ?>
+<?php $themes = Theme::model()->findAllByAttributes( array( 'deleted' => 0 ), array( 'limit' => 4 ) ); ?>
 
 <div id="featured" style="margin:0 auto;">
 	<ul class="ui-tabs-nav">

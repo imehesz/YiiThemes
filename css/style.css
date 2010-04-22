@@ -281,3 +281,12 @@ p.hint
     font-weight: normal;
     font-style:italic;
 }
+
+div.form .successSummary
+{
+	border: 2px solid #060;
+	padding: 7px 7px 12px 7px;
+	margin: 0 0 20px 0;
+	background: #99ffcc;
+	font-size: 0.9em;
+}

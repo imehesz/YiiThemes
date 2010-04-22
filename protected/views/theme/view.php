@@ -25,7 +25,7 @@ $this->menu=array(
 <?php if( $model->userID == Yii::app()->user->id ) : ?>
 <div style="float:right;">
     <a href="<?php print $this->createUrl('theme/update', array( 'id' => $model->id ) );?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/update.png" alt="update" title="update"></a>
-    <?php /* <img src="<?php echo Yii::app()->request->baseUrl;?>/images/delete.png" alt="delete" title="delete"> */ ?>
+    <a href="javascript:void(0);" onclick="javascript:deleteTheme('<?php print $this->createUrl('theme/trash', array( 'id' => $model->id ) );?>');"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/delete.png" alt="delete" title="delete"></a>
 </div>
 <?php endif; ?>
 <p style="margin-top:15px;"></p>
@@ -74,9 +74,25 @@ STATS;
 </div>
 
 <h2>Download Theme</h2>
-<div>
-    <?php echo CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ) ) ?>
-</div>
+<?php if( $model->file ) : ?>
+    <div>
+        <?php echo CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ) ) ?>
+    </div>
+<?php endif; ?>
+
+<script>
+    var deleteTheme = function( urlDel )
+    {
+        conf = confirm( 'Are you sure?' );
+
+        if( conf )
+        {
+            window.location = urlDel;
+        }
+        return false;
+    }
+
+</script>
 
 <?php /* $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

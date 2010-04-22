@@ -36,11 +36,11 @@ class ThemeController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','trash','ajaxDelete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','ajaxDelete'),
+				'actions'=>array('admin','ajaxDelete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -153,6 +153,28 @@ class ThemeController extends Controller
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
+
+    /**
+     *
+     */
+    public function actionTrash()
+    {
+        $model = $this->loadModel();
+
+        if( $model && $model->userID == Yii::app()->user-id )
+        {
+            $model->setAttribute( 'deleted', 1 );
+            if( $model -> save() )
+            {
+                $this->redirect( array('theme/index', array( 'uid' => Yii::app()->user->id ) ) );
+            }
+        }
+        else
+        {
+            throw new CHttpException( 301, 'Oops. You do not have permission to do this!' );
+        }
+        Yii::app()->end();
+    }
 
     /**
      * deletion of a theme, via ajax ... we die no matter what ...

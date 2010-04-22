@@ -16,13 +16,13 @@
 <div>
     <tr id="theme_row_<?php echo $data->id; ?>">
             <td><img src="<?php echo $prev_image_mini; ?>" width="100px" height="75px"></td>
-            <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?><br /><?php echo $data->short_desc;?></td>   
+            <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?> <span style="font-style:italic;">by <?php echo $data->user->username; ?></span><br /><?php echo $data->short_desc;?></td>
             
             
                 <td>
                     <?php if( Yii::app()->user->id == $data->userID ) : ?>
                         <a href="<?php echo $this->createUrl( 'theme/update', array( 'id' => $data->id ) ); ?>"><img src="<?php echo Yii::app()->request->baseUrl . '/images/update.png';?>" alt="update this theme" title="update this theme"></a>
-                        <a href="javascript:void(0);" onClick='javascript:if(deleteTheme("<?php echo $this->createUrl( 'ajaxDelete', array( 'id' => $data->id ) ); ?>")){$("#theme_row_<?php echo $data->id ?>").hide();};'>
+                        <a href="javascript:void(0);" onClick='javascript:deleteTheme( <?php echo $data->id ?>,"<?php echo $this->createUrl( 'ajaxDelete', array( 'id' => $data->id ) ); ?>");'>
                             <img src="<?php echo Yii::app()->request->baseUrl . '/images/delete.png';?>" alt="delete this theme" title="delete this theme">
                         </a>
                     <?php endif; ?>
