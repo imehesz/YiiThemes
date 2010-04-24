@@ -39,7 +39,7 @@
 		<?php echo $form->labelEx($model,'preview1'); ?>
 		<?php echo $form->fileField($model,'realPreview1' ); ?>
 		<?php echo $form->error($model,'realPreview1'); ?>
-		<p class="hint">classic image files like jpg, png or gif</p>
+		<p class="hint">classic image files like jpg, png or gif (<256K)</p>
 	</div>
 
     <?php if( $model->preview1 ) : ?>
@@ -60,8 +60,11 @@
 		<?php echo $form->labelEx($model,'file'); ?>
 		<?php echo $form->fileField($model,'realFile'); ?>
 		<?php echo $form->error($model,'realFile'); ?>
-		<p class="hint">only zip files</p>
-	</div>	
+		<p class="hint">only zip files (<1M)</p>
+	</div>
+    <?php if( $model->preview2 ) : ?>
+        <div><img src="<?php echo Yii::app()->request->baseUrl . '/images/icon_zip.gif'?>" alt="this theme has a ZIP file" title="this theme has a ZIP file"/></div>
+    <?php endif; ?>
 <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'score'); ?>

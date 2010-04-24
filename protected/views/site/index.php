@@ -19,7 +19,10 @@
 </p>
 
 <p>
-    There are (currently) <strong>NO restictions</strong>, <strong>NO hidden fees</strong>, <strong>NO rules</strong>, the site itself is completely <strong>FREE for everybody</strong>, but for obvious reasons, if you would like to share your work you need to <a href="">sign up</a> for an account. We will NOT share your information to a third party, but won't take ANY responsibility of the content of the site.
+    There are (currently) <strong>NO restictions</strong>, <strong>NO hidden fees</strong>, <strong>NO rules</strong>,
+    the site itself is completely <strong>FREE for everybody</strong>, but for obvious reasons, if you would like to share your work you need to
+    <a href="">sign up</a> for an account. We will NOT share your information to a third party, but won't take ANY responsibilities of the content of the site.
+    We can
 </p>
 <div class="boxes-wrapper">
     <div class="box" style="margin-right:10px;">
@@ -38,7 +41,7 @@
     </div>
     <div style="clear:both;"></div>    
 </div>
-<?php $themes = Theme::model()->findAllByAttributes( array( 'deleted' => 0 ), array( 'limit' => 4 ) ); ?>
+<?php $themes = Theme::model()->findAllByAttributes( array('deleted'=>0, 'score' => 1000 ), array( 'order'=> 'rand()', 'limit'=>4 ) ); ?>
 
 <div id="featured" style="margin:0 auto;">
 	<ul class="ui-tabs-nav">

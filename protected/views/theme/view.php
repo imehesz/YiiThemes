@@ -78,7 +78,9 @@ STATS;
     <div>
         <?php echo CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ) ) ?>
     </div>
-<?php endif; ?>
+<?php else: ?>
+    No file. Sorry :/
+<?php endif;?>
 
 <script>
     var deleteTheme = function( urlDel )
