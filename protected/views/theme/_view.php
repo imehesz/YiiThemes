@@ -15,7 +15,7 @@
 ?>
 <div>
     <tr id="theme_row_<?php echo $data->id; ?>">
-            <td><img src="<?php echo $prev_image_mini; ?>" width="100px" height="75px"></td>
+            <td width="150"><img src="<?php echo $prev_image_mini; ?>" width="100px" height="75px"></td>
             <td><?php echo CHtml::link( $data->name, $this->createUrl( 'theme/view', array( 'id' => $data->id ) ) ); ?> <span style="font-style:italic;">by <?php echo $data->user->username; ?></span><br /><?php echo $data->short_desc;?></td>
             
             

@@ -290,3 +290,8 @@ div.form .successSummary
 	background: #99ffcc;
 	font-size: 0.9em;
 }
+
+.pager
+{
+    margin-bottom:20px;
+}

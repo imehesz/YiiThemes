@@ -11,6 +11,19 @@
 	});
 </script>
 
+<?php
+ /*
+<div class="form">
+    <div class="successSummary" style="text-align:center;">
+        <p>
+            <strong>Message:</strong> blah blah blah
+        </p>
+    </div>
+</div>
+ *
+ */
+?>
+
 <h1>Welcome to Yii Themes</h1>
 
 <p>
