@@ -13,7 +13,7 @@
 <div id="topPan">
 	<?php /*<a href="index.html"><img src="images/105750.JPG" alt="Education Zone" width="245" height="37" border="0"  class="logo" title="Education Zone"/></a> */ ?>
 	<?php $images = Array('105750.JPG', 'fashion_mini_1.jpg', 'fashion_mini_2.gif', 'fashion_mini_3.jpg' );?>
-	<a href="http://en.wikipedia.org/wiki/Fashion" target="_blank"><img src="images/<?php echo $images[rand(0,sizeof($images)-1)];?>" alt="Education Zone" border="0"  class="logo" title="Education Zone"/></a>
+	<a href="http://en.wikipedia.org/wiki/Fashion" target="_blank"><img src="<?php Yii::app()->request->baseUrl;?>/images/<?php echo $images[rand(0,sizeof($images)-1)];?>" alt="Education Zone" border="0"  class="logo" title="Education Zone"/></a>
 	<p>Yii Themes - <span style="font-style:italic;">"your first step to be ridiculously good looking</span>"</p>
 		
   <div id="topContactPan">
