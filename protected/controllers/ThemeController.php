@@ -207,11 +207,11 @@ class ThemeController extends Controller
                         $uid == Yii::app()->user->id
                 )
                 {
-                    $dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0 AND userID='.(int)$uid ) ) );
+                    $dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0 AND userID='.(int)$uid, 'order' => 'created DESC' ) ) );
                 }
                 else
                 {
-                    $dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0' ) ) );
+                    $dataProvider=new CActiveDataProvider('Theme', array( 'criteria' => array( 'condition' => 'deleted=0', 'order' => 'created DESC' ) ) );
                 }
 
 		$this->render('index',array(
