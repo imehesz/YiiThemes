@@ -63,6 +63,7 @@ class ThemeController extends Controller
         
 		$this->render('view',array(
 			'model'=>$model,
+			'wikiext' => new wikiext(),
 		));
 	}
 

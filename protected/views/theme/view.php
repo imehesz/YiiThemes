@@ -31,11 +31,11 @@ $this->menu=array(
 <p style="margin-top:15px;"></p>
 <div style="border-bottom:1px solid #999;width:675px;">
 <?php
-    $tabs = array( 'Short Description' => nl2br($model->short_desc) );
+    $tabs = array( 'Short Description' => $wikiext->parse($model->short_desc));
     
     if( strlen( $model->long_desc ) )
     {
-        $tabs['Long Description'] = nl2br($model->long_desc); 
+        $tabs['Long Description'] = $wikiext->parse($model->long_desc); 
     }
 
     $created_nice = date( 'F d, Y', $model->created );

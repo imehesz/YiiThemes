@@ -18,6 +18,7 @@ return array(
 		'application.components.*',
 		'application.modules.user.models.*',
 		'application.mehesz.*',
+		'application.extensions.*',
 	),
 
 	// application components

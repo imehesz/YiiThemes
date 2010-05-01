@@ -155,6 +155,11 @@ class Theme extends CActiveRecord
 			$this->setAttribute( 'updated', $now );
 		}
         
+        // let's take care of some data sanitation 
+        $this->setAttribute( 'name', strip_tags( $this->name ) );
+        $this->setAttribute( 'short_desc', strip_tags( $this->short_desc ) );
+        $this->setAttribute( 'long_desc', strip_tags( $this->long_desc ) );
+        
 	    return parent::beforeSave();	    
 	}
 
