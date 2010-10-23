@@ -45,14 +45,11 @@ $this->menu=array(
 				<tr>
 			<?php endif; ?>
 				<td id="theme_id_<?php echo $theme->id?>" style="text-align:center;">
-					<div class="theme-preview">
+					<div class="theme-preview" style="margin-top:5px;">
 						<a href="<?php echo $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ); ?>" alt="<?php echo $theme->name;?>" title="<?php echo $theme->name; ?>" ><img src="<?php echo $prev_image_mini; ?>" width="100px" height="75px" border="0" /></a>
 					</div>
-					<div>
+					<div style="border-bottom: 1px solid #ddd;font-size:10px;margin-top:5px;">
 						<?php echo CHtml::link( $theme->name, $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ) ); ?> <span style="font-style:italic;">by <?php echo $theme->user->username; ?></span><br /><?php echo $theme->short_desc;?>
-					</div>
-					<div>
-						<?php echo $theme->name; ?>
 					</div>
 				</td>
 			<?php if( 3 == $cur_col ) : ?>
