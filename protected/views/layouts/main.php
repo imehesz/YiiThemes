@@ -55,6 +55,21 @@
 </div>
 
 <div id="bodyPan">
+
+<div style="text-align:center;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-1319358860215477";
+/* ads for yii themes */
+google_ad_slot = "2805546600";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
     <?php /*
   <?php $this->widget('zii.widgets.CBreadcrumbs', array(
 		'links'=>$this->breadcrumbs,

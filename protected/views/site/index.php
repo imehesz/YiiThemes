@@ -34,8 +34,8 @@
 <p>
     There are (currently) <strong>NO restictions</strong>, <strong>NO hidden fees</strong>, <strong>NO rules</strong>,
     the site itself is completely <strong>FREE for everybody</strong>, but for obvious reasons, if you would like to share your work you need to
-    <a href="">sign up</a> for an account. We will NOT share your information to a third party, but won't take ANY responsibilities of the content of the site.
-    We can
+    <a href="">sign up</a> for an account. We will NOT share your information to a third party, but won't take ANY responsibilities of the content of the site.<br /></br />
+    Btw, <strong>NO Flash</strong>, only <strong>CSS</strong> and <strong>HTML</strong> templates - <i>YiiHaw</i>!
 </p>
 <div class="boxes-wrapper">
     <div class="box" style="margin-right:10px;">
