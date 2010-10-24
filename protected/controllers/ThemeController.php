@@ -60,10 +60,17 @@ class ThemeController extends Controller
         $model->skipUpdated = true;
         
         $model->save();
-        
+
+        // we need to find the NEXT and the PREVIOUS theme
+		// so we can create cool links ...
+		$next_theme = Theme::model()->find( 'id>' . $model->id . ' ORDER BY id' );
+		$prev_theme = Theme::model()->find( 'id<' . $model->id . ' ORDER BY id DESC' );
+
 		$this->render('view',array(
-			'model'=>$model,
-			'wikiext' => new wikiext(),
+			'model'			=> $model,
+			'wikiext' 		=> new wikiext(),
+			'next_theme'	=> $next_theme,
+			'prev_theme'	=> $prev_theme
 		));
 	}
 

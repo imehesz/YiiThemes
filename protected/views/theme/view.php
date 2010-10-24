@@ -22,13 +22,31 @@ $this->menu=array(
 
 <h1 class="ucase"><?php echo $model->name; ?></h1>
 <div class="date-on-theme">by <strong><?php echo User::model()->findByPk($model->userID)->username; ?></strong> on <?php echo date( 'F d, Y', $model->updated ) ; ?></div>
+<div style="float:right;text-align:right;">
+	<?php 
+		// previous theme
+		echo 
+			$prev_theme ? 
+				CHtml::link( 'Prev Theme', $this->createUrl('theme/view', array( 'id' => $prev_theme->id ) ), array( 'title' => 'Previous Theme: ' . $prev_theme->name ) ) : 
+				'Prev Theme' ; 
+	?> - 
+
+	<?php 
+		// next theme
+		echo 
+			$next_theme ? 
+				CHtml::link( 'Next Theme', $this->createUrl('theme/view', array( 'id' => $next_theme->id ) ), array( 'title' => 'Next Theme: ' . $next_theme->name ) ) : 
+				'Next Theme' ; 
+	?>
+
 <?php if( $model->userID == Yii::app()->user->id ) : ?>
-<div style="float:right;">
+	<div>
     <a href="<?php print $this->createUrl('theme/update', array( 'id' => $model->id ) );?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/update.png" alt="update" title="update"></a>
     <a href="javascript:void(0);" onclick="javascript:deleteTheme('<?php print $this->createUrl('theme/trash', array( 'id' => $model->id ) );?>');"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/delete.png" alt="delete" title="delete"></a>
-</div>
+	</div>
 <?php endif; ?>
-<p style="margin-top:15px;"></p>
+</div>
+<p style="margin-top:35px;"></p>
 <div style="border-bottom:1px solid #999;width:675px;">
 <?php
     $tabs = array( 'Short Description' => $wikiext->parse($model->short_desc));
