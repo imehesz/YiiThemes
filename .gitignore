@@ -4,3 +4,7 @@ protected/runtime/*
 files/*
 settings.php
 nbproject
+*.swp
+*.swo
+*.zip
+*.gz
