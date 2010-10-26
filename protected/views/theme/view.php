@@ -79,12 +79,14 @@ STATS;
 <div class="theme-screenshots">
     <div style="float:left;margin-right:20px;">
         <?php if( $model->preview1 ) : ?>
-            <a class="grouped_elements" rel="group1" href="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>"><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>" width="250px" height="150px" /></a>
+			<?php $imagecache = Yii::app()->image->createUrl( '250x175', MEHESZ_FILES_FOLDER . 'screenshots/' . $model->preview1 ); ?>
+            <a class="grouped_elements" rel="group1" href="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview1;?>"><img src="<?php echo str_ireplace( 'index.php', '', $imagecache ); ?>" /></a>
         <?php endif; ?>
     </div>
     <div style="">
         <?php if( $model->preview2 ) : ?>
-            <a class="grouped_elements" rel="group1" href="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview2;?>"><img src="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview2;?>" width="250px" height="150px" /></a>
+			<?php $imagecache = Yii::app()->image->createUrl( '250x175', MEHESZ_FILES_FOLDER . 'screenshots/' . $model->preview2 ); ?>
+            <a class="grouped_elements" rel="group1" href="<?php echo Yii::app()->request->baseUrl . '/files/screenshots/'.$model->preview2;?>"><img src="<?php echo str_ireplace( 'index.php', '', $imagecache ); ?>" /></a>
         <?php endif; ?>
     </div>
     <div style="clear:both;"></div>

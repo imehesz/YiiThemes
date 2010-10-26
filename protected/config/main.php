@@ -73,6 +73,25 @@ return array(
 				*/
 			),
 		),
+
+		'image' => array(
+			'class'		=> 'ext.imageapi.CImage',
+			'presets'	=> array(
+				'125x90'	=> array(
+					'cacheIn'	=> 'webroot.files.imagecache.100x75',
+					'actions'	=> array(
+							'scale'	=> array( 'width' => 125, 'height' => 90 ),
+					),
+				),
+				'250x175'	=> array(
+					'cacheIn'	=> 'webroot.files.imagecache.250x175',
+					'actions'	=> array(
+							'scaleAndCrop'	=> array( 'width' => 250, 'height' => 175 ),
+					),
+				),
+
+			),
+		),
 	),
 
 	// application-level parameters that can be accessed

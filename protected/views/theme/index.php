@@ -33,7 +33,7 @@ $this->menu=array(
 	if( sizeof( $themes ) ) : ?>
 		<?php $cur_col = 1; foreach( $themes as $theme ): ?>
 			<?php
-				$prev_image_mini = Yii::app()->request->baseUrl.'/files/screenshots/' . $theme->preview1;
+				$prev_image_mini = MEHESZ_FILES_FOLDER . 'screenshots/' . $theme->preview1;
 			   
 				if( ! $theme->preview1 )
 				{
@@ -47,7 +47,11 @@ $this->menu=array(
 				<td id="theme_id_<?php echo $theme->id?>" style="text-align:center;">
 					<div class="theme-grid-box">
 						<div class="theme-preview">
-							<a href="<?php echo $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ); ?>" alt="<?php echo $theme->name;?>" title="<?php echo $theme->name; ?>" ><img src="<?php echo $prev_image_mini; ?>" width="125px" height="90px" border="0" /></a>
+							<?php /* <a href="<?php echo $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ); ?>" alt="<?php echo $theme->name;?>" title="<?php echo $theme->name; ?>" ><img src="<?php echo $prev_image_mini; ?>" width="125px" height="90px" border="0" /></a> */ ?>
+								<?php $imagecache = Yii::app()->image->createUrl( '125x90', $prev_image_mini ); ?>
+							<a href="<?php echo $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ); ?>" alt="<?php echo $theme->name;?>" title="<?php echo $theme->name; ?>" >
+								<img src="<?php echo $imagecache ? str_ireplace('index.php/','',$imagecache) : $prev_image_mini; ?>" border="0" />
+							</a>
 						</div>
 						<div class="theme-text">
 							<?php echo CHtml::link( $theme->name, $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ) ); ?> <span style="font-style:italic;">by <?php echo $theme->user->username; ?></span><br /><?php echo $theme->short_desc;?>
