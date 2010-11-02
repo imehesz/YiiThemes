@@ -79,17 +79,6 @@ $this->menu=array(
 			</script>
 		</td>
 		<td style="text-align:center;">
-			<script type="text/javascript"><!--
-			google_ad_client = "pub-1319358860215477";
-			/* small blocks on Yii Themes (2) */
-			google_ad_slot = "1194376593";
-			google_ad_width = 200;
-			google_ad_height = 200;
-			//-->
-			</script>
-			<script type="text/javascript"
-			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
 		</td>
 		<td style="text-align:center;">
 			<script type="text/javascript"><!--
