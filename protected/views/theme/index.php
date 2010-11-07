@@ -48,7 +48,7 @@ $this->menu=array(
 					<div class="theme-grid-box">
 						<div class="theme-preview">
 							<?php /* <a href="<?php echo $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ); ?>" alt="<?php echo $theme->name;?>" title="<?php echo $theme->name; ?>" ><img src="<?php echo $prev_image_mini; ?>" width="125px" height="90px" border="0" /></a> */ ?>
-								<?php $imagecache = Yii::app()->image->createUrl( '125x90', $prev_image_mini ); ?>
+								<?php $imagecache = Yii::app()->image->createUrl( '200x125', $prev_image_mini ); ?>
 							<a href="<?php echo $this->createUrl( 'theme/view', array( 'id' => $theme->id ) ); ?>" alt="<?php echo $theme->name;?>" title="<?php echo $theme->name; ?>" >
 								<img src="<?php echo $imagecache ? str_ireplace('index.php/','',$imagecache) : $prev_image_mini; ?>" border="0" />
 							</a>
