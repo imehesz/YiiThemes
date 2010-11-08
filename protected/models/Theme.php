@@ -32,6 +32,9 @@ class Theme extends CActiveRecord
 	
 	public $skipUpdated = false;
 
+    public $sumviews;
+    public $sumdownloads;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return CActiveRecord the static model class
@@ -81,9 +84,25 @@ class Theme extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'User', 'userID'),
+			'user'      => array(self::BELONGS_TO, 'User', 'userID'),
 		);
 	}
+
+    /**
+     *
+     */
+    public function scopes()
+    {
+        return array(
+            'sumView'   => array(
+                            'select'    => 'sum(viewed) as sumviews',
+            ),
+
+            'sumDownload'   => array(
+                            'select'    => 'sum(downloaded) as sumdownloads',
+            ),
+        );
+    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)

@@ -92,3 +92,13 @@
         </div>            
     <?php $cnt++; endforeach; ?>
 </div>
+<p></p>
+<p></p>
+<div>
+    <h2>Some Stats</h2>
+    <div><strong>All Themes:</strong> <?php echo Theme::model()->count(); ?></div>
+    <div><strong>Featured Themes:</strong> <?php echo Theme::model()->count( 'score>0' ); ?></div>
+    <p></p>
+    <div><strong>Themes Viewed:</strong> <?php echo number_format( Theme::model()->sumView()->find()->sumviews ); ?></div>
+    <div><strong>Themes Downloaded:</strong> <?php echo number_format( Theme::model()->sumDownload()->find()->sumdownloads ); ?></div>
+</div>
