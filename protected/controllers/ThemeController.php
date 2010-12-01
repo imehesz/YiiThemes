@@ -8,6 +8,11 @@ class ThemeController extends Controller
 	 */
 	public $layout='main';
 
+    /**
+     * hmmm
+     **/
+    public $pretty_theme_name;
+
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
@@ -284,6 +289,20 @@ class ThemeController extends Controller
         die( 'white death' );
     }
 
+    /**
+     * @param $url string
+     * 
+     * return beautified string
+     **/
+    public function makeMePretty( $string )
+    {
+        $retval = strtolower( $string );
+        // $this->url=strtr($this->url, "áéíóöőúüű", "aeiooouuu");
+        $retval = trim(preg_replace(array('/[^a-z0-9-]/', '/-+/'), array('-','-'), $retval), '-');
+        
+        return $retval;
+    }
+
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -297,6 +316,9 @@ class ThemeController extends Controller
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
+
+        $this->pretty_theme_name = $this->makeMePretty( $this->_model->name );
+
 		return $this->_model;
 	}
 

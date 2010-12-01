@@ -27,7 +27,7 @@ $this->menu=array(
 		// previous theme
 		echo 
 			$prev_theme ? 
-				CHtml::link( 'Prev Theme', $this->createUrl('theme/view', array( 'id' => $prev_theme->id ) ), array( 'title' => 'Previous Theme: ' . $prev_theme->name ) ) : 
+				CHtml::link( 'Prev Theme', $this->createUrl('theme/view', array( 'id' => $prev_theme->id, 'title' => $this->makeMePretty( $prev_theme->name ) ) ), array( 'title' => 'Previous Theme: ' . $prev_theme->name ) ) : 
 				'Prev Theme' ; 
 	?> - 
 
@@ -35,10 +35,9 @@ $this->menu=array(
 		// next theme
 		echo 
 			$next_theme ? 
-				CHtml::link( 'Next Theme', $this->createUrl('theme/view', array( 'id' => $next_theme->id ) ), array( 'title' => 'Next Theme: ' . $next_theme->name ) ) : 
+				CHtml::link( 'Next Theme', $this->createUrl('theme/view', array( 'id' => $next_theme->id, 'title' => $this->makeMePretty( $next_theme->name ) ) ), array( 'title' => 'Next Theme: ' . $next_theme->name ) ) : 
 				'Next Theme' ; 
 	?>
-
 <?php if( $model->userID == Yii::app()->user->id ) : ?>
 	<div>
     <a href="<?php print $this->createUrl('theme/update', array( 'id' => $model->id ) );?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/update.png" alt="update" title="update"></a>
@@ -46,6 +45,7 @@ $this->menu=array(
 	</div>
 <?php endif; ?>
 </div>
+<iframe src="http://www.facebook.com/plugins/like.php?href=<?php echo $this->createUrl( 'theme/view', array( 'id' => $model->id, 'title' => $this->makeMePretty( $model->name ) ) ) ;?>&amp;layout=button_count&amp;show_faces=false&amp;width=200&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
 <p style="margin-top:35px;"></p>
 <div style="border-bottom:1px solid #999;width:675px;">
 <?php
@@ -70,7 +70,35 @@ $this->menu=array(
 <div class="info-row">Viewed: <span>{$viewed_nice}</span></div>
 <div class="info-row">Downloaded: <span>{$downloaded_nice}</span></div>
 STATS;
-    
+
+    /*
+    $tabs['Comments'] = <<<COMMENTS
+<a name='facebook-comments'></a> 
+
+<div id='fb-root'></div> 
+<script type='text/javascript'> 
+window.fbAsyncInit = function() {
+    FB.init({
+appId: '104628982944096',
+status: true,
+cookie: true,
+xfbml: true
+});
+};
+
+(function() {
+ var e = document.createElement('script'); e.async = true;
+ e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+ document.getElementById('fb-root').appendChild(e);
+ }());
+</script> 
+
+<div id='fbComments' style='margin: 20px 0;'> 
+<p style='margin-bottom: 15px; font-size: 140%; font-weight: bold; border-bottom: 2px solid #000; padding-bottom: 5px;'>Comments:</p> 
+<fb:comments xid='4FxbiawkaTsfdcn_post4' numposts='10' width='590' simple='' publish_feed='1' reverse='' css='' send_notification_uid='' title='{$model->name}' url='http://localhost/p/wp/?p=4'></fb:comments> 
+</div> 
+COMMENTS;
+    */
     $this->widget('zii.widgets.jui.CJuiTabs', array( 'tabs'=> $tabs ) );
 ?>
 </div>
