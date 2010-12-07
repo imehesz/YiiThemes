@@ -66,10 +66,10 @@ class UserLogin extends CFormModel
 				case UserIdentity::ERROR_USERNAME_INVALID:
 					$this->addError("username",Yii::t("UserModule.user", "Username is incorrect."));
 					break;
-				case UserIdentity::ERROR_STATUS_NOTACTIV:
+				case UserIdentity::ERROR_STATUS_NOTACTIVE:
 					$this->addError("status",Yii::t("UserModule.user", "You account is not activated."));
 					break;
-				case UserIdentity::ERROR_STATUS_BAN:
+				case UserIdentity::ERROR_STATUS_BANNED:
 					$this->addError("status",Yii::t("UserModule.user", "You account is blocked."));
 					break;
 				case UserIdentity::ERROR_PASSWORD_INVALID:

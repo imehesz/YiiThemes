@@ -23,9 +23,20 @@ $this->breadcrumbs=array(
 <div class="form">
 <?php echo CHtml::beginForm( '','post',array('id'=>'loginform') ); ?>
 	<p class="note"><?php //echo Yii::t("UserModule.user", 'Fields with <span class="required">*</span> are required.'); ?></p>
-	
-	<?php echo CHtml::errorSummary($model); ?>
-	
+
+	<?php // echo CHtml::errorSummary($model); ?>
+	<?php 
+			// ===========> TODO we need to fix this ASAP! <===============
+			// for some reason the error messages are
+			// hidden from the user. this is only a
+			// quick patch/fix!!!!
+	?>
+	<?php if( $model->getError( 'status' ) ): ?>
+		<div style="border:2px solid red; background-color: #fcc;padding:10px;">
+				Oops, something is up with your status! Sorry, please try again, or contact us.
+		</div>
+	<?php endif; ?>
+
 	<div class="row">
 		<?php echo CHtml::activeLabelEx($model,'username'); ?>
 		<?php echo CHtml::activeTextField($model,'username') ?>
