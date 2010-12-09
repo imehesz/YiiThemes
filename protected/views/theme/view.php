@@ -23,6 +23,9 @@ $this->menu=array(
 <h1 class="ucase"><?php echo $model->name; ?></h1>
 <div class="date-on-theme">by <strong><?php echo User::model()->findByPk($model->userID)->username; ?></strong> on <?php echo date( 'F d, Y', $model->updated ) ; ?></div>
 <div style="float:right;text-align:right;">
+    <?php if( $model->score>=1000) : ?>
+        <?php echo CHtml::link( 'Try it', 'http://yiidressingroom.mehesz.net/?themeid=' . $model->id ); ?> - 
+    <?php endif; ?>
 	<?php 
 		// previous theme
 		echo 
