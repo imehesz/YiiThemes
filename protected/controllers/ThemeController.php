@@ -66,6 +66,8 @@ class ThemeController extends Controller
         
         $model->save();
 
+        $this->pageTitle = 'Yii Themes - ' . $model->name;
+
         // we need to find the NEXT and the PREVIOUS theme
 		// so we can create cool links ...
 		$next_theme = Theme::model()->find( 'id>' . $model->id . ' ORDER BY id' );
