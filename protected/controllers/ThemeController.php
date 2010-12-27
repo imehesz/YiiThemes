@@ -215,7 +215,7 @@ class ThemeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$page_size = 9;
+		$page_size = 15;
 
                 $uid = Yii::app()->request->getParam( 'uid' );
 
