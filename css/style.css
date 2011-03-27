@@ -318,3 +318,19 @@ div.form .successSummary
 {
 	margin-top: 10px;
 }
+
+.layout-box
+{
+    width: 300px;
+    height: 225px;
+    float:left;
+    text-align:center;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #ddd;
+}
+
+.layout-box:hover
+{
+    border: 1px solid #777;
+}

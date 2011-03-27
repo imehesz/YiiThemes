@@ -37,7 +37,7 @@ class ThemeController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','download'),
+				'actions'=>array('index','view','download', 'layoutgen'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -303,6 +303,17 @@ class ThemeController extends Controller
         $retval = trim(preg_replace(array('/[^a-z0-9-]/', '/-+/'), array('-','-'), $retval), '-');
         
         return $retval;
+    }
+
+    /**
+     * actionLayoutgen 
+     * 
+     * @access public
+     * @return void
+     */
+    public function actionLayoutgen()
+    {
+        $this->render( 'layoutgen' );
     }
 
 	/**
