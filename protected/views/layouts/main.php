@@ -69,6 +69,7 @@ google_ad_height = 60;
 <script type="text/javascript"
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
+<a href="javascript:void(0);"><?php echo CHtml::image( Yii::app()->request->baseUrl . '/images/buyme.png', null, array( 'title' => 'YOUR ad could be here. Click for contact info :)', 'onclick' => 'javascript:alert("imehesz [at] mehesz.net");' ) ); ?></a>
 </div>
 
     <?php /*
