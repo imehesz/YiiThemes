@@ -1,0 +1,294 @@
+/**
+ * General
+ */
+html {
+    color: #444;
+}
+a {
+    color: #C00;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+}
+
+table {
+    width: 100%;
+}
+
+/**
+ * Layout
+ */
+#page {
+    margin: 0 auto;
+    width: 980px;
+}
+#container {
+    padding: 0 10px;
+}
+#header {
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    position: relative;
+}
+#logo-title {
+    float: left;
+}
+
+#footer {
+    border-top: 1px solid #dadada;
+    line-height: 160%;
+    margin: 20px 0 20px;
+    padding: 20px 10px;
+}
+#footer h2 {
+    border: none;
+    padding-bottom: 0;
+}
+#footer a {
+    color: #444;
+}
+#footer .block {
+    float: left;
+    width: 260px;
+}
+#footer #block-tdhelp-contact {
+    margin-right: 80px;
+    width: 360px;
+}
+#footer ul {
+    margin: 0;
+    padding: 0;
+}
+
+#footer li {
+    background: none;
+    float: left;
+    list-style-image: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 120px;
+}
+#footer #block-tdhelp-follow li {
+    float: none;
+}
+.footer-message {
+    color: #7a7a7a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.content-maj,
+.view-category .view-content {
+    float: left;
+    width: 640px;
+}
+.view-category .view-header,
+.content-min {
+    float: right;
+    width: 300px;
+}
+
+/**
+ * Navigation
+ */
+#navigation {
+    bottom: 20px;
+    position: absolute;
+    right: 10px;
+}
+#navigation a {
+    color: #7a7a7a;
+    font-size: 120%;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+#navigation li.active a,
+#navigation a:hover {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+
+/**
+ * Misc
+ */
+h1.video-title {
+    font-size: 200%;
+    margin-top: 20px;
+}
+.block h2 {
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.video-desc {
+    margin-top: 10px;
+}
+.client strong,
+.director strong {
+    display: inline-block;
+    width: 60px;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+.view table,
+.view tr,
+.view td,
+.view th {
+    border: none !important;
+    padding: 0;
+    vertical-align: top;
+}
+.view td {
+    padding-bottom: 20px;
+}
+.view .col-1 {
+    padding-right: 20px;
+    width: 310px; 
+}
+
+
+body.front h1.title,
+body.node-type-video h1.title {
+    display: none;
+}
+
+.teaser-title {
+    margin-bottom: 0;
+}
+.teaser-title a {
+    color: #1a1a1a;
+}
+.teaser-title a .client {
+    color: #6a6a6a;
+    font-size: 90%;
+}
+h2.teaser-title {
+    border: none;
+    margin-top: 4px;
+    padding-bottom: 0;
+}
+h2.teaser-title a:hover {
+    text-decoration: none;
+}
+
+div.director a,
+div.client a {
+    color: #444;
+}
+.flowplayer {
+    cursor: pointer;
+    display: inline-block;
+    height: 360px; 
+    position: relative;
+    width: 640px;
+}
+.flowplayer-tall {
+    height: 480px;
+}
+.play-button {
+    background: url(images/play_large.png) no-repeat;
+    height: 83px;
+    left: 50%;
+    margin: -42px 0 0 -42px;
+    outline: none;
+    position: absolute;
+    text-indent: -99999px;
+    top: 50%;
+    width: 83px;
+}
+
+.social-links {
+    margin-top: 5px;
+    position: relative;
+}
+.social-links .addthis_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.related {
+    margin-top: 20px;
+}
+.related img {
+    height: 112px;
+    width: 200px;
+}
+.related .node {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    width: 200px;
+}
+.related .first {
+    margin-left: -20px;
+}
+
+.category {
+    margin-top: 40px;
+}
+
+#block-block-1 {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+#block-views-front-block_2 {
+    margin-top: 10px;
+}
+
+#slideshow a {
+    display: inline-block;
+}
+#slideshow a:hover {
+    text-decoration: none;
+}
+.node-graphics ul {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 20px 0;
+    padding-bottom: 20px;
+}
+.node-graphics li {
+    display: inline-block;
+	list-style: none;
+    margin-left: 20px;
+}
+.node-graphics li.first {
+    margin-left: 0;
+}
+
+.wikinote
+{
+	float:right;
+	width:225px;
+	background-color:#ffc;
+	padding:10px;
+	margin-top:100px;
+}
+
+.layout-box
+{
+	width: 300px;
+	height: 225px;
+	float:left;
+	text-align:center;
+	padding: 3px;
+	margin: 3px;
+	border: 1px solid #ddd;
+}
+
+.layout-box:hover
+{
+	background-color: #eee;
+}

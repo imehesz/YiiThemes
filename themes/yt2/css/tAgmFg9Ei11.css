@@ -1,0 +1,117 @@
+/*1303183479,176820406*/
+
+.platform_dialog_fullheight_page body{height:100%}
+.platform_dialog_fullheight_page .platform_dialog .platform_dialog_bottom_bar{bottom:0;left:0;position:fixed;right:0}
+.platform_dialog_joey_page .platform_dialog_header_container{background-color:#6d84b4;border:1px solid #3b5998}
+.platform_dialog_joey_page .platform_dialog_header_container .platform_dialog_header{color:#fff;font-size: 14px;font-weight:bold;padding:5px}
+.platform_dialog_joey_page .platform_dialog_content,
+.platform_dialog_joey_page .platform_dialog_bottom_bar_border_lr,
+.platform_dialog_joey_page .confirmation_stripes{border-left:1px solid #555;border-right:1px solid #555}
+.platform_dialog_joey_page .platform_dialog_bottom_bar_border_tb{border-bottom:1px solid #555}
+.platform_dialog_joey_page .platform_dialog_icon{background:#6D84B4 url(http://static.ak.fbcdn.net/rsrc.php/v1/zd/r/Cou7n-nqK52.gif) no-repeat scroll center;float:left;height:16px;margin:5px;width:16px}
+.platform_dialog .confirmation_stripes{background:transparent url(http://static.ak.fbcdn.net/rsrc.php/v1/z7/r/sVrwJtmBVjI.gif) repeat scroll 0 0;height:15px}
+.platform_dialog .platform_dialog_content_padded{padding:10px}
+.platform_dialog .platform_dialog_error p,
+.platform_dialog .platform_dialog_status p{margin:4px 0 0}
+.platform_dialog .platform_dialog_bottom_bar{background:#f2f2f2;bottom:0;left:0;position:absolute;right:0;width:100%}
+.platform_dialog .platform_dialog_bottom_bar_border_tb{border-top:1px solid #ccc}
+.platform_dialog .platform_dialog_bottom_bar_table{width:100%}
+.platform_dialog .platform_dialog_content_fixed_bottom_bar{padding-bottom:46px}
+.platform_dialog .platform_dialog_content_padded_fixed_bottom_bar{padding-bottom:56px}
+.platform_dialog .platform_dialog_buttons{float:right;padding:10px;text-align:right}
+.platform_dialog .platform_dialog_footer{float:left;margin:10px 0 10px 10px}
+.platform_dialog .platform_dialog_buttons input{margin:0}
+.platform_dialog .platform_dialog_subtitle{border-bottom:1px solid #d8dfea;margin-bottom:10px;padding-bottom:4px}
+body.platform_dialog{overflow:visible}
+.feedform .interaction_form .feed_dialog_disclaimer{padding:10px 0 0 0}
+.feedform .platform_dialog_bottom_bar .platform_dialog_bottom_bar_table{float:right;width:auto}
+.feedform .UIFullPage_Container .fbPrivacyWidget{float:right;margin-right:10px;margin-top:-4px}
+.feedform .interaction_form .story_preview_nile{padding:0}
+.feedform .interaction_form .UIIntentionalStory{margin-bottom:0;padding-top:0}
+.feedform .interaction_form .recipients{padding:0 0 15px 0}
+.feedform .interaction_form .recipients strong{margin-left:-7px;padding:4px 4px 0 0}
+.fb_dialog_attachment_pagelet{background:transparent url(http://static.ak.fbcdn.net/rsrc.php/v1/z9/r/jKEcVPZFk-2.gif) no-repeat center;height:50px;margin:0 auto}
+.UIStory_Hide{display:block;float:right;margin-top:-2px}
+.UIStory_Hide a.uiCloseButton{opacity:0}
+.UIStory_Hide a.uiCloseButton:hover,.UIStory:hover .UIStory_Hide a.uiCloseButton,.UIStory_Hide .openToggler a.uiCloseButton{opacity:1}
+.stream_participants_not_expanded .stream_participants_long,.stream_participants_expanded .stream_participants_short{display:none}
+.UIStory_Privacy a{padding:0 5px;line-height:12px;display:inline-block;background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zJ/r/izQe4GX_lA2.gif) no-repeat center right}
+.UIStory_Privacy.UIStory_TargetedPrivacy a{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zd/r/UJHgnnKoTwL.gif);padding:0 7px;line-height:14px}
+.UIStory_Privacy .uiTooltip .uiTooltipWrap{left:-1px;bottom:14px}
+.UIStory .text_exposed_link{display:block;padding-top:4px;font-size: 11px}
+.UIIntentionalStory{background-color:#fff;border-top:1px solid #eee;margin-bottom:7px;min-height:50px;padding:7px 0 0 60px;position:relative}
+.ie6 .UIIntentionalStory{height:50px;overflow:visible;border-top:none}
+.UIStory:first-child{border-top:none;margin-top:0}
+.story_preview_nile .UIIntentionalStory{border:none}
+.UIIntentionalStory_Location,
+.UIIntentionalStory_Time,
+.UIIntentionalStory_Time a{color:#777;font-size: 11px}
+.UIIntentionalStory_BottomAttribution{color:#777}
+.UIIntentionalStory_BottomAttribution a{color:#777}
+.UIIntentionalStory_Pic{left:0;position:absolute}
+.UIIntentionalStory_Image{display:block;position:absolute;vertical-align:middle}
+.UIIntentionalStory_Message,
+.UIIntentionalStory .location{font-size: 13px;font-weight:normal}
+.UIIntentionalStory_Message_Generated{color:#777}
+.UIFeedFormStory_Prompt{color:#808080;font-size: 11px;padding-right:25px}
+.UIFeedFormStory_Prompt .UIFeedFormStory_Lead{font-weight:bold}
+.UIFeedFormStory_Prompt textarea{font-size: 13px;font-weight:normal;margin-top:7px;overflow:hidden;width:100%}
+.UIIntentionalStory_Arrow{padding:0 1px}
+.UIIntentionalStory_Names{color:#808080}
+.UIIntentionalStory_Names a, a.UIIntentionalStory_Names{font-weight:bold}
+a.UIIntentionalStory_Names{color:#3b5998}
+.UIIntentionalStory_Attribution{color:#808080}
+.UIIntentionalStory .UIStoryAttachment_MediaSingle{padding-right:10px}
+.UIIntentionalStory_PhotoExtra{padding-left:8px}
+.UIIntentionalStory_MediaExtra{display:none;padding-left:8px}
+.text_exposed .UIIntentionalStory_MediaExtra{display:block}
+.UIIntentionalStory_Info{clear:left;margin-top:3px;min-height:16px;display:block}
+.ie6 .UIIntentionalStory_Info{height:16px;overflow:visible}
+.UIActionLinks .UIIntentionalStory_Mobile{margin-top:-2px}
+.UIIntentionalStory_InfoText{color:#777;min-height:16px;padding:2px 0 0 0}
+.ie6 .UIIntentionalStory_InfoText{height:16px}
+.UIIntentionalStory_InfoTextIndented{padding-left:22px}
+.UIIntentionalStory_Tagged{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zV/r/IJYgcESal33.png) no-repeat;background-position:0 -395px;padding-left:16px;width:0;display:inline-block}
+.story_hide_menu{text-align:center}
+.UIIntentionalStory_hover{background:#eee}
+.UIIntentionalStory .swfvideo .extra{padding-bottom:0;padding-right:0}
+.UIIntentionalStory .UIMediaItem_video{padding-bottom:0}
+.UIIntentionalStory_CollapsedStories{background-color:#fff;border-top:1px solid #eee;display:block;font-size: 9px;font-weight:bold;margin-bottom:7px;padding-top:7px;margin-top:7px;position:relative}
+.UIIntentionalStory_CollapsedStoriesLoading{background:#fff url(http://static.ak.fbcdn.net/rsrc.php/v1/zb/r/GsNJNwuI-UM.gif) 6px right no-repeat}
+.UIMediaItem_ManyItems{float:left}
+.UIMediaItem img{display:block}
+.UIMediaItem .uiVideoThumb{display:block}
+.UIMediaItem_Wrapper{overflow:hidden}
+.UIMediaItem_Photo .UIMediaItem_Wrapper{display:inline-block}
+.UIMediaItem_Photo .UIMediaItem_PhotoFrame{border:3px solid white}
+.UIMediaItem_UnknownWidth img{max-width:90px;max-height:90px}
+.ie6 .UIMediaItem_UnknownWidth img{width:90px}
+.UIStoryAttachment{margin-top:6px;overflow:hidden;padding-right:10px;margin-bottom:5px}
+.UIStoryAttachment_Tab{position:absolute}
+.UIStoryAttachment_Icon{background:#fff;padding-bottom:2px}
+.UIStoryAttachment_BlockQuote{border-left:2px solid #ccc;padding:0 0 3px 8px}
+.UIStoryAttachment_BlockQuote .UIStoryAttachment_Title{margin-top:0}
+.UIStoryAttachment_Media{float:left;overflow:hidden;padding-right:10px}
+.UIStoryAttachment_MediaWide{float:none}
+.UIStoryAttachment_MediaShortened .UIStoryAttachment_MediaWide{float:left}
+.text_exposed .UIStoryAttachment_MediaShortened .UIStoryAttachment_MediaWide{float:none;display:block}
+.UIStoryAttachment_Info{display:table}
+.text_exposed .UIStoryAttachment_MediaShortened .UIStoryAttachment_Info,.UIStory_Open .UIStoryAttachment_Info{display:block;clear:left}
+.UIStoryAttachment_Title{font-weight:bold;padding-top:3px}
+.UIStoryAttachment_TitleAbove{margin:0}
+.UIStoryAttachment_TitleAboveMedia{margin:0 0 5px}
+.UIStoryAttachment_TitleBelow{clear:left;padding:5px 0 0}
+.UIStoryAttachment_Title_Byline{color:#777;font-weight:normal}
+.UIStoryAttachment_Title_Byline a{font-weight:bold}
+.UIStoryAttachment_Caption{color:#808080;padding-top:3px}
+.UIStoryAttachment_Copy{color:#808080;padding:3px 0}
+.UIStoryAttachment_Copy .CopyTitle{font-weight:bold}
+.UIStoryAttachment_Copy table{border-collapse:collpase}
+.UIStoryAttachment_Copy table td{padding:2px 2px 0 0}
+.UIStoryAttachment_Table{padding-top:2px}
+.UIStoryAttachment_Tags{color:#808080;padding:0 0 3px}
+.UIStoryAttachment_Label{color:#999;padding-right:4px}
+.UIStoryAttachment_Tags .UIStoryAttachment_Label{background:transparent url(http://static.ak.fbcdn.net/rsrc.php/v1/zV/r/IJYgcESal33.png) no-repeat left -395px;padding-left:16px}
+.UIStoryAttachment_InlineInfo .UIStoryAttachment_Copy,.UIStoryAttachment_InlineInfo .UIStoryAttachment_Title{display:inline}
+
+#bootloader_eFfLJ { height: 42px; }
