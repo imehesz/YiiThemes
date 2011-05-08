@@ -32,7 +32,7 @@
                     <?php $this->widget('zii.widgets.CMenu',array(
                         'htmlOptions'   => array( 'class' => 'links primary-links' ),
                         'items'=>array(
-                            array('label'=>'Home', 'url'=>array('/')),
+                            array('label'=>'Home', 'url'=> Yii::app()->controller->createUrl( '/site/index' )),
                             array('label'=>'Themes', 'url'=>array('/theme/index')),
                             array('label'=>'Layouts', 'url'=>array('/theme/layoutgen')),
                             array('label'=>'Contact', 'url'=>array('/site/contact')),
