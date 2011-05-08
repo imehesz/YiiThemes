@@ -28,4 +28,13 @@ class Controller extends CController
 		self::$RIGHT_SIDEBAR = $this->renderPartial( 'application.components.views._right_sidebar_main', null, true );
 		return parent::init();
 	}
+
+    public static function makeMePretty( $string )
+    {
+        $retval = strtolower( $string );
+        // $this->url=strtr($this->url, "áéíóöőúüű", "aeiooouuu");
+        $retval = trim(preg_replace(array('/[^a-z0-9-]/', '/-+/'), array('-','-'), $retval), '-');
+        
+        return $retval;
+    }
 }

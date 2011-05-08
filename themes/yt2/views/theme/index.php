@@ -36,11 +36,11 @@
 					<div class="theme-grid-box">
 						<div class="theme-preview">
 							<a href="<?php echo $this->createUrl( 'theme/view', array( 'id' => $theme->id, 'title' => $this->makeMePretty( $theme->name ) ) ); ?>" alt="<?php echo $theme->name;?>" title="<?php echo $theme->name; ?>" >
-								<?php echo CHtml::link( CHtml::image( $image_magic_path . '?width=310&height=174&cropratio=310:174&image=' . $image , null, array( 'width' => '310', 'height' => '174', 'title' => $theme->name ) ), Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $theme->id ) ) ); ?>
+								<?php echo CHtml::link( CHtml::image( $image_magic_path . '?width=310&height=174&cropratio=310:174&image=' . $image , null, array( 'width' => '310', 'height' => '174', 'title' => $theme->name ) ), Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $theme->id, 'title' => Controller::makeMePretty( $theme->name ) ) ) ); ?>
 							</a>
 						</div>
 						<div class="theme-text">
-							<?php echo CHtml::link( $theme->name, $this->createUrl( 'theme/view', array( 'id' => $theme->id, 'title' => $this->makeMePretty( $theme->name ) ) ) ); ?> <span style="font-style:italic;">by <?php echo $theme->user->username; ?></span>
+							<?php echo CHtml::link( $theme->name, $this->createUrl( 'theme/view', array( 'id' => $theme->id, 'title' => $this->makeMePretty( $theme->name ) ) ) ); ?> <span style="font-style:italic;">by</span> <?php echo $theme->user->username; ?>
 						</div>
 					</div>
 				</td>

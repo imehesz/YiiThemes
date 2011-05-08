@@ -11,10 +11,10 @@
                                 <div id="node" class="node node-video">
                                     <div id="video">
 										<?php $image = '/files/screenshots/' . $themes[0]->preview1; ?>
-										<?php echo CHtml::link( CHtml::image( $image_magic_path . '?width=640&height=360&cropratio=640:360&image=' . $image, null, array( 'width' => '640', 'height' => '360', 'title' => $themes[0]->name ) ), Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[0]->id ) ) ); ?>
+										<?php echo CHtml::link( CHtml::image( $image_magic_path . '?width=640&height=360&cropratio=640:360&image=' . $image, null, array( 'width' => '640', 'height' => '360', 'title' => $themes[0]->name ) ), Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[0]->id, 'title' => Controller::makeMePretty( $themes[0]->name ) ) ) ); ?>
                                     </div>
                                     <h2 class="teaser-title">
-										<a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[0]->id ) ); ?>">
+										<a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[0]->id, 'title' => Controller::makeMePretty( $themes[0]->name ) ) ); ?>">
 											<?php echo $themes[0]->name ?> 
 												<span class="client"><i>by</i> <?php echo $themes[0]->user->username ?></span>
 										</a>
@@ -40,12 +40,13 @@
 												<td class="col-1">
 													<div id="node" class="node node-video">
 														<?php $image = '/files/screenshots/' . $themes[$curr_theme]->preview1; ?>
-														<?php echo CHtml::link( CHtml::image( $image_magic_path . '?width=310&height=174&cropratio=310:174&image=' . $image, null, array( 'width' => '310', 'height' => '174' ) ), Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[$curr_theme]->id ) ) ); ?>
+														<?php echo CHtml::link( CHtml::image( $image_magic_path . '?width=310&height=174&cropratio=310:174&image=' . $image, null, array( 'width' => '310', 'height' => '174' ) ), Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[$curr_theme]->id, 'title' => Controller::makeMePretty( $themes[$curr_theme]->name ) ) ) ); ?>
 														<h3 class="teaser-title">
-															<?php echo CHtml::link( $themes[$curr_theme]->name, Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[$curr_theme]->id ) ) ); ?>
+															<?php echo CHtml::link( $themes[$curr_theme]->name, Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[$curr_theme]->id, 'title' => Controller::makeMePretty( $themes[$curr_theme]->name ) ) ) ); ?>
 														</h3>
 														<div class="client">
-															<?php echo CHtml::link( '<i>by</i> ' . $themes[$curr_theme]->user->username, Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[$curr_theme]->id ) ) ); ?>
+															<?php //echo CHtml::link( '<i>by</i> ' . $themes[$curr_theme]->user->username, Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $themes[$curr_theme]->id ) ) ); ?>
+															<i>by</i> <?php echo $themes[$curr_theme]->user->username; ?>
 														</div>
 													</div>
 												</td>

@@ -1,7 +1,7 @@
 <div id="block-block-1" class="block block-block">
 		<h2>Welcome</h2>
 		<div class="content">
-			<p>"Your first step to be ridiculously good looking!"</p>
+			<p>"Because some things are better in color."</p>
 			<p>As you can probably tell, this site was designed by a developer for designers in the <b>Yii community</b> who are willing to share their art work for the masses.</p>
 
 			<p>There are (currently) <b>NO restictions</b>, <b>NO hidden fees</b>, <b>NO rules</b>, the site itself is completely <b>FREE</b> for everybody, but for obvious reasons, if you would like to share your work you need to <?php echo CHtml::link( 'sign up', Yii::app()->controller->createUrl( '/user/user/register' ) ); ?> for an account.</p>

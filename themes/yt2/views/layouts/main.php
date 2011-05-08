@@ -1,14 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!-- saved from url=(0037)http://tds-dev.tampadigital.com/beta/ -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" class="js">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="shortcut icon" href="http://tds-dev.tampadigital.com/beta/misc/favicon.ico" type="image/x-icon">
-<meta property="og:title" content="Demo 2010">
-<meta property="og:site_name" content="Yii Themes (beta)">
-<meta property="og:image" content="http://tds-dev.tampadigital.com/beta/sites/default/files/screenshots/demo_2010.jpg">
-  <title>Home | Yii Themes (beta)</title>
+<link rel="icon" href="<?php Yii::app()->request->baseUrl;?>/images/favicon.ico" type="image/x-icon">
+<meta property="og:title" content="<?php echo CHtml::encode( $this->pageTitle ); ?>">
+<meta property="og:site_name" content="Yii Themes">
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
   <link type="text/css" rel="stylesheet" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/td-reset.css">
   <link type="text/css" rel="stylesheet" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/node.css">
   <link type="text/css" rel="stylesheet" media="all" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/defaults.css">
@@ -26,7 +24,7 @@
     <div id="page">
         <div id="header" class="clear-block">
             <div id="logo-title">
-                  <a href="" title="Home" rel="home" id="logo"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/yiithemes_logo.png" alt="Home"></a>
+                  <a href="<?php echo Yii::app()->controller->createUrl('/site/index'); ?>" title="Yii Themes - because some things are better in color" rel="home" id="logo"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/yiithemes_logo_new.png" alt="Yii Themes - because some things are better in color"></a>
             </div> <!-- /logo-title -->
 
             <div id="navigation" class="menu withprimary ">
@@ -52,91 +50,6 @@
             <div class="block">
                 <?php echo $content; ?>
             </div>
-            <?php /*
-            <div id="block-views-front-block_1" class="block block-views">
-                <div class="content">
-                    <div class="view view-front view-id-front view-display-id-block_1 view-dom-id-1"> 
-                        <div class="view-content">
-                            <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
-                                <div id="node-57" class="node node-video">
-                                    <div id="video-57" class="flowplayer">
-                                        <img src="./Home   Yii Themes (beta)_files/demo_2010.jpg" alt="Demo 2010" title="" class="imagecache imagecache-thumb_large" width="640" height="360"> 
-                                        <div class="play-button">Play</div>
-                                    </div>
-                                    <h2 class="teaser-title"><a href="http://tds-dev.tampadigital.com/beta/videos/td-demo-2010">Demo 2010&nbsp;&nbsp;<span class="client">Yii Themes</span></a></h2><div class="social-links clear-block">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- /block-views-front-block_1 -->
-
-            <div id="block-views-front-block_2" class="block block-views">
-                <div class="content">
-                    <div class="view view-front view-id-front view-display-id-block_2 view-dom-id-2">
-                        <div class="view-content">
-                            <table class="views-view-grid">
-                                <tbody>
-                                    <tr class="row-1 row-first">
-                                        <td class="col-1">
-                                            <div id="node-78" class="node node-video">
-                                                <a href="http://tds-dev.tampadigital.com/beta/videos/2006-addy-awards-intuitive-mind" class="imagecache imagecache-thumb_med imagecache-linked imagecache-thumb_med_linked"><img src="./Home   Yii Themes (beta)_files/intuitive.jpg" alt="" title="" class="imagecache imagecache-thumb_med" width="310" height="174"></a>
-                                                <h3 class="teaser-title">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/2006-addy-awards-intuitive-mind">2006 ADDY Awards - The Intuitive Mind</a>
-                                                </h3>
-                                                <div class="client">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/2006-addy-awards-intuitive-mind">American Advertising Federation</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="col-2">
-                                            <div id="node-91" class="node node-video">
-                                                <a href="http://tds-dev.tampadigital.com/beta/videos/experience-dali" class="imagecache imagecache-thumb_med imagecache-linked imagecache-thumb_med_linked"><img src="./Home   Yii Themes (beta)_files/dali.jpg" alt="" title="" class="imagecache imagecache-thumb_med" width="310" height="174"></a>
-                                                <h3 class="teaser-title">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/experience-dali">Experience Dali</a>
-                                                </h3>
-                                                <div class="client">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/experience-dali">The Salvador Dalí Museum</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr> <!-- end of first row -->
-                                    <tr class="row-2 row-last">
-                                        <td class="col-1">
-                                            <div id="node-99" class="node node-video">
-                                                <a href="http://tds-dev.tampadigital.com/beta/videos/bikes" class="imagecache imagecache-thumb_med imagecache-linked imagecache-thumb_med_linked">
-                                                    <img src="./Home   Yii Themes (beta)_files/lff-bikes.jpg" alt="" title="" class="imagecache imagecache-thumb_med" width="310" height="174">
-                                                </a>
-                                                <h3 class="teaser-title">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/bikes">Bikes</a>
-                                                </h3>
-                                                <div class="client">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/bikes">Schifino Lee</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="col-2">
-                                            <div id="node-80" class="node node-video">
-                                                <a href="http://tds-dev.tampadigital.com/beta/videos/2008-addy-awards-pride" class="imagecache imagecache-thumb_med imagecache-linked imagecache-thumb_med_linked">
-                                                    <img src="./Home   Yii Themes (beta)_files/addyopener.jpg" alt="" title="" class="imagecache imagecache-thumb_med" width="310" height="174">
-                                                </a>
-                                                <h3 class="teaser-title">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/2008-addy-awards-pride">2008 ADDY Awards - Pride</a>
-                                                </h3>
-                                                <div class="client">
-                                                    <a href="http://tds-dev.tampadigital.com/beta/videos/2008-addy-awards-pride">American Advertising Federation</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> <!-- /view-content -->
-                    </div> <!-- /view view-front ... -->
-                </div> <!-- /content -->
-            </div> <!-- /block-view-front-block_2 -->
-            */ ?>
         </div> <!-- /content-maj -->
         <div class="content-min">
 			<?php echo Controller::$RIGHT_SIDEBAR; ?>
@@ -165,6 +78,7 @@
   	<div class="content">
     	<ul class="follow-links">
     		<li><?php echo CHtml::link( 'Yii Radiio (PHP) podcast', 'http://yiiradiio.mehesz.net', array( 'target' => '_blank' ) );?></li>
+    		<li><?php echo CHtml::link( 'IKMQ - online trivia game', 'http://ikmq.mehesz.net', array( 'target' => '_blank' ) );?></li>
     		<li><?php echo CHtml::link( 'StoredByU', 'http://storedbyu.mehesz.net', array( 'target' => '_blank' ) );?></li>
     		<li><?php echo CHtml::link( 'RoadFinger', 'http://roadfinger.mehesz.net', array( 'target' => '_blank' ) );?></li>
 		</ul>  
@@ -183,11 +97,27 @@
     </div>
 </div>
       </div> <!-- /footer -->
-      <div class="footer-message">
-          &copy; <?php echo date( 'Y', time() ); ?> - Yii Themes. All Rights Reserved. Development by <?php echo CHtml::link( 'mehesz.net', 'http://mehesz.net', array( 'target' => '_blank' ) ); ?>. Design by <?php echo CHtml::link( 'Matt K', 'http://mattkelliher.com', array( 'target' => '_blank' ) ); ?>.</div>
+      	<div class="footer-message">
+          &copy; <?php echo date( 'Y', time() ); ?> - Yii Themes. All Rights Reserved. Development by <?php echo CHtml::link( 'mehesz.net', 'http://mehesz.net', array( 'target' => '_blank' ) ); ?>. Design by <?php echo CHtml::link( 'Matt K', 'http://mattkelliher.com', array( 'target' => '_blank' ) ); ?>.
+		</div>
+		<div class="footer-message">
+			<a href="<?php echo Yii::app()->controller->createUrl('/site/index'); ?>" title="Yii Themes - because some things are better in color" rel="home" id="logo"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/yiithemes_logo_new_small.png" alt="Yii Themes - because some things are better in color"></a>
+		</div>
     </div> <!-- /footer-wrapper -->
   </div> <!-- /page -->
 
 
 
-</body><lock name="comparo"></lock></html>
+</body>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5417349-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</html>

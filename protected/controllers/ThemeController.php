@@ -294,10 +294,14 @@ class ThemeController extends Controller
     /**
      * @param $url string
      * 
+	 * !!! no longer supported !!!
+	 * use Controller::makeMePretty instead!
+	 *
      * return beautified string
      **/
-    public function makeMePretty( $string )
+    public function makeMePretty_old( $string )
     {
+		return;
         $retval = strtolower( $string );
         // $this->url=strtr($this->url, "áéíóöőúüű", "aeiooouuu");
         $retval = trim(preg_replace(array('/[^a-z0-9-]/', '/-+/'), array('-','-'), $retval), '-');
