@@ -216,30 +216,35 @@ class ThemeController extends Controller
 	public function actionIndex()
 	{
 		$page_size = 12;
+		$uid = Yii::app()->request->getParam( 'uid' );
+		$addsort = '';
 
-                $uid = Yii::app()->request->getParam( 'uid' );
+		if( Yii::app()->request->getParam('sort') )
+		{
+			$addsort = Yii::app()->request->getParam( 'sort' ) . ' DESC,';
+		}
 
-                if(
-                        ! Yii::app()->user->isGuest &&
-                        $uid == Yii::app()->user->id
-                )
-                {
-                    $dataProvider=new CActiveDataProvider(
-												'Theme', 
-												array( 
-													'criteria' => array( 'condition' => 'deleted=0 AND userID='.(int)$uid, 'order' => 'created DESC' ) ,
-													'pagination' => array( 'pageSize' => $page_size ) 
-												));
-                }
-                else
-                {
-                    $dataProvider=new CActiveDataProvider(
-												'Theme', 
-												array( 
-													'criteria' => array( 'condition' => 'deleted=0', 'order' => 'created DESC' ), 
-													'pagination' => array( 'pageSize' => $page_size ) 
-												) );
-                }
+		if(
+			! Yii::app()->user->isGuest &&
+			$uid == Yii::app()->user->id
+		)
+		{
+			$dataProvider=new CActiveDataProvider(
+				'Theme', 
+						array( 
+							'criteria' => array( 'condition' => 'deleted=0 AND userID='.(int)$uid, 'order' => $addsort . 'created DESC' ) ,
+							'pagination' => array( 'pageSize' => $page_size ) 
+						));
+		}
+		else
+		{
+			$dataProvider=new CActiveDataProvider(
+				'Theme', 
+						array( 
+							'criteria' => array( 'condition' => 'deleted=0', 'order' => $addsort . 'created DESC' ), 
+							'pagination' => array( 'pageSize' => $page_size ) 
+						) );
+		}
 
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

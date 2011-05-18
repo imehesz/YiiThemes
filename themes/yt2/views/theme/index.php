@@ -1,11 +1,14 @@
 <?php $image_magic_path = str_replace( 'index.php', 'image.php', $_SERVER['PHP_SELF'] ); ?>
 <h1>Themes</h1>
-<?php if( ! Yii::app()->user->isGuest ) : ?>
     <div style="float:right;">
-        <?php echo CHtml::link( 'Add a theme', $this->createUrl('theme/create' ) ); ?>
-        <?php /* <img style="" src="<?php print Yii::app()->request->baseUrl;?>/images/icon_mini_add.png" /> */ ?>
+		<?php echo CHtml::link( 'Latest', $this->createUrl( '/theme/index' ) ); ?> - 
+		<?php echo CHtml::link( 'Most Viewed', $this->createUrl( '/theme/index', array( 'sort' => 'viewed' ) ) ); ?> - 
+		<?php echo CHtml::link( 'Most Downloaded', $this->createUrl( '/theme/index', array( 'sort' => 'downloaded' ) ) ); ?>
+		<?php if( ! Yii::app()->user->isGuest ) : ?>
+				<?php echo CHtml::link( '[+] Add a theme', $this->createUrl('theme/create' ) ); ?>
+				<?php /* <img style="" src="<?php print Yii::app()->request->baseUrl;?>/images/icon_mini_add.png" /> */ ?>
+		<?php endif; ?>
     </div>
-<?php endif; ?>
 <div style="clear:both;"></div>
 <div class="form">
     <div class="errorSummary" style="display:none;"><p>Oops. Something happened, please try again.</p></div>
