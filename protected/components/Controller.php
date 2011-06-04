@@ -25,7 +25,6 @@ class Controller extends CController
 
 	public function init()
 	{
-		self::$RIGHT_SIDEBAR = $this->renderPartial( 'application.components.views._right_sidebar_main', null, true );
 		return parent::init();
 	}
 

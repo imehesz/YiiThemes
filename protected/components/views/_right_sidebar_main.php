@@ -1,4 +1,17 @@
 <div id="block-block-1" class="block block-block">
+		<?php if( ! Yii::app()->user->isGuest ) : ?>
+			<h2>Admin</h2>
+			<div class="content">
+					<p><?php echo CHtml::link( 'Create New Theme', Yii::app()->controller->createUrl( '/theme/create' ) ); ?></p>
+					<?php if( Yii::app()->controller->id == 'theme' && Yii::app()->controller->action->id == 'view' ) : ?>
+						<?php if( isset( $model ) && $model->userID == Yii::app()->user->id ) : ?>
+							<p><?php echo CHtml::link( 'Update `' . $model->name . '`', Yii::app()->controller->createUrl( '/theme/update', array( 'id' => $model->id ) ) ); ?></p>
+
+							<p><a href="javascript:void(0);" onclick="javascript:deleteTheme('<?php print $this->createUrl('theme/trash', array( 'id' => $model->id ) );?>');">Delete `<?php echo $model->name; ?>`</a></p>
+						<?php endif; ?>
+					<?php endif; ?>
+			</div>
+		<?php endif; ?>
 		<h2>Welcome</h2>
 		<div class="content">
 			<p>"Because some things are better in color."</p>

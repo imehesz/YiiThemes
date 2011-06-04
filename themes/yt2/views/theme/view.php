@@ -20,12 +20,14 @@
 				CHtml::link( 'Next Theme', $this->createUrl('theme/view', array( 'id' => $next_theme->id, 'title' => $this->makeMePretty( $next_theme->name ) ) ), array( 'title' => 'Next Theme: ' . $next_theme->name ) ) : 
 				'Next Theme' ; 
 	?>
+	<?php /*
 <?php if( $model->userID == Yii::app()->user->id ) : ?>
 	<div>
     <a href="<?php print $this->createUrl('theme/update', array( 'id' => $model->id ) );?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/update.png" alt="update" title="update"></a>
     <a href="javascript:void(0);" onclick="javascript:deleteTheme('<?php print $this->createUrl('theme/trash', array( 'id' => $model->id ) );?>');"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/delete.png" alt="delete" title="delete"></a>
 	</div>
 <?php endif; ?>
+*/ ?>
 </div>
 <iframe src="http://www.facebook.com/plugins/like.php?href=<?php echo $this->createUrl( '/theme/view', array( 'id' => $model->id, 'title' => $this->makeMePretty( $model->name ) ) ) ;?>&amp;layout=button_count&amp;show_faces=false&amp;width=200&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
 <div style="clear:both;"></div>

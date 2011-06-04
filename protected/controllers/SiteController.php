@@ -21,6 +21,12 @@ class SiteController extends Controller
 		);
 	}
 
+	protected function beforeAction( $action )
+	{
+		Controller::$RIGHT_SIDEBAR = $this->renderPartial( 'application.components.views._right_sidebar_main', null, true );
+		return parent::beforeAction( $action );
+	}
+
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.

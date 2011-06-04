@@ -18,6 +18,18 @@ class ThemeController extends Controller
 	 */
 	private $_model;
 
+	protected function beforeAction( $action )
+	{
+		// TODO fix this, maybe update Yii to a newer version?
+		$id = Yii::app()->request->getParam( 'id', null );
+
+		if( $id ) { $model = $this->loadModel(); }
+		else { $model = new Theme; }
+
+		Controller::$RIGHT_SIDEBAR = $this->renderPartial( 'application.components.views._right_sidebar_main', array( 'model' => $model ), true );
+		return parent::beforeAction( $action );
+	}
+
 	/**
 	 * @return array action filters
 	 */
@@ -176,12 +188,12 @@ class ThemeController extends Controller
     {
         $model = $this->loadModel();
 
-        if( $model && $model->userID == Yii::app()->user-id )
+        if( $model && $model->userID == Yii::app()->user->id )
         {
             $model->setAttribute( 'deleted', 1 );
-            if( $model -> save() )
+            if( $model->save() )
             {
-                $this->redirect( array('theme/index', array( 'uid' => Yii::app()->user->id ) ) );
+                $this->redirect( array('theme/index' ) );
             }
         }
         else

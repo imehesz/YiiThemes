@@ -4,10 +4,11 @@
 		<?php echo CHtml::link( 'Latest', $this->createUrl( '/theme/index' ) ); ?> - 
 		<?php echo CHtml::link( 'Most Viewed', $this->createUrl( '/theme/index', array( 'sort' => 'viewed' ) ) ); ?> - 
 		<?php echo CHtml::link( 'Most Downloaded', $this->createUrl( '/theme/index', array( 'sort' => 'downloaded' ) ) ); ?>
+		<?php /*
 		<?php if( ! Yii::app()->user->isGuest ) : ?>
 				<?php echo CHtml::link( '[+] Add a theme', $this->createUrl('theme/create' ) ); ?>
-				<?php /* <img style="" src="<?php print Yii::app()->request->baseUrl;?>/images/icon_mini_add.png" /> */ ?>
 		<?php endif; ?>
+		*/ ?>
     </div>
 <div style="clear:both;"></div>
 <div class="form">
