@@ -227,15 +227,34 @@ class ThemeController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$page_size = 12;
-		$uid = Yii::app()->request->getParam( 'uid' );
-		$addsort = '';
+		$page_size 	= 12;
+		$uid 		= Yii::app()->request->getParam( 'uid' );
+		$addsort 	= '';
+		$artist 	= Yii::app()->request->getParam( 'artist' );
+		$artist_obj	= null;
+		$criteria	= new CDbCriteria;
 
 		if( Yii::app()->request->getParam('sort') )
 		{
 			$addsort = Yii::app()->request->getParam( 'sort' ) . ' DESC,';
 		}
 
+		if( $artist )
+		{
+			$artist_obj = User::model()->findByAttributes( array( 'username' => $artist ) );
+			if( $artist_obj )
+			{
+				$criteria->addCondition( 'userID=:artist_id' );
+				$criteria->params[':artist_id'] = $artist_obj->id;
+			}
+		}
+
+		$criteria->order = $addsort . 'created DESC';
+
+	// it's late, can't think anymore ...
+	// TODO clean this up!
+
+	/*
 		if(
 			! Yii::app()->user->isGuest &&
 			$uid == Yii::app()->user->id
@@ -249,17 +268,19 @@ class ThemeController extends Controller
 						));
 		}
 		else
+	*/
 		{
 			$dataProvider=new CActiveDataProvider(
 				'Theme', 
 						array( 
-							'criteria' => array( 'condition' => 'deleted=0', 'order' => $addsort . 'created DESC' ), 
-							'pagination' => array( 'pageSize' => $page_size ) 
+							'criteria' 		=> $criteria,
+							'pagination' 	=> array( 'pageSize' => $page_size ) 
 						) );
 		}
 
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'dataProvider'	=> $dataProvider,
+			'artist'		=> $artist_obj
 		));
 	}
 

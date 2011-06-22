@@ -1,9 +1,12 @@
 <?php $image_magic_path = str_replace( 'index.php', 'image.php', $_SERVER['PHP_SELF'] ); ?>
-<h1>Themes</h1>
+<h1>Themes <?php echo ! empty( $artist ) ? 'by ' . $artist->username : ''; ?></h1>
+<?php if( ! empty( $artist) ) : ?>
+	<?php echo CHtml::link( 'Show All', Yii::app()->controller->createUrl( 'theme/index' ) ); ?>
+<?php endif; ?>
     <div style="float:right;">
-		<?php echo CHtml::link( 'Latest', $this->createUrl( '/theme/index' ) ); ?> - 
-		<?php echo CHtml::link( 'Most Viewed', $this->createUrl( '/theme/index', array( 'sort' => 'viewed' ) ) ); ?> - 
-		<?php echo CHtml::link( 'Most Downloaded', $this->createUrl( '/theme/index', array( 'sort' => 'downloaded' ) ) ); ?>
+		<?php echo CHtml::link( 'Latest', $this->createUrl( '/theme/index', array( 'artist' => empty( $artist ) ? '' : $artist->username ) ) ); ?> - 
+		<?php echo CHtml::link( 'Most Viewed', $this->createUrl( '/theme/index', array( 'sort' => 'viewed', 'artist' => empty( $artist ) ? '' : $artist->username ) ) ); ?> - 
+		<?php echo CHtml::link( 'Most Downloaded', $this->createUrl( '/theme/index', array( 'sort' => 'downloaded', 'artist' => empty( $artist ) ? '' : $artist->username ) ) ); ?>
 		<?php /*
 		<?php if( ! Yii::app()->user->isGuest ) : ?>
 				<?php echo CHtml::link( '[+] Add a theme', $this->createUrl('theme/create' ) ); ?>
@@ -44,7 +47,7 @@
 							</a>
 						</div>
 						<div class="theme-text">
-							<?php echo CHtml::link( $theme->name, $this->createUrl( 'theme/view', array( 'id' => $theme->id, 'title' => $this->makeMePretty( $theme->name ) ) ) ); ?> <span style="font-style:italic;">by</span> <?php echo $theme->user->username; ?>
+							<?php echo CHtml::link( $theme->name, $this->createUrl( 'theme/view', array( 'id' => $theme->id, 'title' => $this->makeMePretty( $theme->name ) ) ) ); ?> <span style="font-style:italic;">by</span> <?php echo CHtml::link( $theme->user->username, Yii::app()->controller->createUrl( '/theme/index/', array( 'artist' => $theme->user->username ) ) ); ?>
 						</div>
 					</div>
 				</td>
