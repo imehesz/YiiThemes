@@ -66,7 +66,19 @@ STATS;
 
 	if( $model->file )
 	{
-		$tabs['Download'] = CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ) );
+		// TODO yeah ... we should make this nicer
+		$tabs['Download'] = 
+		CHtml::openTag( 'div', array( 'style' => 'margin-top:10px;' ) ) .
+		CHtml::closeTag( 'div' ) . 
+		CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ), array( 'style' => 'color:#c00;' ) ) .
+
+		CHtml::openTag( 'div', array( 'style' => 'margin-top:10px;' ) ) .
+		CHtml::link( 'Problems?', 'javascript:void(0);', array( 'style' => 'color:#aaa;', 'onclick' => 'javascript:jQuery("#toggleme").toggle();' ) ) .
+		CHtml::closeTag( 'div' ) .
+
+		CHtml::openTag( 'span', array( 'style' => 'display:none;', 'id' => 'toggleme' ) ) .
+		CHtml::link( 'Please try this direct link.', Yii::app()->request->baseUrl . '/files/' . $model->file ) .
+		CHtml::closeTag( 'span' );
 	}
 
     $tabs['Short Description'] = $model->short_desc;
