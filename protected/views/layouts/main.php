@@ -35,7 +35,7 @@
 		)); */ ?>
 		<ul>
 			<li class="home"><?php print CHtml::link( 'Home', $this->createUrl( '/site/index' ) ); ?></li>
-			<li><?php print Yii::app()->user->isGuest?CHtml::link( 'Themes', $this->createUrl( 'theme/index' ) ):CHtml::link( 'My Themes', $this->createUrl('theme/index', array('uid' => Yii::app()->user->id) ) ); ?></li>
+			<li><?php print Yii::app()->user->isGuest?CHtml::link( 'Themes', $this->createUrl( '/theme/index' ) ):CHtml::link( 'My Themes', $this->createUrl('/theme/index', array('uid' => Yii::app()->user->id) ) ); ?></li>
 			<li class="home"><?php print CHtml::link( 'Layouts', $this->createUrl( '/theme/layoutgen' ) ); ?></li>
             <li><a href="javascript:void(0);" onclick="javascript:alert( 'imehesz [at] mehesz.net' );">Contact</a> </li>
 			<?php /* <li><?php print Yii::app()->user->isGuest?CHtml::link( 'Login', $this->createUrl( '/user/user/login' ) ) : CHtml::link( 'Logout', $this->createUrl( '/user/user/logout' ) ); ?></li> */ ?>
