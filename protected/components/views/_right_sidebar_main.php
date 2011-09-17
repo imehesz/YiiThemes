@@ -12,6 +12,9 @@
 					<?php endif; ?>
 			</div>
 		<?php endif; ?>
+		<span style="float:right;">
+			<g:plusone size="medium"></g:plusone>
+		</span>
 		<h2>Welcome</h2>
 		<div class="content">
 			<p>"Because some things are better in color."</p>
