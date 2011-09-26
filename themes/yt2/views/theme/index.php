@@ -54,7 +54,14 @@
 			<?php if( 2 == $cur_col ) : ?>
 				</tr>
 			<?php $cur_col=0; endif; ?>
-			<?php if( $cur_theme == 3 || $cur_theme == 7 ) : ?>
+			<?php if( $cur_theme == 3 ) : ?>
+				<tr>
+					<td colspan="2" align="center" style="padding:10px;">
+						<?php $this->widget( 'ReklamWidget', array( 'domain' => 'yiithemes1' ) ); ?>
+					</td>
+				</tr>
+			<?php endif ?>
+			<?php if( $cur_theme == 7 ) : ?>
 				<tr>
 					<td colspan="2" align="center" style="padding:10px;">
 						<script type="text/javascript"><!--
