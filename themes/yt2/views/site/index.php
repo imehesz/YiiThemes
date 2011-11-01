@@ -1,6 +1,11 @@
 			<?php 
 				// TODO revise this and move to the controller ... what was I thinking???
 				$themes = Theme::model()->findAllByAttributes( array('deleted'=>0  ), array( 'order'=> 'rand()', 'limit'=>5 ) ); 
+				if( empty( $themes ) )
+				{
+					throw new CHttpException( '404', 'Themes were not found :/' );
+				}
+
 				$image_magic_path = str_replace( 'index.php', 'image.php', $_SERVER['PHP_SELF'] );
 			?>
             <div id="block-views-front-block_1" class="block block-views">
@@ -34,6 +39,19 @@
                         <div class="view-content">
                             <table class="views-view-grid">
                                 <tbody>
+									<tr>
+										<td colspan="2" align="center">
+											<script type="text/javascript"><!--
+												google_ad_client = "pub-1319358860215477";
+												/* ads for yii themes */
+												google_ad_slot = "2805546600";
+												google_ad_width = 468;
+												google_ad_height = 60;
+												//-->
+												</script> 
+												<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script> 
+										</td>
+									</tr>
 									<?php $curr_theme = 1; for( $i=0; $i < 2 ; $i++ ) : ?>
                                     	<tr class="row-<?php echo $i ?> row">
 											<?php for( $j=0 ; $j<2 ; $j++ ) : ?>
