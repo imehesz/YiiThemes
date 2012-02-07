@@ -37,6 +37,7 @@ class ThemeController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
+			'allowIp + download'
 		);
 	}
 
@@ -64,6 +65,20 @@ class ThemeController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+
+	public function filterAllowIp( $filterChain )
+	{
+		$theme_id = Yii::app()->request->getParam( 'id' );
+		if( $theme_id )
+		{
+			if( ThemeUser::model()->canDownloadByIp( $theme_id ) )
+			{
+				$filterChain->run();
+			}
+		}
+
+		throw new CHttpException( '403', 'Oops, it seems like you reached your daily limit to download this theme. Please try again later ;)' );
 	}
 
 	/**
@@ -306,6 +321,12 @@ class ThemeController extends Controller
         {
             if( file_exists( MEHESZ_FILES_FOLDER . $model->file ) )
             {
+				// at this point we mark this theme as downloaded and we track the IP
+				$theme_user = new ThemeUser;
+				$theme_user->user_id = (int)Yii::app()->user->id;
+				$theme_user->theme_id = $model->id;
+				$theme_user->save();
+
                 $model->setAttribute( 'downloaded', $model->downloaded+1 );
                 $model->skipUpdated = true;
                 $model->save();

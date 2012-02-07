@@ -64,7 +64,7 @@
 <div class="info-row">Downloaded: <span>{$downloaded_nice}</span></div>
 STATS;
 
-	if( $model->file )
+	if( $model->file && ThemeUser::model()->canDownloadByIp( $model->id ) )
 	{
 		// TODO yeah ... we should make this nicer
 		$tabs['Download'] = 
