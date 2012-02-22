@@ -334,16 +334,23 @@ class ThemeController extends Controller
                 $file = MEHESZ_FILES_FOLDER . $model->file;
                 //die( $file );
 
-                header("Expires: Mon, 26 Jul 1997 05:00:00 GMT\n");
-                header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-                header("Content-type: application/zip;\n"); //or yours?
-                header("Content-Transfer-Encoding: binary");
-                $len = filesize($filename);
-                header("Content-Length: $len;\n");
-                $outname= "yiitheme" . $model->id . ".zip";
-                header("Content-Disposition: attachment; filename=\"$outname\";\n\n");
+                if( file_exists( $file ) )
+                {
+                        $outname= "yiitheme" . $model->id . ".zip";
 
-                readfile( $file );
+                        header('Content-Description: File Transfer');
+                        header('Content-Type: application/octet-stream');
+                        header('Content-Disposition: attachment; filename='. $outname );
+                        header('Content-Transfer-Encoding: binary');
+                        header('Expires: 0');
+                        header('Cache-Control: must-revalidate');
+                        header('Pragma: public');
+                        header('Content-Length: ' . filesize($file));
+                        ob_clean();
+                        flush();
+                        readfile($file);
+                        exit;
+                }
             }
         }
 
