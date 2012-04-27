@@ -70,7 +70,7 @@ STATS;
 		$tabs['Download'] = 
 		CHtml::openTag( 'div', array( 'style' => 'margin-top:10px;' ) ) .
 		CHtml::closeTag( 'div' ) . 
-		CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ), array( 'style' => 'color:#c00;' ) ) .
+		CHtml::link( 'Click here to download (zip)', $this->createUrl('theme/download', array( 'id' => $model->id ) ), array( 'style' => 'color:#c00;', 'target' => '_blank' ) ) .
 
 		CHtml::openTag( 'div', array( 'style' => 'margin-top:10px;' ) ) .
 		CHtml::link( 'Problems?', 'javascript:void(0);', array( 'style' => 'color:#aaa;', 'onclick' => 'javascript:jQuery("#toggleme").toggle();' ) ) .
