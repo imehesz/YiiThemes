@@ -133,6 +133,15 @@ COMMENTS;
 <!-- AddThis Button END -->
 SHARING;
 
+	if( $model->getCommentCount() > 0 )
+	{
+		$tabs['Comments' . ' (' . $model->getCommentCount() . ')'] = $this->renderPartial('comment.views.comment.commentList', array( 'model'=>$model), true ); 
+	}
+	else
+	{
+		$tabs['Comments'] = $this->renderPartial('comment.views.comment.commentList', array( 'model'=>$model), true ); 
+	}
+
     $this->widget('zii.widgets.jui.CJuiTabs', array( 'tabs'=> $tabs ) );
 ?>
 </div>

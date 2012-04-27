@@ -157,3 +157,30 @@ CREATE TABLE IF NOT EXISTS `user_has_role` (
 --
 ALTER TABLE `themes`
   ADD CONSTRAINT `themes_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS `comments` (
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`message` text COLLATE utf8_unicode_ci,
+	`userId` int(11) unsigned DEFAULT NULL,
+	`createDate` datetime DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	KEY `fk_comments_userId` (`userId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Table structure for table `themes_comments_nm`
+--
+
+CREATE TABLE IF NOT EXISTS `themes_comments_nm` (
+	`themeId` int(11) unsigned NOT NULL,
+	`commentId` int(11) unsigned NOT NULL,
+	PRIMARY KEY (`themeId`,`commentId`),
+	KEY `fk_posts_comments_comments` (`commentId`),
+	KEY `fk_posts_comments_posts` (`themeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -104,6 +104,17 @@ class Theme extends CActiveRecord
         );
     }
 
+	public function behaviors()
+	{
+		return array(
+			'commentable' => array(
+				'class'	=> 'ext.comment-module.behaviors.CommentableBehavior',
+				'mapTable'	=> 'themes_comments_nm',
+				'mapRelatedColumn'	=> 'themeId'
+			)
+		);
+	}
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
