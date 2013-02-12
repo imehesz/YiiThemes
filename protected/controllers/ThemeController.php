@@ -1,6 +1,6 @@
 <?php
 
-class ThemeController extends Controller
+class ThemeController extends ERestController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to 'column2', meaning
@@ -18,8 +18,11 @@ class ThemeController extends Controller
 	 */
 	private $_model;
 
-	protected function beforeAction( $action )
+	public function beforeAction( $action )
 	{
+
+		return parent::beforeAction( $action );
+
 		// TODO fix this, maybe update Yii to a newer version?
 		$id = Yii::app()->request->getParam( 'id', null );
 
@@ -33,7 +36,7 @@ class ThemeController extends Controller
 	/**
 	 * @return array action filters
 	 */
-	public function filters()
+	public function _filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
@@ -46,11 +49,11 @@ class ThemeController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
+	public function _accessRules()
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','download', 'layoutgen'),
+				'actions'=>array( 'index','view','download', 'layoutgen' ),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -80,6 +83,27 @@ class ThemeController extends Controller
 
 		throw new CHttpException( '403', 'Oops, it seems like you reached your daily limit to download this theme. Please try again later ;)' );
 	}
+
+  public function doCustomRestGetRandomfive() {
+		$themes = Theme::model()->findAllByAttributes( array('deleted'=>0  ), array( 'order'=> 'rand()', 'limit'=>5 ) ); 
+    $retarr = array();
+
+    if ( ! empty( $themes ) ) {
+      foreach ( $themes as $theme ) {
+        $jsonTheme          = new StdClass();
+        $jsonTheme->id      = $theme->id;
+        $jsonTheme->name    = $theme->name;
+        $jsonTheme->short_desc    = $theme->short_desc;
+        $jsonTheme->long_desc     = $theme->long_desc;
+        //$jsonTheme->sum_view      = $theme->sumView;
+        //$jsonTheme->sum_download  = $theme->sumDownload;
+        $jsonTheme->image         = $theme->preview1;
+        $jsonTheme->artist        = $theme->user->username;
+        $retarr[] = $jsonTheme;
+      }
+    }
+    $this->renderJson( $retarr );
+  }
 
 	/**
 	 * Displays a particular model.

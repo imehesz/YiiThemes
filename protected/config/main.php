@@ -19,6 +19,7 @@ return array(
 		'application.modules.user.models.*',
 		'application.mehesz.*',
 		'application.extensions.*',
+    'application.extensions.restfullyii.components.*'
 	),
 
 	// application components
@@ -34,11 +35,14 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
             'showScriptName' => false,
+      'rules' => require( dirname(__FILE__) . '/../extensions/restfullyii/config/routes.php' ),
+      /*
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
+      */
 		),
 		/*
 		'db'=>array(
@@ -89,7 +93,12 @@ return array(
 							'scaleAndCrop'	=> array( 'width' => 250, 'height' => 175 ),
 					),
 				),
-
+				'200x125'	=> array(
+					'cacheIn'	=> 'webroot.files.imagecache.200x125',
+					'actions'	=> array(
+							'scale'	=> array( 'width' => 200, 'height' => 125 ),
+					),
+				),
 			),
 		),
 	),
@@ -108,4 +117,5 @@ return array(
 			'debug'=>false,
 		),
 	),
+  'theme' => 'yt2'
 );
