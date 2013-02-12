@@ -95,8 +95,8 @@ class ThemeController extends ERestController
         $jsonTheme->name    = $theme->name;
         $jsonTheme->short_desc    = $theme->short_desc;
         $jsonTheme->long_desc     = $theme->long_desc;
-        //$jsonTheme->sum_view      = $theme->sumView;
-        //$jsonTheme->sum_download  = $theme->sumDownload;
+        $jsonTheme->view_cnt      = $theme->viewed;
+        $jsonTheme->download_cnt  = $theme->downloaded;
         $jsonTheme->image         = $theme->preview1;
         $jsonTheme->artist        = $theme->user->username;
         $retarr[] = $jsonTheme;
