@@ -13,6 +13,8 @@ class ThemeController extends ERestController
      **/
     public $pretty_theme_name;
 
+    public $nestedModels = false;
+
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
@@ -440,5 +442,58 @@ class ThemeController extends ERestController
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+  ///////////////////////
+  // Custom REST stuff //
+  ///////////////////////
+
+  public function doRestView( $id ) {
+    $model = Theme::model()->with('user')->findByPk( $id );
+
+    if ( $model ) {
+      $jsonTheme = new StdClass();
+      $jsonTheme->id        = $model->id;
+      $jsonTheme->name      = $model->name;
+      $jsonTheme->artist_id = $model->user->id;
+      $jsonTheme->artist    = $model->user->username;
+      $jsonTheme->image     = $model->preview1;
+      $jsonTheme->created   = $model->created;
+      $jsonTheme->updated   = $model->updated;
+      $jsonTheme->short_desc= $model->short_desc;
+      $jsonTheme->long_desc = $model->long_desc;
+
+      //$this->renderJson( $jsonTheme );
+
+      $this->outputHelper( 'Theme found', $jsonTheme, 1 );
+
+    }
+  }
+
+	public function outputHelper($message, $results, $totalCount=0, $model=null)
+	{
+		if(is_null($model)) {
+			$model = lcfirst(get_class($model));
+    }
+		else {
+			$model = lcfirst($model);
+    }
+
+    // let's see if we know anything about the current user ...
+    $user_info = new StdClass();
+    $user_info->is_guest = Yii::app()->user->isGuest;
+    if ( ! $user_info->is_guest ) {
+      $user_info->name = Yii::app()->user->name;
+    }
+		
+		$this->renderJson(array(
+			'success'=>true, 
+      'user_info' => $user_info,
+			'message'=>$message, 
+			'data'=>array(
+				'totalCount'=>$totalCount, 
+				'themes'=>$results
+			)
+		));
 	}
 }
