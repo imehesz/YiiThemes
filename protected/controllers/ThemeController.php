@@ -86,26 +86,6 @@ class ThemeController extends ERestController
 		throw new CHttpException( '403', 'Oops, it seems like you reached your daily limit to download this theme. Please try again later ;)' );
 	}
 
-  public function doCustomRestGetRandomfive() {
-		$themes = Theme::model()->findAllByAttributes( array('deleted'=>0  ), array( 'order'=> 'rand()', 'limit'=>5 ) ); 
-    $retarr = array();
-
-    if ( ! empty( $themes ) ) {
-      foreach ( $themes as $theme ) {
-        $jsonTheme          = new StdClass();
-        $jsonTheme->id      = $theme->id;
-        $jsonTheme->name    = $theme->name;
-        $jsonTheme->short_desc    = $theme->short_desc;
-        $jsonTheme->long_desc     = $theme->long_desc;
-        $jsonTheme->view_cnt      = $theme->viewed;
-        $jsonTheme->download_cnt  = $theme->downloaded;
-        $jsonTheme->image         = $theme->preview1;
-        $jsonTheme->artist        = $theme->user->username;
-        $retarr[] = $jsonTheme;
-      }
-    }
-    $this->renderJson( $retarr );
-  }
 
 	/**
 	 * Displays a particular model.
@@ -448,26 +428,66 @@ class ThemeController extends ERestController
   // Custom REST stuff //
   ///////////////////////
 
+  public function doRestDelete($id) {
+    $this->renderJson( array("message" => "Not supported action!") );
+  }
+
+  public function doRestUpdate($id, $data) {
+    $this->renderJson( array("message" => "Not supported action!") );
+  }
+
+  public function doRestList() {
+    // first let's get the models
+    $models = $this->getModel()->filter($this->restFilter)->orderBy($this->restSort)->limit($this->restLimit)->offset($this->restOffset)->findAll();
+    foreach ( $models as $theme ) {
+      ;
+    }
+    $count = $this->getModel()->filter( $this->restFilter )->count();
+    $this->outputHelper( 'Themes found', $models, $count );
+  }
+
   public function doRestView( $id ) {
     $model = Theme::model()->with('user')->findByPk( $id );
 
     if ( $model ) {
+      $md = new CMarkdown;
+      $md->cssFile = false;
+
       $jsonTheme = new StdClass();
       $jsonTheme->id        = $model->id;
       $jsonTheme->name      = $model->name;
-      $jsonTheme->artist_id = $model->user->id;
       $jsonTheme->artist    = $model->user->username;
       $jsonTheme->image     = $model->preview1;
       $jsonTheme->created   = $model->created;
       $jsonTheme->updated   = $model->updated;
       $jsonTheme->short_desc= $model->short_desc;
-      $jsonTheme->long_desc = $model->long_desc;
-
-      //$this->renderJson( $jsonTheme );
+      $jsonTheme->long_desc = $md->transform( $model->long_desc );
 
       $this->outputHelper( 'Theme found', $jsonTheme, 1 );
-
     }
+  }
+
+  public function doCustomRestGetRandomfive() {
+		$themes = Theme::model()->findAllByAttributes( array('deleted'=>0  ), array( 'order'=> 'rand()', 'limit'=>5 ) ); 
+    $retarr = array();
+
+    if ( ! empty( $themes ) ) {
+      foreach ( $themes as $theme ) {
+        $jsonTheme          = new StdClass();
+        $jsonTheme->id      = $theme->id;
+        $jsonTheme->name    = $theme->name;
+        $jsonTheme->short_desc    = $theme->short_desc;
+        $jsonTheme->view_cnt      = $theme->viewed;
+        $jsonTheme->download_cnt  = $theme->downloaded;
+        $jsonTheme->image         = $theme->preview1;
+        $jsonTheme->created       = $theme->created;
+        $jsonTheme->updated       = $theme->updated;
+        $jsonTheme->artist        = $theme->user->username;
+        $retarr[] = $jsonTheme;
+      }
+    }
+
+    $this->outputHelper( 'Random five themes', $retarr, sizeof( $retarr ) );
   }
 
 	public function outputHelper($message, $results, $totalCount=0, $model=null)
