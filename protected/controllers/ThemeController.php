@@ -436,14 +436,51 @@ class ThemeController extends ERestController
     $this->renderJson( array("message" => "Not supported action!") );
   }
 
+  /**
+   * TODO there is a bug where if the user id is 1, filter returns 
+   * every author with  ID containing the number 1. ie: 1, 11, 121, 541 etc
+   */
   public function doRestList() {
     // first let's get the models
-    $models = $this->getModel()->filter($this->restFilter)->orderBy($this->restSort)->limit($this->restLimit)->offset($this->restOffset)->findAll();
-    foreach ( $models as $theme ) {
-      ;
+
+    // if we have a filter, we might wanna look for 
+    // the author, so we need to change some things.
+    if ($this->restFilter ) {
+      $filters = CJSON::decode( $this->restFilter );
+      $new_filters = array();
+      foreach ( $filters as $filter ) {
+        if ( isset( $filter['property'] ) && $filter['property'] == 'author' ) {
+          // we got an author, let's deal with it ...
+          $author = $filter['value'];
+          if ( $author ) {
+            $user = User::model()->findByAttributes(array('username' => $author ));
+            if ( $user ) {
+              $new_filters[] = array( 'property' => 'userId', 'value' => $user->id );
+            }
+          }
+        } elseif ( isset( $filter['property'] ) && $filter['value'] ) {
+          $new_filters[] = $filter;
+        }
+      }
+      $this->restFilter = CJSON::encode( $new_filters );
     }
+
+    $models = $this->getModel()->filter($this->restFilter)->orderBy($this->restSort)->limit($this->restLimit)->offset($this->restOffset)->findAll();
+
+    foreach ( $models as $model ) {
+      $jsonTheme = new StdClass();
+      $jsonTheme->id        = $model->id;
+      $jsonTheme->name      = $model->name;
+      $jsonTheme->artist    = $model->user->username;
+      $jsonTheme->image     = $model->preview1;
+      $jsonTheme->created   = $model->created;
+      $jsonTheme->updated   = $model->updated;
+      $jsonTheme->short_desc= $model->short_desc;
+      $retarr[] = $jsonTheme;
+    }
+
     $count = $this->getModel()->filter( $this->restFilter )->count();
-    $this->outputHelper( 'Themes found', $models, $count );
+    $this->outputHelper( 'Themes found', $retarr, $count );
   }
 
   public function doRestView( $id ) {
