@@ -1,0 +1,96 @@
+'use strict';
+
+var config = {
+  baseUrl: "http://localhost:8000",
+  debug: true
+};
+
+var themes = [
+
+{ id: 1, link_to_theme: config.baseUrl + "/app/index.html#/theme/1", title: "One Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://wpc.4d7d.edgecastcdn.net/004D7D/www/cyberpunk/img/1920x1200_GIRL-CP77.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
+
+{ id: 2, link_to_theme: config.baseUrl + "/app/index.html#/theme/2", title: "Two Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://th04.deviantart.net/fs70/PRE/f/2010/286/f/2/stuart_photographer_by_deviant_bacha-d30os1f.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
+
+{ id: 3, link_to_theme: config.baseUrl + "/app/index.html#/theme/3",  title: "Three Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://th04.deviantart.net/fs70/PRE/f/2010/286/f/2/stuart_photographer_by_deviant_bacha-d30os1f.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
+
+{ id: 4, link_to_theme: config.baseUrl + "/app/index.html#/theme/4",  title: "Four Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://wpc.4d7d.edgecastcdn.net/004D7D/www/cyberpunk/img/1920x1200_GIRL-CP77.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
+
+{ id: 5, link_to_theme: config.baseUrl + "/app/index.html#/theme/5",  title: "Five Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://wpc.4d7d.edgecastcdn.net/004D7D/www/cyberpunk/img/1920x1200_GIRL-CP77.jpg', created_at: "1288323623006", updated_at: "1288323223006" }
+
+];
+
+/* Controllers */
+
+function StaticCtrl( $scope, $routeProvider, $http ) {
+  var pageTitle = $routeProvider.current.$route.pageTitle + "" || "";
+  $scope.setTitle(  pageTitle );
+  $scope.themeMain = {};
+
+  // are we on the HOME page?
+  if ( pageTitle.toLowerCase().indexOf('home') > -1 ) {
+   $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme/randomfive",headers:{"Accept": "application/json", "X_REST_USERNAME": "admin@restuser", "X_REST_PASSWORD": "admin@Access"} }).
+      success( function(data, status, headers, config ){
+        $scope.$parent.showLoader = false;
+        if ( data.data && data.data.totalCount && data.data.totalCount > 0 ) {
+          var themes = data.data.themes;
+          console.log( themes );
+          $scope.themeMain = themes[0];
+          $scope.themesTop = [themes[1], themes[2]];
+          $scope.themesBottom = [themes[3], themes[4]];
+        }
+      }).
+      error(function(){
+        console.log( 'ERR: Ajax failed :/' );
+      });
+  }
+}
+StaticCtrl.$inject = ['$scope', '$route', '$http'];
+
+function ThemeCtrl( $scope, $routeProvider, $http, $routeParams ) {
+  console.log( $routeParams );
+  var pageTitle = $routeProvider.current.$route.pageTitle + "" || "";
+  $scope.setTitle(  pageTitle );
+
+  if ( pageTitle.toLowerCase().indexOf('list') > -1 ) {
+    var local_themes = themes.slice(0), 
+      theme_pairs = [];
+
+    while ( local_themes.length > 0 ) {
+      theme_pairs.push( local_themes.splice( 0,2 ) );
+    }
+
+    $scope.loadMore = function() {
+      // loading "ALL" the themes here ...
+      console.log( 'loading more stuff ...' );
+      $http({ method: "GET", url: config.baseUrl + "/app/index.html#/layouts" }).
+        success( function(data, status, headers, config ){
+          $scope.themes = theme_pairs;
+        }).
+        error(function(){
+          console.log( 'ERR: Ajax failed :/' );
+        });
+    };
+    
+    $scope.loadMore();
+  }
+
+  if ( $routeParams && $routeParams.id ) {
+    var id_with_title = $routeParams.id,
+      id = id_with_title.substr( 0, id_with_title.indexOf( '-' ) );
+
+    $http({ method: "GET", url: config.baseUrl + "/app/index.html#/layouts" }).
+      success( function(data, status, headers, config ){
+        for ( var i=0; i < themes.length; i++ ) {
+          if ( id == themes[i].id ) {
+            $scope.themeMain = themes[i];
+            $scope.setTitle( themes[i].title );
+          }
+        }
+      }).
+      error(function(){
+        console.log( 'ERR: Ajax failed :/' );
+      });
+
+  }
+}
+ThemeCtrl.$inject = ['$scope', '$route', '$http', '$routeParams'];

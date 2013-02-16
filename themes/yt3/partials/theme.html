@@ -1,0 +1,53 @@
+<header class="jumbotron subhead" id="overview">
+  <div class="row">
+    <div class="span12">
+      <h1>{{themeMain.title}}</h1>
+    </div>
+  </div> <!-- .row -->
+</header>
+
+<div class="row">
+  <div class="span12 main-theme">
+    <img ng-src="{{themeMain.image}}">
+  </div> <!-- .span12 -->
+</div> <!-- .row -->
+
+<div class="row">
+  <div class="span12">
+    ADVERTISEMENT
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <div class="well">
+      <p>
+        <a class="btn btn-warning" href="{{themeMain.link_to_download}}">Download</a>
+      </p>
+      <p> <div class="label">Author</div> <a href="{{themeMain.linkToAuthor}}">{{themeMain.author}}</a> </p>
+      <p> <div class="label">Viewed</div> {{themeMain.view_cnt | number}} </p>
+      <p> <div class="label">Downloaded</div> {{themeMain.download_cnt | number}} </p>
+      <p> <div class="label">Score</div> {{themeMain.download_cnt / themeMain.view_cnt * 100 | number:2}} </p>
+      <p> <div class="label">Created</div> {{themeMain.created_at | date:'medium'}} </p>
+      <p> <div class="label">Updated</div> {{themeMain.updated_at | date:'medium'}} </p>
+      <p> {{themeMain.short_desc}}</p>
+      <p> {{themeMain.long_desc}}</p>
+    </div>
+  </div>
+  <div class="span6">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	var disqus_shortname = 'yiithemes'; // required: replace example with your forum shortname
+
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function() {
+	 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	 dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	 })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+img {
+  border: 0;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.main-theme {
+  position: relative;
+  background-color: #000;
+  text-align: center; /* image! */
+  max-height: 658px;
+  overflow: hidden;
+}
+
+.main-theme-caption {
+  border-left: 1px solid red;
+  background: url( ../img/grey.png );
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 1%;
+  text-align: left;
+}
+
+@media only screen and (max-width: 760px) {
+	.main-theme-caption {
+		display: none;
+	}
+}
+
+.small-theme {
+  position: relative;
+}
+
+.small-theme-caption {
+  border-top: 1px solid red;
+  background: url( ../img/grey.png );
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 1%;
+}
+
+.by-whom {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.contact-form-wrapper {
+	text-align: center;
+}
+
+.themes-wrapper {
+  height: 400px;
+  overflow: auto;
+  width: 102%;
+}
+
+.loader {
+  z-index: 100000;
+  background: url( ../img/loader.gif ) no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+}

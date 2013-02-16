@@ -1,0 +1,77 @@
+<header class="jumbotron subhead" id="overview">
+  <div class="row">
+    <div class="span12">
+      <h1>Theme List</h1>
+    </div>
+  </div> <!-- .row -->
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li class=""> <a href="">Latest</a> </li>
+      <li class=""> <a href="">Most Viewed</a> </li>
+      <li class=""> <a href="">Most Downloaded</a> </li>
+      <li class="dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">Artists <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="">Artis #1</a><li>
+          <li><a href="">Artis #2</a><li>
+          <li><a href="">Artis #3</a><li>
+          <li><a href="">Artis #4</a><li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<div class="themes-wrapper" when-scrolled="loadMore()">
+  <div ng-repeat="theme in themes" class="row">
+    <p>
+    <div class="span6 small-theme" ng-show="theme[0]">
+      <a href="{{theme[0].link_to_theme}}-{{theme[0].title.prettify()}}"><img ng-src="{{theme[0].image}}"></a>
+      <div class="small-theme-caption">
+        <h5>{{theme[0].title}}<span class="by-whom"> by <a href="{{theme[0].linkToAuthor}}">{{theme[0].author}}</a></span></h5>
+      </div>
+    </div>
+    <div class="span6 small-theme" ng-show="theme[1]">
+      <a href="{{theme[1].link_to_theme}}-{{theme[1].title.prettify()}}"><img ng-src="{{theme[1].image}}"></a>
+      <div class="small-theme-caption">
+        <h5>{{theme[1].title}}<span class="by-whom"> by <a href="{{theme[1].linkToAuthor}}">{{theme[1].author}}</a></span></h5>
+      </div>
+    </div>
+    </p>
+  </div>
+</div>
+
+<div style="clear:both;"></div>
+
+<!-- TODO: check if this is crap -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script>
+(function ($) {
+	$(function(){
+
+		// fix sub nav on scroll
+		var $win = $(window),
+				$nav = $('.subnav'),
+				navHeight = $('.navbar').first().height(),
+				navTop = $('.subnav').length && $('.subnav').offset().top - navHeight,
+				isFixed = 0;
+
+		processScroll();
+
+		$win.on('scroll', processScroll);
+
+		function processScroll() {
+			var i, scrollTop = $win.scrollTop();
+			if (scrollTop >= navTop && !isFixed) {
+				isFixed = 1;
+				$nav.addClass('subnav-fixed');
+			} else if (scrollTop <= navTop && isFixed) {
+				isFixed = 0;
+				$nav.removeClass('subnav-fixed');
+			}
+		}
+	});
+})(window.jQuery);
+</script>
