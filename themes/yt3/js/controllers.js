@@ -1,7 +1,7 @@
 'use strict';
 
 var config = {
-  baseUrl: "http://localhost:8000",
+  baseUrl: "http://192.168.0.22:8000",
   debug: true
 };
 
@@ -54,19 +54,31 @@ function ThemeCtrl( $scope, $routeProvider, $http, $routeParams ) {
   $scope.$parent.showLoader = true;
 
   if ( pageTitle.toLowerCase().indexOf('list') > -1 ) {
-    var local_themes = themes.slice(0), 
-      theme_pairs = [];
 
-    while ( local_themes.length > 0 ) {
-      theme_pairs.push( local_themes.splice( 0,2 ) );
-    }
+    var offset = 0;
+    var limit = 4;
+    var theme_pairs = [];
 
     $scope.loadMore = function() {
-      // loading "ALL" the themes here ...
-      console.log( 'loading more stuff ...' );
-      $http({ method: "GET", url: config.baseUrl + "/app/index.html#/layouts" }).
+      $scope.$parent.showLoader = true;
+      $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme?limit="+limit+"&offset="+offset+"&sort=[{'property':'created','direction':'desc'}]", headers: YT_CONFIG.jsonRestHeaders, data: {limit:limit, offset:offset} }).
         success( function(data, status, headers, config ){
-          $scope.themes = theme_pairs;
+          if ( data.data && data.data.themes ) {
+            var themes = data.data.themes;
+
+            // we pair up the themes so we can nicely
+            // organize them on the page ...
+            var local_themes = themes.slice(0);
+
+            while ( local_themes.length > 0 ) {
+              theme_pairs.push( local_themes.splice( 0,2 ) );
+            }
+
+            $scope.themes = theme_pairs;
+            offset += limit;
+
+            $scope.$parent.showLoader = false;
+          }
         }).
         error(function(){
           console.log( 'ERR: Ajax failed :/' );

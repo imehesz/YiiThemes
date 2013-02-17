@@ -38,7 +38,13 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       var raw = elm[0];
 
       elm.bind('scroll', function() {
-        if ( raw.scrollTop + raw.offsetHeight >= raw.scrollHeight ) {
+        /*
+        // for some unknown reason it stopped working and I had to add +1 
+        // now it works, but leaving this here for future reference ...
+        console.log( "raw.scrollTop + raw.offsetHeight >= raw.scrollHeight" );
+        console.log( raw.scrollTop + raw.offsetHeight + " >= " + raw.scrollHeight );
+        */
+        if ( raw.scrollTop + raw.offsetHeight+1 >= raw.scrollHeight ) {
           scope.$apply( attr.whenScrolled );
         }
       });
