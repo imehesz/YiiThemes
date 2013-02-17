@@ -24,7 +24,7 @@
       <p>
         <a ng-show="themeMain.downloadable" class="btn btn-warning" href="/theme/download/?id={{themeMain.id}}">Download</a>
       </p>
-      <p> <div class="label">Author</div> <a href="{{themeMain.artist}}">{{themeMain.artist}}</a> </p>
+      <p> <div class="label">Author</div> <a href="#/themes?artist={{themeMain.artist}}">{{themeMain.artist}}</a> </p>
       <p> <div class="label">Viewed</div> {{themeMain.view_cnt | number}} </p>
       <p> <div class="label">Downloaded</div> {{themeMain.download_cnt | number}} </p>
       <p> <div class="label">Score</div> {{themeMain.download_cnt / themeMain.view_cnt * 100 | number:2}} </p>

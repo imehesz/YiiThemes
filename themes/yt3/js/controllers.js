@@ -1,24 +1,5 @@
 'use strict';
 
-var config = {
-  baseUrl: "http://192.168.0.22:8000",
-  debug: true
-};
-
-var themes = [
-
-{ id: 1, link_to_theme: config.baseUrl + "/app/index.html#/theme/1", title: "One Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://wpc.4d7d.edgecastcdn.net/004D7D/www/cyberpunk/img/1920x1200_GIRL-CP77.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
-
-{ id: 2, link_to_theme: config.baseUrl + "/app/index.html#/theme/2", title: "Two Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://th04.deviantart.net/fs70/PRE/f/2010/286/f/2/stuart_photographer_by_deviant_bacha-d30os1f.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
-
-{ id: 3, link_to_theme: config.baseUrl + "/app/index.html#/theme/3",  title: "Three Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://th04.deviantart.net/fs70/PRE/f/2010/286/f/2/stuart_photographer_by_deviant_bacha-d30os1f.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
-
-{ id: 4, link_to_theme: config.baseUrl + "/app/index.html#/theme/4",  title: "Four Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://wpc.4d7d.edgecastcdn.net/004D7D/www/cyberpunk/img/1920x1200_GIRL-CP77.jpg', created_at: "1288323623006", updated_at: "1288323223006" }, 
-
-{ id: 5, link_to_theme: config.baseUrl + "/app/index.html#/theme/5",  title: "Five Some lnog title goes here ...", short_desc: "Here some sort of short description", long_desc: "Something so much longer here that can be very very very loooong and nobody can read it blah blah blah...", author: "Author Name", view_cnt: 12349, download_cnt: 564, image: 'http://wpc.4d7d.edgecastcdn.net/004D7D/www/cyberpunk/img/1920x1200_GIRL-CP77.jpg', created_at: "1288323623006", updated_at: "1288323223006" }
-
-];
-
 /* Controllers */
 
 function StaticCtrl( $scope, $routeProvider, $http ) {
@@ -60,8 +41,24 @@ function ThemeCtrl( $scope, $routeProvider, $http, $routeParams ) {
     var theme_pairs = [];
 
     $scope.loadMore = function() {
+      // we might have sorting needs ...
+      var sort = [{'property':'created','direction':'DESC'}];
+      if ( $routeParams.sortby ) {
+        if ( $routeParams.sortby == 'views' ) {
+          sort = [{'property':'viewed','direction':'DESC'}];
+        } else if ( $routeParams.sortby == 'downloads' ) {
+          sort = [{'property':'downloaded','direction':'DESC'}];
+        }
+      }
+
+      // or filtering needs ...
+      var filter = [];
+      if ( $routeParams.artist ) {
+        filter = [{'property':'author', 'value': $routeParams.artist}];
+      }
+
       $scope.$parent.showLoader = true;
-      $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme?limit="+limit+"&offset="+offset+"&sort=[{'property':'created','direction':'desc'}]", headers: YT_CONFIG.jsonRestHeaders, data: {limit:limit, offset:offset} }).
+      $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme?limit="+limit+"&offset="+offset+"&sort=" + angular.toJson( sort ) + "&filter=" + angular.toJson( filter ), headers: YT_CONFIG.jsonRestHeaders, data: {limit:limit, offset:offset} }).
         success( function(data, status, headers, config ){
           if ( data.data && data.data.themes ) {
             var themes = data.data.themes;
