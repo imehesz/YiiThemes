@@ -26,14 +26,15 @@ function StaticCtrl( $scope, $routeProvider, $http ) {
   $scope.setTitle(  pageTitle );
   $scope.themeMain = {};
 
+  $scope.$parent.showLoader = true;
+
   // are we on the HOME page?
   if ( pageTitle.toLowerCase().indexOf('home') > -1 ) {
-   $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme/randomfive",headers:{"Accept": "application/json", "X_REST_USERNAME": "admin@restuser", "X_REST_PASSWORD": "admin@Access"} }).
+   $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme/randomfive",headers: YT_CONFIG.jsonRestHeaders }).
       success( function(data, status, headers, config ){
         $scope.$parent.showLoader = false;
         if ( data.data && data.data.totalCount && data.data.totalCount > 0 ) {
           var themes = data.data.themes;
-          console.log( themes );
           $scope.themeMain = themes[0];
           $scope.themesTop = [themes[1], themes[2]];
           $scope.themesBottom = [themes[3], themes[4]];
@@ -47,9 +48,10 @@ function StaticCtrl( $scope, $routeProvider, $http ) {
 StaticCtrl.$inject = ['$scope', '$route', '$http'];
 
 function ThemeCtrl( $scope, $routeProvider, $http, $routeParams ) {
-  console.log( $routeParams );
   var pageTitle = $routeProvider.current.$route.pageTitle + "" || "";
   $scope.setTitle(  pageTitle );
+
+  $scope.$parent.showLoader = true;
 
   if ( pageTitle.toLowerCase().indexOf('list') > -1 ) {
     var local_themes = themes.slice(0), 
@@ -78,19 +80,21 @@ function ThemeCtrl( $scope, $routeProvider, $http, $routeParams ) {
     var id_with_title = $routeParams.id,
       id = id_with_title.substr( 0, id_with_title.indexOf( '-' ) );
 
-    $http({ method: "GET", url: config.baseUrl + "/app/index.html#/layouts" }).
+    if ( id > 0 ) {
+      $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme/" + id, headers: YT_CONFIG.jsonRestHeaders }).
       success( function(data, status, headers, config ){
-        for ( var i=0; i < themes.length; i++ ) {
-          if ( id == themes[i].id ) {
-            $scope.themeMain = themes[i];
-            $scope.setTitle( themes[i].title );
-          }
-        }
-      }).
-      error(function(){
-        console.log( 'ERR: Ajax failed :/' );
-      });
+          $scope.$parent.showLoader = false;
 
+          if ( data && data.data && data.data.themes ) {
+            var theme = data.data.themes;
+            $scope.themeMain = theme;
+            $scope.setTitle( theme.name );
+          }
+        }).
+      error(function(){
+          console.log( 'ERR: Ajax failed :/' );
+      });
+    }
   }
 }
 ThemeCtrl.$inject = ['$scope', '$route', '$http', '$routeParams'];

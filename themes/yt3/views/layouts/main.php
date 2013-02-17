@@ -40,15 +40,17 @@
     <hr>
 
     <footer id="footer">
-      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p class="pull-right">
+        <?php /* <a href="#top">Back to top</a> */ ?>
+        <span class="label">v<span app-version></span></span>
+      </p>
       <div class="links">
-        <a href="#">link #1</a>
-        <a href="#">link #2</a>
-        <a href="#">link #3</a>
+        <a href="#/home">home</a>
+        <a href="#/themes">themes</a>
+        <a href="#/layouts">layouts</a>
       </div>
     </footer>
 
-    <div class="label">v<span app-version></span></div>
   </div> <!-- .container -->
 
 
@@ -70,7 +72,8 @@
   YT_CONFIG = {
     themeUrl: "${themeUrl}",
     apiUrl: "${baseUrl}/api",
-    debug: true
+    debug: true,
+    jsonRestHeaders: {"Accept": "application/json", "X_REST_USERNAME": "admin@restuser", "X_REST_PASSWORD": "admin@Access"}
   };
 JS
 , CClientScript::POS_HEAD);?>

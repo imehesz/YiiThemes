@@ -484,21 +484,24 @@ class ThemeController extends ERestController
   }
 
   public function doRestView( $id ) {
-    $model = Theme::model()->with('user')->findByPk( $id );
+    $theme = Theme::model()->with('user')->findByPk( $id );
 
-    if ( $model ) {
+    if ( $theme ) {
       $md = new CMarkdown;
       $md->cssFile = false;
 
       $jsonTheme = new StdClass();
-      $jsonTheme->id        = $model->id;
-      $jsonTheme->name      = $model->name;
-      $jsonTheme->artist    = $model->user->username;
-      $jsonTheme->image     = $model->preview1;
-      $jsonTheme->created   = $model->created;
-      $jsonTheme->updated   = $model->updated;
-      $jsonTheme->short_desc= $model->short_desc;
-      $jsonTheme->long_desc = $md->transform( $model->long_desc );
+      $jsonTheme->id        = $theme->id;
+      $jsonTheme->name      = $theme->name;
+      $jsonTheme->artist    = $theme->user->username;
+      $jsonTheme->view_cnt      = $theme->viewed;
+      $jsonTheme->download_cnt  = $theme->downloaded;
+      $jsonTheme->image     = $theme->preview1;
+      $jsonTheme->created   = $theme->created;
+      $jsonTheme->updated   = $theme->updated;
+      $jsonTheme->short_desc= $theme->short_desc;
+      $jsonTheme->long_desc = $md->transform( $theme->long_desc );
+      $jsonTheme->downloadable = ThemeUser::model()->canDownloadByIp( $id );
 
       $this->outputHelper( 'Theme found', $jsonTheme, 1 );
     }

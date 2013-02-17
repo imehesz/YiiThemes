@@ -43,7 +43,7 @@ img {
 
 .main-theme-caption {
   border-left: 1px solid red;
-  background: url( ../img/grey.png );
+  background: url( ../img/grey-light.png );
   position: absolute;
   top: 0;
   right: 0;
@@ -51,6 +51,10 @@ img {
   z-index: 10;
   padding: 1%;
   text-align: left;
+}
+
+.main-theme-caption:hover{
+  background: url( ../img/grey.png );
 }
 
 @media only screen and (max-width: 760px) {

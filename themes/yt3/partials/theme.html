@@ -1,14 +1,14 @@
 <header class="jumbotron subhead" id="overview">
   <div class="row">
     <div class="span12">
-      <h1>{{themeMain.title}}</h1>
+      <h1>{{themeMain.name}}</h1>
     </div>
   </div> <!-- .row -->
 </header>
 
 <div class="row">
   <div class="span12 main-theme">
-    <img ng-src="{{themeMain.image}}">
+    <img ng-src="/image.php?width=1170&height=658&cropratio=1170:658&image=/files/screenshots/{{themeMain.image}}">
   </div> <!-- .span12 -->
 </div> <!-- .row -->
 
@@ -22,16 +22,16 @@
   <div class="span6">
     <div class="well">
       <p>
-        <a class="btn btn-warning" href="{{themeMain.link_to_download}}">Download</a>
+        <a ng-show="themeMain.downloadable" class="btn btn-warning" href="/theme/download/?id={{themeMain.id}}">Download</a>
       </p>
-      <p> <div class="label">Author</div> <a href="{{themeMain.linkToAuthor}}">{{themeMain.author}}</a> </p>
+      <p> <div class="label">Author</div> <a href="{{themeMain.artist}}">{{themeMain.artist}}</a> </p>
       <p> <div class="label">Viewed</div> {{themeMain.view_cnt | number}} </p>
       <p> <div class="label">Downloaded</div> {{themeMain.download_cnt | number}} </p>
       <p> <div class="label">Score</div> {{themeMain.download_cnt / themeMain.view_cnt * 100 | number:2}} </p>
-      <p> <div class="label">Created</div> {{themeMain.created_at | date:'medium'}} </p>
-      <p> <div class="label">Updated</div> {{themeMain.updated_at | date:'medium'}} </p>
+      <p> <div class="label">Created</div> {{themeMain.created*1000 | date:'fullDate'}} </p>
+      <p> <div class="label">Updated</div> {{themeMain.updated*1000 | date:'fullDate'}} </p>
       <p> {{themeMain.short_desc}}</p>
-      <p> {{themeMain.long_desc}}</p>
+      <p ng-bind-html-unsafe="themeMain.long_desc"></p>
     </div>
   </div>
   <div class="span6">
