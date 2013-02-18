@@ -1,4 +1,22 @@
 /* app css stylesheet */
+body {
+  scrollbar-base-color: #272b30;
+  scrollbar-arrow-color: #494e53;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
 
 .menu {
   list-style: none;
@@ -88,17 +106,27 @@ img {
 }
 
 .themes-wrapper {
-  height: 600px;
+  height: 20%;
+  max-height: 550px;
   overflow: auto;
   width: 102%;
 }
 
 .loader {
   z-index: 100000;
-  background: url( ../img/loader.gif ) no-repeat;
   position: absolute;
   top: 0;
   right: 0;
-  width: 15px;
   height: 15px;
+  color: #fff;
+  background-color: #f00;
+  font-weight: bolder;
+}
+
+.subnav-themes {
+  margin-bottom: 20px;
+}
+
+.label-themes-info {
+  margin-top: 9px;
 }

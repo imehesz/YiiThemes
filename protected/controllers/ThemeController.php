@@ -428,6 +428,12 @@ class ThemeController extends ERestController
   // Custom REST stuff //
   ///////////////////////
 
+  // TODO quick hack for now, so we can have user info
+  // constantly the same way ...
+  public function doCustomRestGetUserinfo() {
+    $this->outputHelper( 'Userinfo', null, 0 );
+  }
+
   public function doRestDelete($id) {
     $this->renderJson( array("message" => "Not supported action!") );
   }

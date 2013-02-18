@@ -4,11 +4,15 @@
       <h1>Theme List</h1>
     </div>
   </div> <!-- .row -->
-  <div class="subnav">
+  <div class="subnav subnav-themes">
     <ul class="nav nav-pills">
       <li class=""> <a href="#/themes?sortby=latest">Latest</a> </li>
       <li class=""> <a href="#/themes?sortby=views">Most Viewed</a> </li>
       <li class=""> <a href="#/themes?sortby=downloads">Most Downloaded</a> </li>
+      <ul class="pull-right">
+        <li><div class="label label-themes-info">Showing: <span>{{themesDisplayedCount|number}}</span> / <span>{{themesAllCount|number}}</span></div>
+        </li>
+      </ul>
       <!-- 
       TODO implement this ...
       <li class="dropdown">

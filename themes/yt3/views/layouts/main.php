@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/app.css"/>
 </head>
 <body>
-  <div class="loader" ng-show="showLoader"></div>
+  <div class="loader" ng-show="showLoader">loading ...</div>
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -28,7 +28,10 @@
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
             <li><a href="#/contact">contact</a></li>
-            <li><a href="http://yiithemes.mehesz.net/user/user/login">login</a></li>
+            <li>
+              <a ng-show="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/login">login</a>
+              <a ng-hide="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/logout">{{userInfo.name}} - logout</a>
+            </li>
           </ul>
         </div>
       </div> <!-- .container -->
@@ -69,13 +72,21 @@
   $themeUrl = Yii::app()->theme->baseUrl;
   $baseUrl = Yii::app()->request->baseUrl;
   Yii::app()->clientScript->registerScript('script', <<<JS
-  YT_CONFIG = {
-    themeUrl: "${themeUrl}",
-    apiUrl: "${baseUrl}/api",
-    debug: true,
-    jsonRestHeaders: {"Accept": "application/json", "X_REST_USERNAME": "admin@restuser", "X_REST_PASSWORD": "admin@Access"}
-  };
+  YT_CONFIG = { themeUrl: "${themeUrl}", apiUrl: "${baseUrl}/api", debug: true, jsonRestHeaders: {"Accept": "application/json", "X_REST_USERNAME": "admin@restuser", "X_REST_PASSWORD": "admin@Access"} };
 JS
 , CClientScript::POS_HEAD);?>
+
+<!-- becasue sharing is good :) -->
+<div class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+        <a class="addthis_button_more">Share</a>
+        <ul>
+                <li><a class="addthis_button_preferred_1"></a></li>
+                <li><a class="addthis_button_preferred_2"></a></li>
+                <li><a class="addthis_button_preferred_3"></a></li>
+        </ul>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4dc48dcc77246178"></script>
+<!-- END of sharing ... -->
+
 </body>
 </html>

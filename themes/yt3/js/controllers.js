@@ -19,11 +19,24 @@ function StaticCtrl( $scope, $routeProvider, $http ) {
           $scope.themeMain = themes[0];
           $scope.themesTop = [themes[1], themes[2]];
           $scope.themesBottom = [themes[3], themes[4]];
+
+          $scope.$parent.userInfo = data.user_info ? data.user_info : "";
         }
       }).
       error(function(){
         console.log( 'ERR: Ajax failed :/' );
       });
+  }
+
+  if ( pageTitle.toLowerCase().indexOf('layouts') > -1 ) {
+    $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme/userinfo",headers: YT_CONFIG.jsonRestHeaders }).
+    success( function( data ){
+      $scope.$parent.userInfo = data.user_info ? data.user_info : "";
+      $scope.$parent.showLoader = false;
+    }).
+    error(function(){
+      console.log( 'ERR: Ajax failed :/' );
+    });
   }
 }
 StaticCtrl.$inject = ['$scope', '$route', '$http'];
@@ -71,10 +84,15 @@ function ThemeCtrl( $scope, $routeProvider, $http, $routeParams ) {
               theme_pairs.push( local_themes.splice( 0,2 ) );
             }
 
-            $scope.themes = theme_pairs;
             offset += limit;
 
+            $scope.themes = theme_pairs;
+            // offset might be too high ... :)
+            $scope.themesDisplayedCount = offset < data.data.totalCount ? offset : data.data.totalCount;
+            $scope.themesAllCount = data.data.totalCount;
             $scope.$parent.showLoader = false;
+
+            $scope.$parent.userInfo = data.user_info ? data.user_info : "";
           }
         }).
         error(function(){
@@ -98,6 +116,8 @@ function ThemeCtrl( $scope, $routeProvider, $http, $routeParams ) {
             var theme = data.data.themes;
             $scope.themeMain = theme;
             $scope.setTitle( theme.name );
+
+            $scope.$parent.userInfo = data.user_info ? data.user_info : "";
           }
         }).
       error(function(){
