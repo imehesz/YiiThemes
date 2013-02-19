@@ -1,6 +1,20 @@
-<div class="page-header">
-  <h1>Layouts</h1>
-</div>
+<header class="jumbotron subhead" id="overview">
+  <div class="row">
+    <div class="span12">
+      <h1>
+        Layouts
+        <div class="pull-right">
+          <!-- AddThis Button BEGIN -->
+          <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=ra-4dc48dcc77246178"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+          <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+          <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4dc48dcc77246178"></script>
+          <!-- AddThis Button END -->
+        </div>
+      </h1>
+    </div>
+  </div> <!-- .row -->
+</header>
+
 
 <div class="row">
   <div class="span8">
@@ -13,20 +27,20 @@
 <div class="row">
   <div class="span6">
     <div>
-      <h3>Sidebar Left <a class="btn btn-warning btn-small">Download</a></h3>
+      <h3>Sidebar Left <a href="/downloads/lefty.zip" class="btn btn-warning btn-small">Download</a></h3>
     </div>
     <div>
-      <a title="download lefty" href="/downloads/lefty.zip"><img src="img/main-right.jpg" alt="" /></a>
+      <a title="download lefty" href="/downloads/lefty.zip"><img ng-src="{{themeUrl}}/img/main-right.jpg" alt="" /></a>
     </div>
   </div>
 
   <div class="span6">
     <h3>
       <div>
-        <h3>Sidebar Right <a class="btn btn-warning btn-small">Download</a></h3>
+        <h3>Sidebar Right <a href="/downloads/righty.zip" class="btn btn-warning btn-small">Download</a></h3>
       </div>
       <div>
-        <a title="download righty" href="/downloads/righty.zip"><img src="img/main-left.jpg" alt="" /></a>
+        <a title="download righty" href="/downloads/righty.zip"><img ng-src="{{themeUrl}}/img/main-left.jpg" alt="" /></a>
       </div>
   </div>
 </div>
@@ -34,19 +48,19 @@
 <div class="row">
   <div class="span6">
     <div>
-      <h3>Double Dynamite <a class="btn btn-warning btn-small">Download</a></h3>
+      <h3>Double Dynamite <a href="/downloads/double.zip" class="btn btn-warning btn-small">Download</a></h3>
     </div>
     <div>
-      <a title="download double" href="/downloads/double.zip"><img src="img/mirror.jpg" alt="" /></a>
+      <a title="download double" href="/downloads/double.zip"><img ng-src="{{themeUrl}}/img/mirror.jpg" alt="" /></a>
     </div>
   </div>
 
   <div class="span6">
     <div>
-      <h3>Triplets <a class="btn btn-warning btn-small">Download</a></h3>
+      <h3>Triplets <a href="/downloads/triplets.zip" class="btn btn-warning btn-small">Download</a></h3>
     </div>
     <div>
-      <a href="/downloads/triplets.zip"><img src="img/threecol.jpg" alt="" /></a>
+      <a href="/downloads/triplets.zip"><img ng-src="{{themeUrl}}/img/threecol.jpg" alt="" /></a>
     </div>
   </div>
 </div>

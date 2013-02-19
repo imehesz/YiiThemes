@@ -75,18 +75,5 @@
   YT_CONFIG = { themeUrl: "${themeUrl}", apiUrl: "${baseUrl}/api", debug: true, jsonRestHeaders: {"Accept": "application/json", "X_REST_USERNAME": "admin@restuser", "X_REST_PASSWORD": "admin@Access"} };
 JS
 , CClientScript::POS_HEAD);?>
-
-<!-- becasue sharing is good :) -->
-<div class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
-        <a class="addthis_button_more">Share</a>
-        <ul>
-                <li><a class="addthis_button_preferred_1"></a></li>
-                <li><a class="addthis_button_preferred_2"></a></li>
-                <li><a class="addthis_button_preferred_3"></a></li>
-        </ul>
-</div>
-<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4dc48dcc77246178"></script>
-<!-- END of sharing ... -->
-
 </body>
 </html>

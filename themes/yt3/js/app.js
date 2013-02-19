@@ -29,6 +29,7 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
 
   }]).run(['$rootScope', function( $rootScope ){
     $rootScope.showLoader = true;
+    $rootScope.themeUrl = YT_CONFIG.themeUrl || "";
     $rootScope.setTitle = function( title ) {
       $rootScope.pageTitle = title;
     }
