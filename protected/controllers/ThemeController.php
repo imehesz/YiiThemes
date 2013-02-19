@@ -59,7 +59,7 @@ class ThemeController extends ERestController
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','trash','ajaxDelete'),
+				'actions'=>array('create','update','trash','ajaxDelete', 'mythemes' ),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -114,12 +114,32 @@ class ThemeController extends ERestController
 		));
 	}
 
+  public function actionMythemes() {
+    Yii::app()->theme = 'yt3admin';
+
+    $criteria = new CDbCriteria;
+    $criteria->condition = "userID=:id";
+    $criteria->params = array( ':id' => Yii::app()->user->id );
+    $criteria->order = "updated DESC";
+
+    $this->render( 'mythemes', array(
+      'themes' => new CActiveDataProvider( 
+        'Theme', 
+        array( 
+          'criteria' => $criteria, 
+          'pagination' => array( 'pageSize' => 15 )
+        ) 
+      ) 
+    ) );
+  }
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
 	{
+    Yii::app()->theme = 'yt3admin';
 		$model=new Theme;
 
 		// Uncomment the following line if AJAX validation is needed
