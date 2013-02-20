@@ -1,7 +1,6 @@
 <?php
 
-class ThemeController extends ERestController
-{
+class ThemeController extends ERestController {
 	/**
 	 * @var string the default layout for the views. Defaults to 'column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -59,7 +58,7 @@ class ThemeController extends ERestController
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','trash','ajaxDelete', 'mythemes' ),
+				'actions'=>array('create','update','trash','getdelete', 'mythemes' ),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -158,7 +157,7 @@ class ThemeController extends ERestController
     
                 if( $model->save() )
                 {
-                    $this->redirect(array('view','id'=>$model->id));
+                    $this->redirect(array('/#/theme/' . $model->id . '-' . $this->makeMePretty( $model->name ) ) );
                 }
             }
 		}
@@ -174,6 +173,7 @@ class ThemeController extends ERestController
 	 */
 	public function actionUpdate()
 	{
+    Yii::app()->theme = 'yt3admin';
 		$model=$this->loadModel();
 
 		//Yii::app()-user->isAdmin(); 
@@ -193,8 +193,9 @@ class ThemeController extends ERestController
             {
                 $model->handleFiles( $model );
 
-                if($model->save())
-                    $this->redirect(array('view','id'=>$model->id));
+                if($model->save()) {
+                    $this->redirect(array('/#/theme/' . $model->id . '-' . $this->makeMePretty( $model->name ) ) );
+                }
             }
 		}
 
@@ -242,6 +243,21 @@ class ThemeController extends ERestController
             throw new CHttpException( 301, 'Oops. You do not have permission to do this!' );
         }
         Yii::app()->end();
+    }
+
+    public function actionGetdelete() {
+      Yii::app()->theme = 'yt3admin';
+
+      $model = $this->loadModel();
+      if( $model && $model->userID == Yii::app()->user->id )
+      {
+          $model->setAttribute( 'deleted', 1 );
+          if( ! $model -> save() ) {
+            throw new CHttpException( 301, 'Oops, something unexpected happen :/' );
+          }
+      }
+
+      $this->redirect( '/theme/mythemes' );
     }
 
     /**
@@ -515,6 +531,11 @@ class ThemeController extends ERestController
     if ( $theme ) {
       $md = new CMarkdown;
       $md->cssFile = false;
+
+      // let's update the visitors count ...
+      $theme->setAttribute( 'viewed', $theme->viewed+1 );
+      $theme->skipUpdated = true;
+      $theme->save();
 
       $jsonTheme = new StdClass();
       $jsonTheme->id        = $theme->id;

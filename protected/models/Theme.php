@@ -76,6 +76,12 @@ class Theme extends CActiveRecord
 		);
 	}
 
+  public function defaultScope() {
+    return array(
+      'condition' => 'deleted=0'
+    );
+  }
+
 	/**
 	 * @return array relational rules.
 	 */

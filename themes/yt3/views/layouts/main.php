@@ -44,7 +44,6 @@
 
     <footer id="footer">
       <p class="pull-right">
-        <?php /* <a href="#top">Back to top</a> */ ?>
         <span class="label">v<span app-version></span></span>
       </p>
       <div class="links">
@@ -52,6 +51,12 @@
         <a href="#/themes">themes</a>
         <a href="#/layouts">layouts</a>
       </div>
+      <div>
+        <small>All Themes: <strong><?php echo number_format( Theme::model()->count() ); ?></strong>
+        Themes Viewed: <strong><?php echo number_format( Theme::model()->sumView()->find()->sumviews ); ?></strong>
+        Themes Downloaded: <strong><?php echo number_format( Theme::model()->sumDownload()->find()->sumdownloads ); ?></small></strong>
+      </div>
+
     </footer>
 
   </div> <!-- .container -->
