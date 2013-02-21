@@ -1,4 +1,5 @@
 <?php
+Yii::setPathOfAlias('YumThemes' , dirname(Yii::app()->request->scriptFile).'/themes/yt3admin/');
 
 class UserModule extends CWebModule
 {
@@ -12,7 +13,7 @@ class UserModule extends CWebModule
 	public $rolesTable = "roles";
 	public $userRoleTable = "user_has_role";
 	public $installDemoData = true;
-	public $layout = 'column2';
+	public $layout = 'YumThemes.views.layouts.main';
 	public static $dateFormat = "m-d-Y";  //"d.m.Y H:i:s"
 
 	// LoginType :

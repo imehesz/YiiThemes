@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title ng-bind-template="Yii Themes {{'- ' + pageTitle || ''}}"></title>
+  <title>Yii Theme Factory - Admin</title>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/reset.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-responsive.min.css"/>
@@ -17,15 +17,26 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">YT 3.0</a>
+        <a class="brand" href="/">YT 3.0</a>
         <div class="nav-collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
-            <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/mythemes" title="List all my themes">My Themes</a></li>
-            <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/create" title="Create a new theme">Create</a></li>
+              <?php if ( ! Yii::app()->user->isGuest ) : ?>
+                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/mythemes" title="List all my themes">My Themes</a></li>
+                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/create" title="Create a new theme">Create</a></li>
+            <?php endif; ?>
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
+            <?php if ( Yii::app()->user->isGuest ) : ?>
+              <li>
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/registration">Register</a>
+              </li>
+            <?php endif ?>
             <li>
-              <a ng-hide="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/logout"><?php echo Yii::app()->user->name ;?> - logout</a>
+              <?php if ( Yii::app()->user->isGuest ) : ?>
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/login">Login</a>
+              <?php else: ?>
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/logout"><?php echo Yii::app()->user->name ;?> - Logout</a>
+              <?php endif; ?>
             </li>
           </ul>
         </div>
