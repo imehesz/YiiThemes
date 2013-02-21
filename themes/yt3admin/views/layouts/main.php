@@ -26,6 +26,7 @@
             <?php endif; ?>
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
+            <li><a href="/#/contact">Contact</a></li>
             <?php if ( Yii::app()->user->isGuest ) : ?>
               <li>
                 <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/registration">Register</a>

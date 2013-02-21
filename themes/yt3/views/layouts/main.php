@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title ng-bind-template="Yii Themes {{'- ' + pageTitle || ''}}"></title>
+  <title ng-bind-template="Yii Theme Factory {{'- ' + pageTitle || ''}}"></title>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/reset.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-responsive.min.css"/>
@@ -19,18 +19,24 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">YT 3.0</a>
+        <a class="brand" href="/">YT 3.0</a>
         <div class="nav-collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
-            <li><a href="#/home">home</a></li>
-            <li><a href="#/themes">themes</a></li>
-            <li><a href="#/layouts">layouts</a></li>
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/themes">Themes</a></li>
+            <li><a href="#/layouts">Layouts</a></li>
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
-            <li><a href="#/contact">contact</a></li>
             <li>
-              <a ng-show="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/login">login</a>
-              <a ng-hide="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/logout">{{userInfo.name}} - logout</a>
+              <a ng-hide="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/theme/mythemes">Admin</a>
+            </li>
+            <li><a href="/#/contact">Contact</a></li>
+            <li>
+              <a ng-show="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/registration">Register</a>
+            </li>
+            <li>
+              <a ng-show="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/login">Login</a>
+              <a ng-hide="userInfo.is_guest" href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/logout">{{userInfo.name}} - Logout</a>
             </li>
           </ul>
         </div>

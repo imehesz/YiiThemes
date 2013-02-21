@@ -26,9 +26,7 @@ function StaticCtrl( $scope, $routeProvider, $http ) {
       error(function(){
         console.log( 'ERR: Ajax failed :/' );
       });
-  }
-
-  if ( pageTitle.toLowerCase().indexOf('layouts') > -1 ) {
+  } else {
     $http({ method: "GET", url: YT_CONFIG.apiUrl + "/theme/userinfo",headers: YT_CONFIG.jsonRestHeaders }).
     success( function( data ){
       $scope.$parent.userInfo = data.user_info ? data.user_info : "";
