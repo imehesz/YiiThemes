@@ -67,10 +67,10 @@
 
   </div> <!-- .container -->
 
-
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
   -->
+
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.min.js"></script>
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/lib/angular/angular.js"></script>
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/app.js"></script>
