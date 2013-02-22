@@ -75,12 +75,6 @@ img {
   background: url( ../img/grey.png );
 }
 
-@media only screen and (max-width: 760px) {
-	.main-theme-caption {
-		display: none;
-	}
-}
-
 .small-theme {
   position: relative;
 }
@@ -129,4 +123,19 @@ img {
 
 .label-themes-info {
   margin-top: 9px;
+}
+
+.ad-content {
+  padding: 10px 0px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 760px) {
+	.main-theme-caption {
+		display: none;
+	}
+
+  .ad-content {
+    display: none;
+  }
 }
