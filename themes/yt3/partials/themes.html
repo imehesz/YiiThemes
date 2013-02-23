@@ -42,13 +42,13 @@
   <div ng-repeat="theme in themes" class="row">
     <p>
     <div class="span6 small-theme" ng-show="theme[0]">
-      <a href="#/theme/{{theme[0].id}}-{{theme[0].name.prettify()}}"><img ng-src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/{{theme[0].image}}"></a>
+      <a href="#/theme/{{theme[0].id}}-{{theme[0].name.prettify()}}"><img src="/themes/yt3/img/loader.gif" ng-src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/{{theme[0].image}}"></a>
       <div class="small-theme-caption">
         <h5><a href="#/theme/{{theme[0].id}}-{{theme[0].name.prettify()}}">{{theme[0].name}}</a><span class="by-whom"> by <a href="#/themes?artist={{theme[0].artist}}">{{theme[0].artist}}</a></span></h5>
       </div>
     </div>
     <div class="span6 small-theme" ng-show="theme[1]">
-      <a href="#/theme/{{theme[1].id}}-{{theme[1].name.prettify()}}"><img ng-src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/{{theme[1].image}}"></a>
+      <a href="#/theme/{{theme[1].id}}-{{theme[1].name.prettify()}}"><img src="/themes/yt3/img/loader.gif" ng-src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/{{theme[1].image}}"></a>
       <div class="small-theme-caption">
         <h5><a href="#/theme/{{theme[0].id}}-{{theme[0].name.prettify()}}">{{theme[1].name}}</a><span class="by-whom"> by <a href="#/themes?artist={{theme[1].artist}}">{{theme[1].artist}}</a></span></h5>
       </div>
