@@ -35,7 +35,14 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+
+		$random_five = Theme::model()->findAllByAttributes( array('deleted'=>0  ), array( 'order'=> 'rand()', 'limit'=>5 ) ); 
+
+    if ( sizeof( $random_five ) < 5 ) {
+			throw new CHttpException( '404', 'Themes were not found :/' );
+    }
+
+		$this->render('index', array( 'random_five' => $random_five ) );
 	}
 
 	/**

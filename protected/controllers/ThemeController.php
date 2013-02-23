@@ -85,11 +85,23 @@ class ThemeController extends ERestController {
 		throw new CHttpException( '403', 'Oops, it seems like you reached your daily limit to download this theme. Please try again later ;)' );
 	}
 
+  public function actionView() {
+    // we add +1 to the view column ...
+    $model = $this->loadModel();
+    $model->setAttribute( 'viewed', $model->viewed+1 );
+    $model->skipUpdated = true;
+
+    $model->save();
+
+    $this->pageTitle = $model->name;
+
+    $this->render('view',array( 'model' => $model ));
+  }
 
 	/**
 	 * Displays a particular model.
 	 */
-	public function actionView()
+	public function actionView_before_yt3_theme()
 	{
         // we add +1 to the view column ...
         $model = $this->loadModel();
