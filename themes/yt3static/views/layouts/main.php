@@ -27,7 +27,9 @@
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
             <li>
-              <a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/mythemes">Admin</a>
+              <?php if ( ! Yii::app()->user->isGuest ) : ?>
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/mythemes">Admin</a>
+              <?php endif; ?>
             </li>
             <li><a href="<?php echo $this->createUrl( '/site/contact' ); ?>">Contact</a></li>
             <li>
@@ -39,7 +41,7 @@
               <?php if ( Yii::app()->user->isGuest ) : ?>
                 <a  href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/login">Login</a>
               <?php else: ?>
-                <a  href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/logout"><?php echo Yii::app()->user->username; ?> - Logout</a>
+                <a  href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/logout"><?php echo Yii::app()->user->name; ?> - Logout</a>
               <?php endif; ?>
             </li>
           </ul>
