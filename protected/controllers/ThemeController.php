@@ -296,7 +296,13 @@ class ThemeController extends ERestController {
 	 */
 	public function actionIndex()
 	{
-		$page_size 	= 12;
+		$page_size 	= 10;
+
+    $ad_randomizer = range( 0, $page_size-1 );
+    shuffle( $ad_randomizer );
+    $ad_spot1 = $ad_randomizer[0];
+    $ad_spot2 = $ad_randomizer[1];
+
 		$uid 		= Yii::app()->request->getParam( 'uid' );
 		$addsort 	= '';
 		$artist 	= Yii::app()->request->getParam( 'artist' );
@@ -343,13 +349,15 @@ class ThemeController extends ERestController {
 				'Theme', 
 						array( 
 							'criteria' 		=> $criteria,
-							'pagination' 	=> array( 'pageSize' => $page_size ) 
+							'pagination' 	=> array( 'pageSize' => $page_size ),
 						) );
 		}
 
 		$this->render('index',array(
 			'dataProvider'	=> $dataProvider,
-			'artist'		=> $artist_obj
+			'artist'		=> $artist_obj,
+      'ad_spot1'    => $ad_spot1,
+      'ad_spot2'    => $ad_spot2,
 		));
 	}
 

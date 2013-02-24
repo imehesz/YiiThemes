@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-responsive.min.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootswatch.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/app.css"/>
+
+  <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.min.js"></script>
 </head>
 <body>
   <div class="navbar navbar-fixed-top">
@@ -56,7 +58,7 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0223.2307</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0224.0018</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>
@@ -73,7 +75,6 @@
 
   </div> <!-- .container -->
 
-  <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.min.js"></script>
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/app.js"></script>
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.min.js"></script>
 
