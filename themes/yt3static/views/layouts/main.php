@@ -55,8 +55,8 @@
     <hr>
 
     <footer id="footer">
-      <p class="pull-right">
-        <span class="label">v 3.0</span>
+      <p>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0223.2307</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>
@@ -76,12 +76,18 @@
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.min.js"></script>
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/app.js"></script>
   <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/bootstrap.min.js"></script>
-<?php 
-  $themeUrl = Yii::app()->theme->baseUrl;
-  $baseUrl = Yii::app()->request->baseUrl;
-  Yii::app()->clientScript->registerScript('script', <<<JS
-  YT_CONFIG = { themeUrl: "${themeUrl}", apiUrl: "${baseUrl}/api", debug: true, jsonRestHeaders: {"Accept": "application/json", "X_REST_USERNAME": "admin@restuser", "X_REST_PASSWORD": "admin@Access"} };
-JS
-, CClientScript::POS_HEAD);?>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38672655-1']);
+    _gaq.push(['_setDomainName', 'themefactory.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>
