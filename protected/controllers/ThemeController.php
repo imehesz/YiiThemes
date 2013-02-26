@@ -296,12 +296,11 @@ class ThemeController extends ERestController {
 	 */
 	public function actionIndex()
 	{
-		$page_size 	= 10;
+		$page_size 	= 11;
 
-    $ad_randomizer = range( 0, $page_size-1 );
+    $ad_randomizer = range( 1, $page_size-1 );
     shuffle( $ad_randomizer );
-    $ad_spot1 = $ad_randomizer[0];
-    $ad_spot2 = $ad_randomizer[1];
+    $ad_slots = [ $ad_randomizer[0], $ad_randomizer[1], $ad_randomizer[2] ];
 
 		$uid 		= Yii::app()->request->getParam( 'uid' );
 		$addsort 	= '';
@@ -356,8 +355,7 @@ class ThemeController extends ERestController {
 		$this->render('index',array(
 			'dataProvider'	=> $dataProvider,
 			'artist'		=> $artist_obj,
-      'ad_spot1'    => $ad_spot1,
-      'ad_spot2'    => $ad_spot2,
+      'ad_slots'    => $ad_slots,
 		));
 	}
 

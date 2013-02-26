@@ -36,31 +36,53 @@
 
 <div>
   <?php 
-    echo $ad_spot1, $ad_spot2;
     $themes = $dataProvider->getData();
     if ( sizeof( $themes ) ) :
   ?>
-		<?php $cur_col = 1; $cur_theme = 0; $themes_cnt = sizeof( $themes ); for( $i=0; $i<$themes_cnt; $i++ ) : ?>
+		<?php 
+      $cur_col = 1; 
+      $cur_theme = 0; 
+      $themes_cnt = sizeof( $themes ); 
+
+      for( $i=0; $i<$themes_cnt; $i++ ) : 
+    ?>
       <?php if ( $cur_col == 1 ) : ?>
         <div class="row">
       <?php endif; ?>
 
-      <?php if ( $i == $ad_spot1 || $i == $ad_spot2 ) : ?>
-        <div class="span6 well ad-content">
-          ADVERTISEMENETET
-        </div>
-      <?php else: ?>
-        <?php $theme = $themes[$i]; ?>
-        <div class="span6 small-theme" title="<?php echo $theme->name; ?>">
-          <a href=""><img src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/<?php echo $theme->preview1; ?>"></a>
-          <div class="small-theme-caption">
-            <h5><a href=""><?php echo $theme->name; ?></a><span class="by-whom"> by <a href="#/themes?artist={{theme[0].artist}}"><?php echo $theme->user->username; ?></a></span></h5>
+      <?php // we only mess around with the ads, if we have the full amount of themes displaying ?>
+      <?php if ( $themes_cnt == $dataProvider->pagination->getLimit() ) : ?>
+        <?php if ( in_array($i, $ad_slots ) ) : ?>
+          <div class="span6 ad-content">
+            <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-1319358860215477";
+            /* Theme Factory - Theme List (block) */
+            google_ad_slot = "8181023972";
+            google_ad_width = 336;
+            google_ad_height = 280;
+            //-->
+            </script>
+            <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
           </div>
-        </div>
+          <?php if ( $cur_col == 2 ) : ?>
+            </div>
+            <div class="row">
+          <?php $cur_col = 0; endif; ?>
+        <?php $cur_col++; endif; ?>
       <?php endif; ?>
 
-      <?php if ( $cur_col == 2 ) : ?>
+      <?php $theme = $themes[$i]; ?>
+      <div class="span6 small-theme" title="<?php echo $theme->name; ?>">
+        <a href=""><img src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/<?php echo $theme->preview1; ?>"></a>
+        <div class="small-theme-caption">
+          <h5><a href=""><?php echo $theme->name; ?></a><span class="by-whom"> by <a href="#/themes?artist={{theme[0].artist}}"><?php echo $theme->user->username; ?></a></span></h5>
         </div>
+      </div>
+
+      <?php if ( $cur_col == 2 ) : ?>
+        </div> <!-- end .row  normal -->
       <?php $cur_col = 0; endif; ?>
     <?php $cur_col++; $cur_theme++; endfor; ?>
   <?php endif; ?>
