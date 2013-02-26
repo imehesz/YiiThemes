@@ -15,9 +15,9 @@
   </div> <!-- .row -->
   <div class="subnav subnav-themes">
     <ul class="nav nav-pills">
-      <li class=""> <a href="#/themes?sortby=latest">Latest</a> </li>
-      <li class=""> <a href="#/themes?sortby=views">Most Viewed</a> </li>
-      <li class=""> <a href="#/themes?sortby=downloads">Most Downloaded</a> </li>
+      <li class=""> <a href="<?php echo $this->createUrl( '/theme/index', array( 'sort' => 'created.desc') ); ?>">Latest</a> </li>
+      <li class=""> <a href="<?php echo $this->createUrl( '/theme/index', array( 'sort' => 'viewed.desc') ); ?>">Most Viewed</a> </li>
+      <li class=""> <a href="<?php echo $this->createUrl( '/theme/index', array( 'sort' => 'downloaded.desc') ); ?>">Most Downloaded</a> </li>
       <!-- 
       TODO implement this ...
       <li class="dropdown">
@@ -77,7 +77,7 @@
       <div class="span6 small-theme" title="<?php echo $theme->name; ?>">
         <a href=""><img src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/<?php echo $theme->preview1; ?>"></a>
         <div class="small-theme-caption">
-          <h5><a href=""><?php echo $theme->name; ?></a><span class="by-whom"> by <a href="#/themes?artist={{theme[0].artist}}"><?php echo $theme->user->username; ?></a></span></h5>
+          <h5><a href=""><?php echo $theme->name; ?></a><span class="by-whom"> by <a href="<?php echo $this->createUrl( '/theme/index', array( 'artist' => $theme->user->username ) ); ?>"><?php echo $theme->user->username; ?></a></span></h5>
         </div>
       </div>
 

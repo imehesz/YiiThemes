@@ -135,6 +135,7 @@ img {
 .ad-content {
   padding: 10px 0px;
   text-align: center;
+  background-color:#202328;
 }
 
 @media only screen and (max-width: 760px) {

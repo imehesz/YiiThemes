@@ -307,11 +307,9 @@ class ThemeController extends ERestController {
 		$artist 	= Yii::app()->request->getParam( 'artist' );
 		$artist_obj	= null;
 		$criteria	= new CDbCriteria;
-
-		if( Yii::app()->request->getParam('sort') )
-		{
-			$addsort = Yii::app()->request->getParam( 'sort' ) . ' DESC,';
-		}
+    $sort = new CSort;
+    $sort->defaultOrder = 'created DESC';
+    $sort->attributes = array( 'created', 'downloaded', 'viewed' );
 
 		if( $artist )
 		{
@@ -323,34 +321,14 @@ class ThemeController extends ERestController {
 			}
 		}
 
-		$criteria->order = $addsort . 'created DESC';
+    $sort->applyOrder( $criteria );
 
-	// it's late, can't think anymore ...
-	// TODO clean this up!
-
-	/*
-		if(
-			! Yii::app()->user->isGuest &&
-			$uid == Yii::app()->user->id
-		)
-		{
-			$dataProvider=new CActiveDataProvider(
-				'Theme', 
-						array( 
-							'criteria' => array( 'condition' => 'deleted=0 AND userID='.(int)$uid, 'order' => $addsort . 'created DESC' ) ,
-							'pagination' => array( 'pageSize' => $page_size ) 
-						));
-		}
-		else
-	*/
-		{
-			$dataProvider=new CActiveDataProvider(
-				'Theme', 
-						array( 
-							'criteria' 		=> $criteria,
-							'pagination' 	=> array( 'pageSize' => $page_size ),
-						) );
-		}
+    $dataProvider=new CActiveDataProvider(
+        'Theme', 
+        array( 
+          'criteria' 		=> $criteria,
+          'pagination' 	=> array( 'pageSize' => $page_size ),
+    ));
 
 		$this->render('index',array(
 			'dataProvider'	=> $dataProvider,
