@@ -1,3 +1,4 @@
+<?php $this->pageTitle = 'Contact'; ?>
 <header class="jumbotron subhead" id="overview">
   <div class="row">
     <div class="span12">
@@ -24,4 +25,3 @@
     </script>    
   </div>
 </div>
-

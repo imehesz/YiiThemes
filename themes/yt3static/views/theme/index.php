@@ -1,3 +1,4 @@
+<?php $this->pageTitle = 'Theme Browser'; ?>
 <header class="jumbotron subhead" id="overview">
   <div class="row">
     <div class="span12">
@@ -75,9 +76,9 @@
 
       <?php $theme = $themes[$i]; ?>
       <div class="span6 small-theme" title="<?php echo $theme->name; ?>">
-        <a href=""><img src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/<?php echo $theme->preview1; ?>"></a>
+        <a href="<?php echo $this->createUrl( '/theme/view', array( 'id' => $theme->id, 'title' => $this->makeMePretty( $theme->name ) ) ); ?>"><img src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/<?php echo $theme->preview1; ?>"></a>
         <div class="small-theme-caption">
-          <h5><a href=""><?php echo $theme->name; ?></a><span class="by-whom"> by <a href="<?php echo $this->createUrl( '/theme/index', array( 'artist' => $theme->user->username ) ); ?>"><?php echo $theme->user->username; ?></a></span></h5>
+          <h5><a href="<?php echo $this->createUrl( '/theme/view', array( 'id' => $theme->id, 'title' => $this->makeMePretty( $theme->name ) ) ); ?>"><?php echo $theme->name; ?></a><span class="by-whom"> by <a href="<?php echo $this->createUrl( '/theme/index', array( 'artist' => $theme->user->username ) ); ?>"><?php echo $theme->user->username; ?></a></span></h5>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+<?php $this->pageTitle = 'Layout Generator'; ?>
 <header class="jumbotron subhead" id="overview">
   <div class="row">
     <div class="span12">

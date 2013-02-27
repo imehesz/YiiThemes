@@ -24,7 +24,7 @@
         <div class="nav-collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
             <li><a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a></li>
-            <li><a href="<?php echo $this->createUrl('/theme/index'); ?>">Themes</a></li>
+            <li><a href="<?php echo $this->createUrl('/theme/index'); ?>">Theme Browser</a></li>
             <li><a href="<?php echo $this->createUrl('/theme/layoutgen'); ?>">Layouts</a></li>
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
@@ -58,7 +58,7 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0226.2034</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0226.2119</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>

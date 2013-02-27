@@ -23,7 +23,8 @@ class SiteController extends Controller
 
 	protected function beforeAction( $action )
 	{
-		Controller::$RIGHT_SIDEBAR = $this->renderPartial( 'application.components.views._right_sidebar_main', null, true );
+    // DEPRECATED in 3.0
+		//Controller::$RIGHT_SIDEBAR = $this->renderPartial( 'application.components.views._right_sidebar_main', null, true );
 		return parent::beforeAction( $action );
 	}
 

@@ -1,3 +1,4 @@
+<?php $this->pageTitle = 'Home'; ?>
 <div class="row">
   <div class="span12 main-theme">
     <a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $random_five[0]->id, 'title' => Controller::makeMePretty( $random_five[0]->name ) ) ); ?>"><img src="/image.php?width=1170&height=658&cropratio=1170:658&image=/files/screenshots/<?php echo $random_five[0]->preview1; ?>"></a>

@@ -169,7 +169,7 @@ class ThemeController extends ERestController {
     
                 if( $model->save() )
                 {
-                    $this->redirect(array('/#/theme/' . $model->id . '-' . $this->makeMePretty( $model->name ) ) );
+                    $this->redirect( $this->createUrl( '/theme/view' , array( 'id' => $model->id, 'title' => $this->makeMePretty( $model->name ) ) ) );
                 }
             }
 		}
@@ -206,7 +206,7 @@ class ThemeController extends ERestController {
                 $model->handleFiles( $model );
 
                 if($model->save()) {
-                    $this->redirect(array('/#/theme/' . $model->id . '-' . $this->makeMePretty( $model->name ) ) );
+                    $this->redirect( $this->createUrl( '/theme/view' , array( 'id' => $model->id, 'title' => $this->makeMePretty( $model->name ) ) ) );
                 }
             }
 		}
