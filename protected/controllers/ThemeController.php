@@ -300,7 +300,7 @@ class ThemeController extends ERestController {
 
     $ad_randomizer = range( 1, $page_size-1 );
     shuffle( $ad_randomizer );
-    $ad_slots = [ $ad_randomizer[0], $ad_randomizer[1], $ad_randomizer[2] ];
+    $ad_slots = array( $ad_randomizer[0], $ad_randomizer[1], $ad_randomizer[2] );
 
 		$uid 		= Yii::app()->request->getParam( 'uid' );
 		$addsort 	= '';
