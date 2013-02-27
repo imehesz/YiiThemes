@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/app.css"/>
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
+  <div class="navbar navbar-fixed-top" style="border-bottom: 1px solid red;">
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -21,13 +21,13 @@
         <a class="brand" href="/">YT 3.0</a>
         <div class="nav-collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
-              <?php if ( ! Yii::app()->user->isGuest ) : ?>
-                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/mythemes" title="List all my themes">My Themes</a></li>
-                <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/create" title="Create a new theme">Create</a></li>
-            <?php endif; ?>
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
-            <li><a href="/#/contact">Contact</a></li>
+            <?php if ( ! Yii::app()->user->isGuest ) : ?>
+              <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/mythemes" title="List all my themes">Admin</a></li>
+              <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/theme/create" title="Create a new theme">Create</a></li>
+            <?php endif; ?>
+            <li><a href="<?php echo $this->createUrl( '/site/contact' ); ?>">Contact</a></li>
             <?php if ( Yii::app()->user->isGuest ) : ?>
               <li>
                 <a href="<?php echo Yii::app()->request->baseUrl; ?>/user/user/registration">Register</a>

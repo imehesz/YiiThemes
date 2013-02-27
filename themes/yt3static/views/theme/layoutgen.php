@@ -48,18 +48,20 @@
   </div>
 </div>
 
-<div class="row ad-content">
-  <script type="text/javascript"><!--
-  google_ad_client = "ca-pub-1319358860215477";
-  /* Theme Factory - Layout Generator */
-  google_ad_slot = "1386113977";
-  google_ad_width = 728;
-  google_ad_height = 90;
-  //-->
-  </script>
-  <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>
+<div class="row">
+  <div class="span12 ad-content">
+    <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-1319358860215477";
+    /* Theme Factory - Layout Generator */
+    google_ad_slot = "1386113977";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
 </div>
 
 <div class="row">

@@ -8,6 +8,14 @@
     'itemsCssClass' => 'table table-bordered table-striped table-hover',
     'dataProvider' => $themes,
     'ajaxUpdate' => false,
+    'pagerCssClass' => 'pagination',
+    'pager' => array(
+      'class' => 'CLinkPager',
+      'cssFile' => false,
+      'internalPageCssClass' => '',
+      'selectedPageCssClass' => 'active',
+      'header'  => ''
+    ),
     'columns'=>array(
       array(
         'name' => 'name',
@@ -34,7 +42,7 @@
       ),
       array(
         'class'=>'CButtonColumn',
-        'viewButtonUrl' => 'Yii::app()->createUrl("/#/theme/".$data->id."-".Yii::app()->controller->makeMePretty($data->name))',
+        'viewButtonUrl' => 'Yii::app()->createUrl("/theme/view/", array( "id" => $data->id, "title" => Yii::app()->controller->makeMePretty($data->name)))',
         'deleteButtonUrl' => 'Yii::app()->createUrl("/theme/getdelete", array("id" => $data->id))'
       ),
     ),

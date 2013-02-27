@@ -7,7 +7,7 @@
         <?php echo $random_five[0]->short_desc; ?>
       </p>
       <div>
-        <div class="label">Author</div> <a href="<?php echo Yii::app()->controller->createUrl( '/themelist', array( 'artist' => $random_five[0]->user->username ) ); ?>"><?php echo $random_five[0]->user->username ?></a>
+        <div class="label">Author</div> <a href="<?php echo Yii::app()->controller->createUrl( '/theme/index', array( 'artist' => $random_five[0]->user->username ) ); ?>"><?php echo $random_five[0]->user->username ?></a>
       </div>
       <div>
         <div class="label">Viewed</div> <?php echo number_format( $random_five[0]->viewed ); ?>
@@ -85,7 +85,7 @@
     <div class="span6 small-theme">
       <a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $random_five[$i]->id, 'title' => Controller::makeMePretty( $random_five[$i]->name ) ) ); ?>"><img src="/image.php?width=570&height=320&cropratio=570:320&image=/files/screenshots/<?php echo $random_five[$i]->preview1 ?>"></a>
       <div class="small-theme-caption">
-        <h5><a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $random_five[$i]->id, 'title' => Controller::makeMePretty( $random_five[$i]->name ) ) ); ?>"><?php echo $random_five[$i]->name; ?></a><span class="by-whom"> by <a href="<?php echo Yii::app()->controller->createUrl( '/themelist', array( 'artist' => $random_five[$i]->user->username ) ); ?>"><?php echo $random_five[$i]->user->username; ?></a></span></h5>
+        <h5><a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $random_five[$i]->id, 'title' => Controller::makeMePretty( $random_five[$i]->name ) ) ); ?>"><?php echo $random_five[$i]->name; ?></a><span class="by-whom"> by <a href="<?php echo Yii::app()->controller->createUrl( '/theme/index', array( 'artist' => $random_five[$i]->user->username ) ); ?>"><?php echo $random_five[$i]->user->username; ?></a></span></h5>
       </div>
      </div>
    <?php endfor; ?>

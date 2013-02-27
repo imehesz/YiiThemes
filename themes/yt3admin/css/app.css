@@ -145,3 +145,7 @@ img {
     display: none;
   }
 }
+
+.pagination {
+  text-align: center;
+}
