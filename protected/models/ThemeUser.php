@@ -4,7 +4,7 @@
  */
 class ThemeUser extends CActiveRecord
 {
-	public $max_downloads_allowed = 5;
+	public $max_downloads_allowed = 10;
 	public $time_trap = 43200;
 
 	public static function model($className=__CLASS__)
@@ -48,16 +48,17 @@ class ThemeUser extends CActiveRecord
 			$ip = $_SERVER['REMOTE_ADDR'];
 		}
 
-		// now let's get the latest X downloads from this IP for the this theme
+		// now let's get the latest X downloads from this IP
 		$criteria = new CDbCriteria;
-		$criteria->condition 	= 'ip_address=:ip_address AND theme_id=:theme_id';
-		$criteria->params		= array( ':ip_address' => $ip, ':theme_id' => $theme_id );
+		$criteria->condition 	= 'ip_address=:ip_address';
+		$criteria->params		= array( ':ip_address' => $ip );
+		$criteria->limit		= $this->max_downloads_allowed;
 		$criteria->order 		= 'created_at DESC';
 
-		$download = self::model()->find( $criteria );
+		$downloads = self::model()->findAll( $criteria );
 
 		// if we haven't downloaded or the last time was a day ago ...
-		if( empty( $download ) || ( !empty($download) && time()-$download->created_at > $this->time_trap ) )
+		if( sizeof( $downloads ) < $this->max_downloads_allowed || ( time()-$downloads[$this->max_downloads_allowed-1]->created_at > $this->time_trap ) )
 		{
 			return true;
 		}
