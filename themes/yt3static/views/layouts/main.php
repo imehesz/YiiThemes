@@ -25,7 +25,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/">YT 3.0</a>
+        <!-- <a class="brand" href="/">YT 3.0</a> -->
         <div class="nav-collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
             <li><a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a></li>
@@ -63,7 +63,7 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0301.1948</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0301.2124</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>

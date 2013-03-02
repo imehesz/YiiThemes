@@ -1,5 +1,14 @@
 <?php $this->pageTitle = 'Home'; ?>
 <div class="row">
+   
+  <?php if ( time() < 1363323600 ) : ?>
+    <div class="span12">
+      <p class="alert alert-info">
+        <strong>Welcome</strong> to the re-imagined Yii Themes, now called <strong>Yii Theme Factory</strong>, the largest and the only <strong>FREE</strong> source of quality web designs for the Yii (PHP) Framework. Please <a href="<?php $this->createUrl( '/user/user/registration' ); ?>">click here to register</a> if you would like to share yours. <em>Thank you</em>.
+      </p>
+    </div>
+  <?php endif; ?>
+
   <div class="span12 main-theme">
     <a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $random_five[0]->id, 'title' => Controller::makeMePretty( $random_five[0]->name ) ) ); ?>"><img src="/image.php?width=1170&height=658&cropratio=1170:658&image=/files/screenshots/<?php echo $random_five[0]->preview1; ?>"></a>
     <div class="span3 main-theme-caption">
@@ -19,20 +28,6 @@
       <p>
         <div>
           <a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $random_five[0]->id, 'title' => Controller::makeMePretty( $random_five[0]->name ) ) ); ?>" class="btn btn-warning btn-small">View Theme</a>
-        </div>
-        <div>
-          <hr>
-          <script type="text/javascript"><!--
-          google_ad_client = "ca-pub-1319358860215477";
-          /* Yii Theme Factory - front under info */
-          google_ad_slot = "5334975577";
-          google_ad_width = 125;
-          google_ad_height = 125;
-          //-->
-          </script>
-          <script type="text/javascript"
-          src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-          </script>
         </div>
       </p>
     </div>
