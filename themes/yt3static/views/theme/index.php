@@ -3,7 +3,7 @@
   <div class="row">
     <div class="span12">
       <h1>
-        Theme List
+        Theme Browser
         <div class="pull-right">
           <!-- AddThis Button BEGIN -->
           <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=ra-4dc48dcc77246178"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>

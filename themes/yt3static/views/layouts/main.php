@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="<?php Yii::app()->request->baseUrl;?>/images/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="<?php echo CHtml::encode( $this->pageTitle ); ?>">
+  <meta property="og:site_name" content="Yii Themes">
+
   <title>Yii Theme Factory - <?php echo $this->pageTitle; ?></title>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/reset.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.min.css"/>
@@ -58,7 +63,7 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0226.2119</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0301.1948</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>

@@ -20,6 +20,20 @@
         <div>
           <a href="<?php echo Yii::app()->controller->createUrl( 'theme/view', array( 'id' => $random_five[0]->id, 'title' => Controller::makeMePretty( $random_five[0]->name ) ) ); ?>" class="btn btn-warning btn-small">View Theme</a>
         </div>
+        <div>
+          <hr>
+          <script type="text/javascript"><!--
+          google_ad_client = "ca-pub-1319358860215477";
+          /* Yii Theme Factory - front under info */
+          google_ad_slot = "5334975577";
+          google_ad_width = 125;
+          google_ad_height = 125;
+          //-->
+          </script>
+          <script type="text/javascript"
+          src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+          </script>
+        </div>
       </p>
     </div>
   </div> <!-- .span12 -->
