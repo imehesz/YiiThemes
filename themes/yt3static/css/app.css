@@ -59,6 +59,10 @@ img {
   overflow: hidden;
 }
 
+.main-theme img {
+  margin: 0 auto;
+}
+
 .main-theme-caption {
   border-left: 1px solid red;
   background: url( ../img/grey-light.png );
@@ -69,16 +73,24 @@ img {
   z-index: 10;
   padding: 1%;
   text-align: left;
+  width: 25%;
 }
 
 .main-theme-caption:hover{
   background: url( ../img/grey.png );
 }
 
-@media only screen and (max-width: 760px) {
-	.main-theme-caption {
-		display: none;
-	}
+.main-theme-bottom-caption {
+  border-top: 1px solid red;
+  background: url( ../img/grey.png );
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 1%;
+  text-align: left;
+  display: none;
 }
 
 .small-theme {
@@ -139,11 +151,18 @@ img {
 }
 
 @media only screen and (max-width: 760px) {
+  .main-theme-bottom-caption {
+    display: block;
+  }
 	.main-theme-caption {
 		display: none;
 	}
 
   .ad-content {
     display: none;
+  }
+
+  .subhead > div:first-child {
+    margin: 0;
   }
 }
