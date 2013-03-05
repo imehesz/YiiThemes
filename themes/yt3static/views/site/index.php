@@ -4,7 +4,7 @@
   <?php if ( time() < 1363314761 ) : ?>
     <div class="span12">
       <p class="alert alert-info">
-        <strong>Welcome</strong> to the re-imagined Yii Themes, now called <strong>Yii Theme Factory</strong>, the largest and the only <strong>FREE</strong> source of quality web designs for the Yii (PHP) Framework. Please <a href="<?php $this->createUrl( '/user/user/registration' ); ?>">click here to register</a> if you would like to share yours. <em>Thank you</em>.
+        <strong>Welcome</strong> to the re-imagined Yii Themes, now called <strong>Yii Theme Factory</strong>, the largest and the only <strong>FREE</strong> source of quality web designs for the Yii (PHP) Framework. <br />Please <a href="<?php echo $this->createUrl( '/user/user/registration' ); ?>">click here to register</a> if you would like to share yours. <em>Thank you</em>.
       </p>
     </div>
   <?php else: ?>
