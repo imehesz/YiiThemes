@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="<?php Yii::app()->request->baseUrl;?>/images/favicon.ico" type="image/x-icon">
   <meta property="og:title" content="<?php echo CHtml::encode( $this->pageTitle ); ?>">
   <meta property="og:site_name" content="Yii Themes">
@@ -58,12 +59,12 @@
   </div> <!-- .navbar .navbar-fixed-top -->
 
   <div class="container">
-    <div id="content"><?php echo $content; ?></div>
+    <?php echo $content; ?>
     <hr>
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0302.1408</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0304.2107</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>
