@@ -64,7 +64,7 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0304.2204</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0304.2205</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>
