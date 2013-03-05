@@ -64,7 +64,7 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0304.2107</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0304.2132</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>
@@ -72,9 +72,9 @@
         <a href="<?php echo $this->createUrl('/theme/layoutgen'); ?>">Layouts</a>
       </div>
       <div>
-        <small>All Themes: <strong><?php echo number_format( Theme::model()->count() ); ?></strong>
-        Themes Viewed: <strong><?php echo number_format( Theme::model()->sumView()->find()->sumviews ); ?></strong>
-        Themes Downloaded: <strong><?php echo number_format( Theme::model()->sumDownload()->find()->sumdownloads ); ?></small></strong>
+        <small>All Themes: <strong><?php echo number_format( $this->modelClass->count() ); ?></strong>
+        Themes Viewed: <strong><?php echo number_format( $this->modelClass->sumView()->find()->sumviews ); ?></strong>
+        Themes Downloaded: <strong><?php echo number_format( $this->modelClass->sumDownload()->find()->sumdownloads ); ?></small></strong>
       </div>
 
     </footer>
