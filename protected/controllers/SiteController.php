@@ -2,6 +2,8 @@
 
 class SiteController extends Controller
 {
+  public $modelClass = null;
+
 	/**
 	 * Declares class-based actions.
 	 */
@@ -23,8 +25,18 @@ class SiteController extends Controller
 
 	protected function beforeAction( $action )
 	{
-    // DEPRECATED in 3.0
-		//Controller::$RIGHT_SIDEBAR = $this->renderPartial( 'application.components.views._right_sidebar_main', null, true );
+    if ( isset( Yii::app()->params['themeModel'] ) ) {
+      switch( Yii::app()->params['themeModel'] ) {
+        case "ThemeBootstrap": 
+          $this->modelClass = ThemeBootstrap::model();
+          break;
+      }
+    }
+
+    if ( ! $this->modelClass ) {
+      $this->modelClass = Theme::model();
+    }
+
 		return parent::beforeAction( $action );
 	}
 
@@ -37,7 +49,7 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 
-		$random_five = Theme::model()->findAllByAttributes( array('deleted'=>0  ), array( 'order'=> 'rand()', 'limit'=>5 ) ); 
+		$random_five = $this->modelClass->findAllByAttributes( array('deleted'=>0  ), array( 'order'=> 'rand()', 'limit'=>5 ) ); 
 
     if ( sizeof( $random_five ) < 5 ) {
 			throw new CHttpException( '404', 'Themes were not found :/' );
