@@ -149,3 +149,11 @@ img {
 .pagination {
   text-align: center;
 }
+
+.navbar-fixed-top {
+  border: 10px solid red;
+}
+
+.navbar .nav > li > a {
+  color: lightcoral;
+}

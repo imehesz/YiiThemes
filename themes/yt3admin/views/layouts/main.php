@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/app.css"/>
 </head>
 <body>
-  <div class="navbar navbar-fixed-top" style="border-bottom: 1px solid red;">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -18,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/">YT 3.0</a>
+        <a class="brand" href="/"><?php echo Yii::app()->name; ?></a>
         <div class="nav-collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
           </ul>
