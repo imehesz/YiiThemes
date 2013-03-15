@@ -24,11 +24,8 @@ class ThemeController extends Controller {
 	public function beforeAction( $action )
 	{
     if ( isset( Yii::app()->params['themeModel'] ) ) {
-      switch( Yii::app()->params['themeModel'] ) {
-        case "ThemeBootstrap": 
-          $this->modelClass = ThemeBootstrap::model();
-          break;
-      }
+      $model_class = Yii::app()->params['themeModel'];
+      $this->modelClass = $model_class::model();
     }
 
     if ( ! $this->modelClass ) {
