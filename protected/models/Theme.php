@@ -69,7 +69,7 @@ class Theme extends CActiveRecord
 			array( 'realPreview1,realPreview2','file', 'types' => 'jpg, gif, png', 'allowEmpty' => true, 'maxSize' => 1024*1024 ), // 1M
 //			array( 'preview1', 'allowEmpty' => true ),
 //			array( 'file','file', 'types' => 'zip', 'allowEmpty' => true ),			
-			array( 'realFile','file', 'types' => 'zip', 'allowEmpty' => true, 'maxSize' => 2048*1024 ), // 2M
+			array( 'realFile','file', 'types' => 'zip', 'allowEmpty' => true, 'maxSize' => 6144*1024 ), // 6M
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('name, score, created, updated, short_desc', 'safe', 'on'=>'search'),
