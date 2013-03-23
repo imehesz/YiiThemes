@@ -30,6 +30,19 @@
         <!-- <a class="brand" href="/">YT 3.0</a> -->
         <div class="nav-collapse" id="main-menu">
           <ul class="nav" id="main-menu-left">
+
+            <?php if ( Yii::app()->params['tffamily'] && sizeof( Yii::app()->params['tffamily'] ) > 0 ) : ?>
+              <li class="dropdown" title="Check out other Theme Factories">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Family <b class="caret"></b></a>
+                <ul class="dropdown-menu" id="swatch-menu">
+                  <?php foreach( Yii::app()->params['tffamily'] as $member ) : ?>
+                    <li title="Check out the <?php echo $member[0]; ?> Theme Factory"><a href="<?php echo $member[1]; ?>"><?php echo $member[0]; ?></a></li>
+                  <?php endforeach; ?>
+                  <!-- <li class="divider"></li> -->
+                </ul>
+              </li>
+            <?php endif; ?>
+
             <li><a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a></li>
             <li><a href="<?php echo $this->createUrl('/theme/index'); ?>">Theme Browser</a></li>
           </ul>
@@ -64,7 +77,7 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0314.2143</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0323.1231</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>
