@@ -350,7 +350,7 @@ class ThemeController extends Controller {
 
                 if( file_exists( $file ) )
                 {
-                        $outname= "yiitheme" . $model->id . ".zip";
+                        $outname= "theme" . rand(1000,time()) . ".zip";
 
                         header('Content-Description: File Transfer');
                         header('Content-Type: application/octet-stream');
