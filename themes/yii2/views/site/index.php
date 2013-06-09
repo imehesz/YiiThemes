@@ -1,21 +1,18 @@
 <?php $this->pageTitle = 'Home'; ?>
 <div class="row">
    
-  <?php if ( time() < 1363314761 ) : ?>
-    <div class="span12">
-      <p class="alert alert-info">
-        <strong>Welcome</strong> to the re-imagined Yii Themes, now called <strong>Yii Theme Factory</strong>, the largest and the only <strong>FREE</strong> source of quality web designs for the Yii (PHP) Framework. <br />Please <a href="<?php echo $this->createUrl( '/user/user/registration' ); ?>">click here to register</a> if you would like to share yours. <em>Thank you</em>.
-      </p>
-    </div>
-  <?php else: ?>
-    <header class="jumbotron subhead" id="overview">
-      <div class="row">
-        <div class="span12">
-          <h1>Yii Theme Factory</h1>
-        </div>
+  <header class="jumbotron subhead" id="overview">
+    <div class="">
+      <div class="span12">
+        <h1>Yii2 Theme Factory</h1>
       </div>
-    </header>
-  <?php endif; ?>
+      <div class="span12">
+        <p class="alert alert-info">
+          <strong>Welcome</strong> to the largest and the only <strong>FREE</strong> source of quality web designs for the Yii (PHP) Framework. If you are looking for templates for the older <strong>Yii 1.1 system</strong>, please visit <a href="http://yii.themefactory.net">Yii.ThemeFactory.net</a>.<em>Thank you</em>.
+        </p>
+      </div>        
+    </div>
+  </header>
 
   <div class="span12">
     <div class="main-theme">
