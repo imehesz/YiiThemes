@@ -110,6 +110,7 @@ class Theme extends CActiveRecord
         );
     }
 
+	/*
 	public function behaviors()
 	{
 		return array(
@@ -120,6 +121,7 @@ class Theme extends CActiveRecord
 			)
 		);
 	}
+	*/
 
 	/**
 	 * @return array customized attribute labels (name=>label)
