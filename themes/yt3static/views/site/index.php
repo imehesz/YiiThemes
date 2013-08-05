@@ -6,9 +6,19 @@
           <h1>Yii Theme Factory</h1>
         </div>
         <div class="span12">
-          <p class="alert alert-info">
-            <strong>Welcome</strong> to the largest and the only <strong>FREE</strong> source of quality web designs for the Yii (PHP) Framework. If you are looking for templates for the new <strong>Yii 2.x system</strong>, please visit <a href="http://yii2.themefactory.net">Yii2.ThemeFactory.net</a>.<em>Thank you</em>.
-          </p>
+          <div class="ad-content">
+            <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-1319358860215477";
+            /* Theme Factory - Home - Big */
+            google_ad_slot = "2915049579";
+            google_ad_width = 728;
+            google_ad_height = 90;
+            //-->
+            </script>
+            <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+          </div>
         </div>        
       </div>
     </header>
@@ -47,19 +57,11 @@
 
 <div class="row">
   <div class="span12">
-    <div class="ad-content">
-      <script type="text/javascript"><!--
-      google_ad_client = "ca-pub-1319358860215477";
-      /* Theme Factory - Home - Big */
-      google_ad_slot = "2915049579";
-      google_ad_width = 728;
-      google_ad_height = 90;
-      //-->
-      </script>
-      <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-      </script>
+    <p>
+    <div class="alert alert-info">
+      We are the largest and the only <strong>FREE</strong> source of quality web designs for the Yii (PHP) Framework. If you are looking for templates for the new <strong>Yii 2.x system</strong>, please visit <a href="http://yii2.themefactory.net">Yii2.ThemeFactory.net</a>.<em>Thank you</em>.
     </div>
+    </p>
   </div>
 </div>
 
