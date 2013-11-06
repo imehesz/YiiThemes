@@ -238,7 +238,7 @@ class Theme extends CActiveRecord
 
   public function isZipExternal($val=null) {
     return ! empty($val) ? 
-      in_array(substr($val,0,3), ["htt","ftp"]) ? true : false:
-      in_array(substr($this->file,0,3), ["htt","ftp"]) ? true : false;
+      in_array(substr($val,0,3), array("htt","ftp")) ? true : false:
+      in_array(substr($this->file,0,3), array("htt","ftp")) ? true : false;
   }
 }
