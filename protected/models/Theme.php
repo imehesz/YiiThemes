@@ -70,6 +70,9 @@ class Theme extends CActiveRecord
 //			array( 'preview1', 'allowEmpty' => true ),
 //			array( 'file','file', 'types' => 'zip', 'allowEmpty' => true ),			
 			array( 'realFile','file', 'types' => 'zip', 'allowEmpty' => true, 'maxSize' => 6144*1024 ), // 6M
+      array("file", "length", "max" => 100, "on" => "externalZipInsert" ),
+      array("file", "url", "on" => "externalZipInsert", "validSchemes" => array("http","https","ftp") ),
+
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('name, score, created, updated, short_desc', 'safe', 'on'=>'search'),
@@ -232,4 +235,10 @@ class Theme extends CActiveRecord
 			$model->realFile->saveAs( MEHESZ_FILES_FOLDER . $file_name );
 		}
 	}
+
+  public function isZipExternal($val=null) {
+    return ! empty($val) ? 
+      in_array(substr($val,0,3), ["htt","ftp"]) ? true : false:
+      in_array(substr($this->file,0,3), ["htt","ftp"]) ? true : false;
+  }
 }

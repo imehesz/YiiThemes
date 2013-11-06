@@ -132,20 +132,22 @@ class ThemeController extends Controller {
 
 		if(isset($_POST[get_class( $this->modelClass )]))
 		{
+      if( !empty($_POST[get_class($this->modelClass)]["file"]) ) {
+        $model->scenario = "externalZipInsert";
+      }
 			$model->attributes=$_POST[ get_class( $this->modelClass ) ];
 			
 			// TODO make this prettier here
 			// we're gonna create 3 random names for the files ...
-			
-            if( $model->validate() )
-            {
-                $model->handleFiles( $model );
-    
-                if( $model->save() )
-                {
-                    $this->redirect( $this->createUrl( '/theme/view' , array( 'id' => $model->id, 'title' => $this->makeMePretty( $model->name ) ) ) );
-                }
-            }
+      if( $model->validate() )
+      {
+          $model->handleFiles( $model );
+
+          if( $model->save() )
+          {
+              $this->redirect( $this->createUrl( '/theme/view' , array( 'id' => $model->id, 'title' => $this->makeMePretty( $model->name ) ) ) );
+          }
+      }
 		}
 
 		$this->render('create',array(
@@ -333,8 +335,15 @@ class ThemeController extends Controller {
 
         if( $model )
         {
-            if( file_exists( MEHESZ_FILES_FOLDER . $model->file ) )
-            {
+            if( $model->isZipExternal() ){
+              // TODO clean this up! ...
+              $model->setAttribute( 'downloaded', $model->downloaded+1 );
+              $model->skipUpdated = true;
+              $model->save();
+              $this->redirect($model->file);
+            }
+
+            if( file_exists( MEHESZ_FILES_FOLDER . $model->file ) ) {
 				// at this point we mark this theme as downloaded and we track the IP
 				$theme_user = new ThemeUser;
 				$theme_user->user_id = (int)Yii::app()->user->id;

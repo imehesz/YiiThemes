@@ -55,15 +55,64 @@
 
 
 	<div class="control-group">
-		<div class="control-label"><?php echo $form->labelEx($model,'file'); ?></div>
-    <div class="controls">
-      <?php echo $form->fileField($model,'realFile'); ?>
-      <?php echo $form->error($model,'realFile'); ?>
-      <p class="hint">only zip files (<1M)</p>
-      <?php if( $model->file ) : ?>
-          <div><img src="<?php echo Yii::app()->request->baseUrl . '/images/icon_zip.gif'?>" alt="this theme has a ZIP file" title="this theme has a ZIP file"/></div>
-      <?php endif; ?>
+    <div class="normal-zip-support">
+  		<div class="control-label"><?php echo $form->labelEx($model,'file'); ?></div>
+      <div class="controls">
+        <?php echo $form->fileField($model,'realFile'); ?>
+        <?php echo $form->error($model,'realFile'); ?>
+        <p class="hint">only zip files (<1M)</p>
+        <?php if( $model->file ) : ?>
+            <div><img src="<?php echo Yii::app()->request->baseUrl . '/images/icon_zip.gif'?>" alt="this theme has a ZIP file" title="this theme has a ZIP file"/></div>
+        <?php endif; ?>
+      </div>
     </div>
+      <?php if ( property_exists($model, "externalZipSupport" ) ) : ?>
+        <div class="external-zip-support-wrapper">
+          <div class="controls external-zip-support-help"><a href="javascript:void(0);">Click if file is over 1MB</a></div>
+          <div class="external-zip-support-form-field">
+            <div class="control-label">File</div>
+            <div class="controls">
+              <?php echo $form->textField($model, "file", array("class"=>"input-xlarge"));?> <a class="cancel-external-zip" href="javascript:void(0);">Cancel</a>
+        	  	<span class="label label-important"><?php echo $form->error($model,'file'); ?></span>
+              <p class="hint">
+                If your file is larger than 1MB, you can use <br/>an external source and paste the link above
+              </p>
+            </div>
+          </div>
+        </div>
+        <?php
+          Yii::app()->clientScript->registerScript("externalZipSupport", '
+            var externalZip = ' . ($model->isZipExternal() ? 'true': 'false') . ';
+            var hideExternalZipSupport = function(){
+              $(".external-zip-support-form-field").hide();
+              $(".external-zip-support-help").show();
+              $(".normal-zip-support").show();
+              $("#ThemePattern_externalZip").val("");
+            };
+
+            var hideNormalZipSupport = function(){
+              $(".normal-zip-support").hide();
+              $(".external-zip-support-help").hide();
+              $(".external-zip-support-form-field").show();
+            }
+
+            $(".external-zip-support-help").click(function(){
+              hideNormalZipSupport();
+            });
+
+            $(".cancel-external-zip").click(function(){
+              hideExternalZipSupport();
+            });
+
+            if(externalZip) {
+              hideNormalZipSupport();
+            }
+            else {
+              hideExternalZipSupport();
+            }
+');
+        ?>
+      <?php endif; ?>
 	</div>
 
 	<div class="control-group buttons">

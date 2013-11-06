@@ -40,7 +40,7 @@
 <div class="row">
   <div class="span6">
     <div class="well">
-      <?php if ( ThemeUser::model()->canDownloadByIp( $model->id ) ) : ?>
+      <?php if ( $model->file && ThemeUser::model()->canDownloadByIp( $model->id ) ) : ?>
         <p>
           <a class="btn btn-warning" href="/theme/download/?id=<?php echo $model->id; ?>">Download</a>
         </p>
