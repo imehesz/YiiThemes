@@ -8,7 +8,7 @@
   <meta property="og:title" content="<?php echo CHtml::encode( $this->pageTitle ); ?>">
   <meta property="og:site_name" content="Yii Themes">
 
-  <title>Pattern Theme Factory - <?php echo $this->pageTitle; ?></title>
+  <title>WordPress Theme Factory - <?php echo $this->pageTitle; ?></title>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/reset.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/bootstrap-responsive.min.css"/>
