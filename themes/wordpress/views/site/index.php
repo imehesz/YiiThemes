@@ -2,7 +2,7 @@
 <header class="jumbotron subhead" id="overview">
   <div class="row">
     <div class="span12">
-      <h1>Pattern Theme Factory</h1>
+      <h1>WordPress Theme Factory</h1>
     </div>
   </div>
 </header>
