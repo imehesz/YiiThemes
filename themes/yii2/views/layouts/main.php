@@ -44,7 +44,6 @@
 
             <li><a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a></li>
             <li><a href="<?php echo $this->createUrl('/theme/index'); ?>">Theme Browser</a></li>
-            <li><a href="<?php echo $this->createUrl('/theme/layoutgen'); ?>">Layouts</a></li>
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
             <li>
@@ -77,12 +76,11 @@
 
     <footer id="footer">
       <p>
-        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2013.0805.1926</span></div>
+        <div class="label pull-right">v 3.0.<span id='VERSION_ID'>2014.0121.2014</span></div>
       </p>
       <div class="links">
         <a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a>
         <a href="<?php echo $this->createUrl('/theme/index'); ?>">Themes</a>
-        <a href="<?php echo $this->createUrl('/theme/layoutgen'); ?>">Layouts</a>
       </div>
       <div>
         <small>All Themes: <strong><?php echo number_format( $this->modelClass->count() ); ?></strong>
