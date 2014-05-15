@@ -44,6 +44,9 @@
 
             <li><a href="<?php echo $this->createUrl('/site/index'); ?>">Home</a></li>
             <li><a href="<?php echo $this->createUrl('/theme/index'); ?>">Theme Browser</a></li>
+            <?php if (Yii::app()->params["about"]) : ?>
+              <li><a href="<?php echo $this->createUrl('/site/page', array("view" => "about")); ?>">About</a></li>
+            <?php endif; ?>
           </ul>
           <ul class="nav pull-right" id="main-menu-right">
             <li>
