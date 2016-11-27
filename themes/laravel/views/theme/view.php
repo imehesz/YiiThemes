@@ -5,7 +5,7 @@
         <?php echo $model->name; ?>
         <div class="pull-right">
           <!-- AddThis Button BEGIN -->
-          <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=300&amp;pubid=ra-4dc48dcc77246178"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+          <a class="addthis_button" href="//www.addthis.com/bookmark.php?v=300&amp;pubid=ra-4dc48dcc77246178"><img src="//s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
           <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
           <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4dc48dcc77246178"></script>
           <!-- AddThis Button END -->
@@ -32,7 +32,7 @@
     //-->
     </script>
     <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    src="//pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
   </div>
 </div>
@@ -61,7 +61,7 @@
         //-->
         </script>
         <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        src="//pagead2.googlesyndication.com/pagead/show_ads.js">
         </script>
       </p>
       <p><?php echo $model->short_desc; ?></p>
@@ -90,7 +90,7 @@
     //-->
     </script>
     <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    src="//pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>
   </div>
 
@@ -102,12 +102,12 @@
       /* * * DON'T EDIT BELOW THIS LINE * * */
       (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
   </div> <!-- .span16 -->
 </div> <!-- .row -->
