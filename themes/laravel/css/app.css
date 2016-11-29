@@ -216,15 +216,10 @@ a:hover {
   color: white;
 }
 
-.navbar .btn-navbar {
-  background-color: red;
-}
-
-.navbar .btn-navbar, .navbar .btn-navbar:hover {
+.navbar .btn-navbar, .navbar .btn-navbar:hover,
+.navbar .nav-collapse .nav li>a:hover,
+.navbar .btn-navbar,
+.navbar .nav li.dropdown.open>.dropdown-toggle {
   background-color: red;
   background-image: none;
-}
-
-.navbar .nav-collapse .nav li>a:hover {
-  background-color: red;
 }
