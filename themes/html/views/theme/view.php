@@ -42,7 +42,7 @@
     <div class="well">
       <?php if ( ThemeUser::model()->canDownloadByIp( $model->id ) ) : ?>
         <p>
-          <a class="btn btn-warning" href="/theme/download/?id=<?php echo $model->id; ?>">Download</a>
+          <a class="btn btn-warning" href="<?php echo $this->createUrl('theme/download', array( 'id' => $model->id ) ) ?>">Download</a>
         </p>
       <?php endif; ?>
       <p> <div class="label">Author</div> <a href="<?php echo Yii::app()->controller->createUrl( '/theme/index', array( 'artist' => $model->user->username ) ); ?>"><?php echo $model->user->username; ?></a> </p>
